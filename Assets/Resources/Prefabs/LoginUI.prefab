@@ -19,7 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224939642734647964}
-  m_Layer: 0
+  - component: {fileID: 114619793817122736}
+  m_Layer: 5
   m_Name: LoginUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,8 +38,8 @@ GameObject:
   - component: {fileID: 222229641464734830}
   - component: {fileID: 114414983684830388}
   - component: {fileID: 114066915525395522}
-  m_Layer: 0
-  m_Name: Button
+  m_Layer: 5
+  m_Name: WechatButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +55,7 @@ GameObject:
   - component: {fileID: 224934612797280490}
   - component: {fileID: 222385919503400634}
   - component: {fileID: 114017928311981122}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BackImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +72,7 @@ GameObject:
   - component: {fileID: 224817052259084682}
   - component: {fileID: 222625319230321680}
   - component: {fileID: 114229886112084824}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TitleImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +144,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114414983684830388}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114619793817122736}
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114229886112084824
@@ -200,6 +212,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114619793817122736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201325643714522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4656b88f247fc340b7807de3fdbac3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
 --- !u!222 &222229641464734830
 CanvasRenderer:
   m_ObjectHideFlags: 1
