@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    private void Awake()
+    {
+        //加载配置
+        GameData.LoadConfigs();
+    }
 
     void Start()
     {
