@@ -7,6 +7,7 @@ using UnityEngine;
 */
 
 public class UIBase : MonoBehaviour {
+    [HideInInspector]
     public string name;
     //当UI打开调用
     public virtual void OnOpen()
