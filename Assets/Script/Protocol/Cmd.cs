@@ -22,13 +22,15 @@ public static partial class CmdReflection {
   static CmdReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "CgljbWQucHJvdG8ibgoJTWFpblByb3RvEhAKCHBsYXllcklEGAEgASgFEhEK",
-          "CW1lc3NhZ2VJRBgCIAEoBRITCgttZXNzYWdlTmFtZRgDIAEoCRITCgttZXNz",
-          "YWdlRGF0YRgEIAEoCRISCgpzZXJ2ZXJUaW1lGAUgASgBYgZwcm90bzM="));
+          "CgljbWQucHJvdG8idAoKcm9vdF9wcm90bxIRCglwbGF5ZXJfSUQYASABKAUS",
+          "EgoKbWVzc2FnZV9JRBgCIAEoBRIUCgxtZXNzYWdlX25hbWUYAyABKAkSFAoM",
+          "bWVzc2FnZV9kYXRhGAQgASgJEhMKC3NlcnZlcl90aW1lGAUgASgBIiMKDnJl",
+          "cV9sb2dpbl9nYW1lEhEKCXVzZXJfbmFtZRgBIAEoCWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::MainProto), global::MainProto.Parser, new[]{ "PlayerID", "MessageID", "MessageName", "MessageData", "ServerTime" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::root_proto), global::root_proto.Parser, new[]{ "PlayerID", "MessageID", "MessageName", "MessageData", "ServerTime" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::req_login_game), global::req_login_game.Parser, new[]{ "UserName" }, null, null, null)
         }));
   }
   #endregion
@@ -38,11 +40,11 @@ public static partial class CmdReflection {
 /// <summary>
 ///协议外壳
 /// </summary>
-public sealed partial class MainProto : pb::IMessage<MainProto> {
-  private static readonly pb::MessageParser<MainProto> _parser = new pb::MessageParser<MainProto>(() => new MainProto());
+public sealed partial class root_proto : pb::IMessage<root_proto> {
+  private static readonly pb::MessageParser<root_proto> _parser = new pb::MessageParser<root_proto>(() => new root_proto());
   private pb::UnknownFieldSet _unknownFields;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<MainProto> Parser { get { return _parser; } }
+  public static pb::MessageParser<root_proto> Parser { get { return _parser; } }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
@@ -55,14 +57,14 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MainProto() {
+  public root_proto() {
     OnConstruction();
   }
 
   partial void OnConstruction();
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MainProto(MainProto other) : this() {
+  public root_proto(root_proto other) : this() {
     playerID_ = other.playerID_;
     messageID_ = other.messageID_;
     messageName_ = other.messageName_;
@@ -72,13 +74,16 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MainProto Clone() {
-    return new MainProto(this);
+  public root_proto Clone() {
+    return new root_proto(this);
   }
 
-  /// <summary>Field number for the "playerID" field.</summary>
+  /// <summary>Field number for the "player_ID" field.</summary>
   public const int PlayerIDFieldNumber = 1;
   private int playerID_;
+  /// <summary>
+  ///客户端标识
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int PlayerID {
     get { return playerID_; }
@@ -87,7 +92,7 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
     }
   }
 
-  /// <summary>Field number for the "messageID" field.</summary>
+  /// <summary>Field number for the "message_ID" field.</summary>
   public const int MessageIDFieldNumber = 2;
   private int messageID_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -98,7 +103,7 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
     }
   }
 
-  /// <summary>Field number for the "messageName" field.</summary>
+  /// <summary>Field number for the "message_name" field.</summary>
   public const int MessageNameFieldNumber = 3;
   private string messageName_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -109,7 +114,7 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
     }
   }
 
-  /// <summary>Field number for the "messageData" field.</summary>
+  /// <summary>Field number for the "message_data" field.</summary>
   public const int MessageDataFieldNumber = 4;
   private string messageData_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -120,7 +125,7 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
     }
   }
 
-  /// <summary>Field number for the "serverTime" field.</summary>
+  /// <summary>Field number for the "server_time" field.</summary>
   public const int ServerTimeFieldNumber = 5;
   private double serverTime_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -133,11 +138,11 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
-    return Equals(other as MainProto);
+    return Equals(other as root_proto);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(MainProto other) {
+  public bool Equals(root_proto other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
@@ -223,7 +228,7 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(MainProto other) {
+  public void MergeFrom(root_proto other) {
     if (other == null) {
       return;
     }
@@ -271,6 +276,138 @@ public sealed partial class MainProto : pb::IMessage<MainProto> {
         }
         case 41: {
           ServerTime = input.ReadDouble();
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+///登陆协议
+/// </summary>
+public sealed partial class req_login_game : pb::IMessage<req_login_game> {
+  private static readonly pb::MessageParser<req_login_game> _parser = new pb::MessageParser<req_login_game>(() => new req_login_game());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<req_login_game> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[1]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_login_game() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_login_game(req_login_game other) : this() {
+    userName_ = other.userName_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_login_game Clone() {
+    return new req_login_game(this);
+  }
+
+  /// <summary>Field number for the "user_name" field.</summary>
+  public const int UserNameFieldNumber = 1;
+  private string userName_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string UserName {
+    get { return userName_; }
+    set {
+      userName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as req_login_game);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(req_login_game other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (UserName != other.UserName) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (UserName.Length != 0) hash ^= UserName.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (UserName.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(UserName);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (UserName.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(req_login_game other) {
+    if (other == null) {
+      return;
+    }
+    if (other.UserName.Length != 0) {
+      UserName = other.UserName;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          UserName = input.ReadString();
           break;
         }
       }

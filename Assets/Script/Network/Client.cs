@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -37,9 +38,40 @@ public class Client : MonoBehaviour {
         TCPSocket.Connect(ip, port);
     }
 
-    public void Request<T>(T msg, System.Action<IMessage> callback)
+    public void Request(IMessage msg, System.Action<IMessage> callback = null)
     {
-        MainProto proto = new MainProto();
+        root_proto proto = new root_proto();
+        //序列化
+        byte[] data = Serialize(msg);
+
+    }
+
+    //序列化
+    public static byte[] Serialize(IMessage data)
+    {
+        MemoryStream stream = new MemoryStream();
+        if (null != stream)
+        {
+            data.WriteTo(stream);
+            byte[] bytes = stream.ToArray();
+            stream.Close();
+            return bytes;
+        }
+        stream.Close();
+        return null;
+    }
+    //反序列化
+    public static IMessage Deserialize(MessageParser parser, byte[] byteData)
+    {
+        Stream stream = new MemoryStream(byteData);
+        if (null != stream)
+        {
+            IMessage msg = parser.ParseFrom(stream);
+            stream.Close();
+            return msg;
+        }
+        stream.Close();
+        return default(IMessage);
     }
 
 }
