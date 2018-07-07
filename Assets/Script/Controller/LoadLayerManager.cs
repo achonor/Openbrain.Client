@@ -9,12 +9,14 @@ using System.Collections.Generic;
 public class LoadLayerManager : MonoBehaviour {
     public static LoadLayerManager Instance;
 
+    private GameObject RootObjec;
     //菊花层数
     private int loadingCount = 0;
 
     private void Awake()
     {
         Instance = this;
+        RootObjec = transform.Find("Root").gameObject;
     }
 
     public void AddLoad()
@@ -22,7 +24,7 @@ public class LoadLayerManager : MonoBehaviour {
         loadingCount++;
         if (0 < loadingCount)
         {
-            gameObject.SetActive(true);
+            RootObjec.SetActive(true);
         }
     }
 
@@ -36,7 +38,7 @@ public class LoadLayerManager : MonoBehaviour {
         }
         if (0 == loadingCount)
         {
-            gameObject.SetActive(false);
+            RootObjec.SetActive(false);
         }
     }
 
