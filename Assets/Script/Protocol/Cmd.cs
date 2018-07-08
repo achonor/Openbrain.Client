@@ -24,15 +24,16 @@ public static partial class CmdReflection {
         string.Concat(
           "CgljbWQucHJvdG8idQoKcm9vdF9wcm90bxISCgpjb25uZWN0X0lEGAEgASgF",
           "EhIKCm1lc3NhZ2VfSUQYAiABKAUSFAoMbWVzc2FnZV9uYW1lGAMgASgJEhQK",
-          "DG1lc3NhZ2VfZGF0YRgEIAEoCRITCgtzZXJ2ZXJfdGltZRgFIAEoASIrChZy",
-          "ZXFfbWVzc2FnZV9sb2dpbl9nYW1lEhEKCXVzZXJfbmFtZRgBIAEoCSIYChZy",
-          "ZXBfbWVzc2FnZV9sb2dpbl9nYW1lYgZwcm90bzM="));
+          "DG1lc3NhZ2VfZGF0YRgEIAEoDBITCgtzZXJ2ZXJfdGltZRgFIAEoASIrChZy",
+          "ZXFfbWVzc2FnZV9sb2dpbl9nYW1lEhEKCXVzZXJfbmFtZRgBIAEoCSI6ChZy",
+          "ZXBfbWVzc2FnZV9sb2dpbl9nYW1lEgwKBGlzT0sYASABKAgSEgoKdGVzdFN0",
+          "cmluZxgCIAEoCWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::root_proto), global::root_proto.Parser, new[]{ "ConnectID", "MessageID", "MessageName", "MessageData", "ServerTime" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::req_message_login_game), global::req_message_login_game.Parser, new[]{ "UserName" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_login_game), global::rep_message_login_game.Parser, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_login_game), global::rep_message_login_game.Parser, new[]{ "IsOK", "TestString" }, null, null, null)
         }));
   }
   #endregion
@@ -118,9 +119,9 @@ public sealed partial class root_proto : pb::IMessage<root_proto> {
 
   /// <summary>Field number for the "message_data" field.</summary>
   public const int MessageDataFieldNumber = 4;
-  private string messageData_ = "";
+  private pb::ByteString messageData_ = pb::ByteString.Empty;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string MessageData {
+  public pb::ByteString MessageData {
     get { return messageData_; }
     set {
       messageData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -194,7 +195,7 @@ public sealed partial class root_proto : pb::IMessage<root_proto> {
     }
     if (MessageData.Length != 0) {
       output.WriteRawTag(34);
-      output.WriteString(MessageData);
+      output.WriteBytes(MessageData);
     }
     if (ServerTime != 0D) {
       output.WriteRawTag(41);
@@ -218,7 +219,7 @@ public sealed partial class root_proto : pb::IMessage<root_proto> {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageName);
     }
     if (MessageData.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageData);
+      size += 1 + pb::CodedOutputStream.ComputeBytesSize(MessageData);
     }
     if (ServerTime != 0D) {
       size += 1 + 8;
@@ -273,7 +274,7 @@ public sealed partial class root_proto : pb::IMessage<root_proto> {
           break;
         }
         case 34: {
-          MessageData = input.ReadString();
+          MessageData = input.ReadBytes();
           break;
         }
         case 41: {
@@ -443,12 +444,36 @@ public sealed partial class rep_message_login_game : pb::IMessage<rep_message_lo
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public rep_message_login_game(rep_message_login_game other) : this() {
+    isOK_ = other.isOK_;
+    testString_ = other.testString_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public rep_message_login_game Clone() {
     return new rep_message_login_game(this);
+  }
+
+  /// <summary>Field number for the "isOK" field.</summary>
+  public const int IsOKFieldNumber = 1;
+  private bool isOK_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool IsOK {
+    get { return isOK_; }
+    set {
+      isOK_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "testString" field.</summary>
+  public const int TestStringFieldNumber = 2;
+  private string testString_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string TestString {
+    get { return testString_; }
+    set {
+      testString_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -464,12 +489,16 @@ public sealed partial class rep_message_login_game : pb::IMessage<rep_message_lo
     if (ReferenceEquals(other, this)) {
       return true;
     }
+    if (IsOK != other.IsOK) return false;
+    if (TestString != other.TestString) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
+    if (IsOK != false) hash ^= IsOK.GetHashCode();
+    if (TestString.Length != 0) hash ^= TestString.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -483,6 +512,14 @@ public sealed partial class rep_message_login_game : pb::IMessage<rep_message_lo
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void WriteTo(pb::CodedOutputStream output) {
+    if (IsOK != false) {
+      output.WriteRawTag(8);
+      output.WriteBool(IsOK);
+    }
+    if (TestString.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(TestString);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -491,6 +528,12 @@ public sealed partial class rep_message_login_game : pb::IMessage<rep_message_lo
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
+    if (IsOK != false) {
+      size += 1 + 1;
+    }
+    if (TestString.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(TestString);
+    }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
     }
@@ -501,6 +544,12 @@ public sealed partial class rep_message_login_game : pb::IMessage<rep_message_lo
   public void MergeFrom(rep_message_login_game other) {
     if (other == null) {
       return;
+    }
+    if (other.IsOK != false) {
+      IsOK = other.IsOK;
+    }
+    if (other.TestString.Length != 0) {
+      TestString = other.TestString;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -513,6 +562,14 @@ public sealed partial class rep_message_login_game : pb::IMessage<rep_message_lo
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
+        case 8: {
+          IsOK = input.ReadBool();
+          break;
+        }
+        case 18: {
+          TestString = input.ReadString();
+          break;
+        }
       }
     }
   }

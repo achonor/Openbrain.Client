@@ -7,6 +7,13 @@ public class UILogin : MonoBehaviour {
     {
         GameObject weChatBtn = transform.Find("WechatButton").gameObject;
         EventTrigger.Get(weChatBtn).onClick = ClickWeChat;
+
+        UserEventManager.RegisterEvent("rep_message_login_game", (data) =>
+        {
+            rep_message_login_game repMsg = Client.Deserialize(rep_message_login_game.Parser, (string)data) as rep_message_login_game;
+
+            Debug.Log("UILogin.Awake Login rep_message_login_game");
+        });
     }
 
     public void ClickWeChat(GameObject go)
@@ -16,9 +23,9 @@ public class UILogin : MonoBehaviour {
         reqMsg.UserName = "lilincong";
         Client.Instance.Request(reqMsg, (string data) =>
         {
-            rep_message_login_game repMsg = new rep_message_login_game();
-            Client.Deserialize(rep_message_login_game.Parser, data);
-            Debug.LogError("UILogin.ClickWeChat Login Success");
+            rep_message_login_game repMsg = Client.Deserialize(rep_message_login_game.Parser, data) as rep_message_login_game;
+
+            Debug.Log("UILogin.ClickWeChat Login Success isOK = " + repMsg.IsOK + " testString = " + repMsg.TestString);
         });
     }
 }

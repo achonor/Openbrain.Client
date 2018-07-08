@@ -16,7 +16,7 @@ public class Client : MonoBehaviour {
     //连接标识符
     private static int connectID = 0;
     //发送数据的数量
-    private static int SendCount = 0;
+    private static int SendCount = 1;
     //数据发送队列
     private Queue<byte[]> SendQueue = new Queue<byte[]>();
     //回调函数字典
@@ -24,9 +24,9 @@ public class Client : MonoBehaviour {
 
 
     //发送数据间隔(帧)
-    private static int SendInterval = 5;
+    private static int SendInterval = 1;
     //接收数据间隔(帧)
-    private static int RecvInterval = 3;
+    private static int RecvInterval = 1;
     //包头长度
     private static int LENGTH_HEAD = 4;
     //单次接收最大长度
@@ -51,12 +51,15 @@ public class Client : MonoBehaviour {
             {
                 TCPSocket.Send(SendQueue.Dequeue());
             }
-            //接收数据
             if (0 == Time.frameCount % RecvInterval)
             {
                 onReceive();
             }
         }
+    }
+    private void OnApplicationQuit()
+    {
+        TCPSocket.Close();
     }
 
 
@@ -72,7 +75,7 @@ public class Client : MonoBehaviour {
         TCPSocket.Connect(ip, port);
     }
 
-    public void Request(IMessage msg, System.Action<string> callback = null)
+    public void Request(IMessage msg, System.Action<string> callback = null) 
     {
         root_proto proto = new root_proto();
         //序列化
@@ -80,7 +83,7 @@ public class Client : MonoBehaviour {
         proto.ConnectID = connectID;
         proto.MessageID = SendCount++;
         proto.MessageName = msg.GetType().ToString();
-        proto.MessageData = Encoding.Default.GetString(data);
+        proto.MessageData = ByteString.CopyFrom(data);
         //本地序列化
         byte[] protoByte = Function.Serialization(Serialize(proto));
         //保存回调
@@ -143,7 +146,7 @@ public class Client : MonoBehaviour {
         };
         //接收包头
         System.Action head_func = delegate() {
-            byte[] buffer =new byte[receiveLen + 2]; ;
+            byte[] buffer =new byte[receiveLen]; ;
             int ret = receive(buffer, receiveLen);
             if (-1 == ret)
             {
@@ -163,7 +166,7 @@ public class Client : MonoBehaviour {
         };
         //接受数据
         System.Action body_func = delegate() {
-            byte[] buffer = new byte[receiveLen + 2];
+            byte[] buffer = new byte[receiveLen];
             int ret = receive(buffer, receiveLen);
             if (-1 == ret)
             {
@@ -191,9 +194,15 @@ public class Client : MonoBehaviour {
             else
             {
                 //数据接收完成
-                receiveData(lastBuffer);
-                lastBuffer = null;
-                switch_idle();
+                try
+                {
+                    receiveData(lastBuffer);
+                }
+                finally
+                {
+                    lastBuffer = null;
+                    switch_idle();
+                }
             }
         };
         System.Action die_func = delegate() {
@@ -223,20 +232,20 @@ public class Client : MonoBehaviour {
 
         //校正服务器时间
         Function.SetServerTime((long)proto.ServerTime);
-
+        //数据
+        string strData = proto.MessageData.ToStringUtf8();
         //取消菊花
         LoadLayerManager.Instance.RemoveLoad();
         //事件
+        UserEventManager.TriggerEvent(proto.MessageName, strData);
 
-        //回调
         //激活回调函数
         try
         {
             System.Action<string> callback = CallbackDict[proto.MessageID];
             if (null != callback)
             {
-                callback(proto.MessageData);
-                LoadLayerManager.Instance.RemoveLoad();
+                callback(strData);
             }
             CallbackDict.Remove(proto.MessageID);
         }
@@ -275,16 +284,8 @@ public class Client : MonoBehaviour {
     }
     public static IMessage Deserialize(MessageParser parser, string data)
     {
-        byte[] byteData = Encoding.Default.GetBytes(data);
-        Stream stream = new MemoryStream(byteData);
-        if (null != stream)
-        {
-            IMessage msg = parser.ParseFrom(stream);
-            stream.Close();
-            return msg;
-        }
-        stream.Close();
-        return default(IMessage);
+        byte[] byteData = Encoding.UTF8.GetBytes(data);
+        return Deserialize(parser, byteData);
     }
 
 }

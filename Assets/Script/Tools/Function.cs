@@ -6,29 +6,24 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Function{
-    private static DateTime _time1970;
-    public static DateTime time1970 {
-        get
-        {
-            if (null == _time1970)
-            {
-                _time1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            }
-            return _time1970;
-        }
-    }
+    //1970
+    private static DateTime time1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0);
     //服务器和本地时间差
     private static long offsetTime;
 
+    //获取本地时间戳
+    public static long GetLocaLTime()
+    {
+        return Convert.ToInt64((DateTime.UtcNow - time1970).TotalSeconds);
+    }
     public static long GetServerTime()
     {
-        TimeSpan ts = DateTime.UtcNow - time1970;
-        return Convert.ToInt64(ts.TotalSeconds) + offsetTime;
+        return GetLocaLTime() + offsetTime;
     }
     public static void SetServerTime(long serverTime)
     {
         TimeSpan ts = DateTime.UtcNow - time1970;
-        offsetTime = serverTime - Convert.ToInt64(ts.TotalSeconds);
+        offsetTime = serverTime - GetLocaLTime();
     }
 
     public static byte[] Serialization(byte[] data)
