@@ -150,7 +150,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.achonor.openbrain
+    Android: cn.mushroomman.deathruin
     Standalone: com.Company.ProductName
     iOS: com.achonor.openbrain
   buildNumber: {}
