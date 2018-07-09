@@ -68,6 +68,7 @@ public class ShareSDKManager : MonoBehaviour
 
     void OnAuthResultHandler(int reqID, ResponseState state, PlatformType type, Hashtable result)
     {
+        Debug.Log("ShareSDKManager.OnAuthResultHandler = state" + state);
         if (state == ResponseState.Success)
         {
             if (result != null && result.Count > 0)
@@ -99,6 +100,7 @@ public class ShareSDKManager : MonoBehaviour
 
     void OnGetUserInfoResultHandler(int reqID, ResponseState state, PlatformType type, Hashtable result)
     {
+        Debug.Log("ShareSDKManager.OnGetUserInfoResultHandler = state" + state);
         if (state == ResponseState.Success)
         {
             print("get user info result :");

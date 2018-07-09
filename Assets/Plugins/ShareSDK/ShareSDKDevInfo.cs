@@ -146,17 +146,17 @@ namespace cn.sharesdk.unity3d
 #if UNITY_ANDROID
 		public string SortId = "5";
 		public const int type = (int) PlatformType.WeChat;
-		public string AppId = "wx4868b35061f87885";
-		public string AppSecret = "64020361b8ec4c99936c0e3999a9f249";
+		public string AppId = "wx806e7b7d21431225";
+		public string AppSecret = "8b6dc07cb34369880f6805d40797e25b";
 		public string UserName = "gh_afb25ac019c9@app";
 		public string Path = "/page/API/pages/share/share";
 		public bool BypassApproval = true;
 		public bool WithShareTicket = true;
 		public string MiniprogramType = "0";
 #elif UNITY_IPHONE
-		public const int type = (int) PlatformType.WeChat;
-		public string app_id = "wx6468848472a7d522";
-		public string app_secret = "a0b25fad6b01f83652cd99c5d35c5d2a";
+        public const int type = (int) PlatformType.WeChat;
+		public string app_id = "wx806e7b7d21431225";
+		public string app_secret = "8b6dc07cb34369880f6805d40797e25b";
 #endif
     }
 

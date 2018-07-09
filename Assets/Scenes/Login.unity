@@ -555,14 +555,8 @@ MonoBehaviour:
   devInfo:
     wechat:
       Enable: 1
-      SortId: 5
-      AppId: wx4868b35061f87885
-      AppSecret: 64020361b8ec4c99936c0e3999a9f249
-      UserName: gh_afb25ac019c9@app
-      Path: /page/API/pages/share/share
-      BypassApproval: 1
-      WithShareTicket: 1
-      MiniprogramType: 0
+      app_id: wx806e7b7d21431225
+      app_secret: 8b6dc07cb34369880f6805d40797e25b
 --- !u!1 &1275926620
 GameObject:
   m_ObjectHideFlags: 0

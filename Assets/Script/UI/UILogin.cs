@@ -16,9 +16,9 @@ public class UILogin : MonoBehaviour {
     private void Start()
     {
         //注册授权成功回调
-        ShareSDKManager.Instance.RegisterAuthCallback(AuthorizeSuccess);
+        ShareSDKManager.Instance.RegisterAuthCallback(AuthorizeCallback);
         //注册获取信息成功的回调
-        ShareSDKManager.Instance.RegisterInfoCallback(GetUserInfoSuccess);
+        ShareSDKManager.Instance.RegisterInfoCallback(GetUserInfoCallback);
 
         if (true == ShareSDKManager.Instance.IsAuthorized(PlatformType.WeChat))
         {
@@ -44,7 +44,7 @@ public class UILogin : MonoBehaviour {
 
 
     //授权结果回调
-    public void AuthorizeSuccess(PlatformType type, ResponseState state, Hashtable result)
+    public void AuthorizeCallback(PlatformType type, ResponseState state, Hashtable result)
     {
         //恢复按钮
         isLogining = false;
@@ -59,7 +59,7 @@ public class UILogin : MonoBehaviour {
         }
     }
     //获取用户信息后调用
-    public void GetUserInfoSuccess(PlatformType type, ResponseState state, Hashtable result)
+    public void GetUserInfoCallback(PlatformType type, ResponseState state, Hashtable result)
     {
         if (ResponseState.Success == state)
         {
