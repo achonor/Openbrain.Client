@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224939642734647964}
-  - component: {fileID: 114619793817122736}
   - component: {fileID: 114309304376773708}
   m_Layer: 5
   m_Name: LoginUI
@@ -186,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bb97f5b39458e408add9bd79f7850b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
 --- !u!114 &114414983684830388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,18 +213,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114619793817122736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201325643714522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4656b88f247fc340b7807de3fdbac3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
 --- !u!222 &222229641464734830
 CanvasRenderer:
   m_ObjectHideFlags: 1

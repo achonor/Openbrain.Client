@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using cn.sharesdk.unity3d;
 
-public class UILogin : MonoBehaviour {
+public class UILogin : UIBase {
 
     //防止重复点击
     private bool isLogining = false;
