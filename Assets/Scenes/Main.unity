@@ -556,11 +556,11 @@ MonoBehaviour:
     wechat:
       Enable: 1
       SortId: 5
-      AppId: wx806e7b7d21431225
-      AppSecret: 8b6dc07cb34369880f6805d40797e25b
+      AppId: wxb5afae9823a3a290
+      AppSecret: 23ac2575638272b14c6280ef21f9c74e
       UserName: gh_afb25ac019c9@app
       Path: /page/API/pages/share/share
-      BypassApproval: 1
+      BypassApproval: 0
       WithShareTicket: 1
       MiniprogramType: 0
 --- !u!1 &1275926620

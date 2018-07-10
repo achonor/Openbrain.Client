@@ -146,8 +146,8 @@ namespace cn.sharesdk.unity3d
 #if UNITY_ANDROID
 		public string SortId = "5";
 		public const int type = (int) PlatformType.WeChat;
-		public string AppId = "wx806e7b7d21431225";
-		public string AppSecret = "8b6dc07cb34369880f6805d40797e25b";
+		public string AppId = "wxb5afae9823a3a290";
+		public string AppSecret = "23ac2575638272b14c6280ef21f9c74e";
 		public string UserName = "gh_afb25ac019c9@app";
 		public string Path = "/page/API/pages/share/share";
 		public bool BypassApproval = true;
