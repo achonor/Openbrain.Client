@@ -242,8 +242,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/Openbrain.Client/AndroidKey/openbrain.keystore
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: F:/Openbrain.Client/AndroidKey/openbrain.keystore
+  AndroidKeyaliasName: openbarain
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
