@@ -103,6 +103,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224833926554371958}
+  - component: {fileID: 114977101096851330}
   m_Layer: 5
   m_Name: TableUI
   m_TagString: Untagged
@@ -328,6 +329,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114977101096851330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1737779234077220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5083cab62d9c3a498595f7840f3e600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
 --- !u!222 &222088732448508572
 CanvasRenderer:
   m_ObjectHideFlags: 1

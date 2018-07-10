@@ -65,7 +65,10 @@ public class ShareSDKManager : MonoBehaviour
     {
         ssdk.Authorize(PlatformType.WeChat);
     }
-
+    public void QQAuthorize()
+    {
+        ssdk.Authorize(PlatformType.QQ);
+    }
     void OnAuthResultHandler(int reqID, ResponseState state, PlatformType type, Hashtable result)
     {
         Debug.Log("ShareSDKManager.OnAuthResultHandler = state" + state);

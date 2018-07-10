@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIMain : UIBase {
-
-
+    //昵称Text
+    Text nameText;
     Polygon polygon;
     Transform[] pointList = new Transform[6];
     Transform[] maxPointList = new Transform[6];
     private void Awake()
     {
+
+        //昵称Text
+        nameText = transform.Find("PlayerInfo/PlayerName").GetComponent<Text>();
+
         //六边形控件
         polygon = transform.Find("Hexagon/Polygon").GetComponent<Polygon>();
         //六边形顶点
@@ -34,7 +39,12 @@ public class UIMain : UIBase {
             var maxPoint = maxPointList[idx];
             point.localPosition = (maxPoint.localPosition - point.localPosition) * values[idx];
         }
+    }
 
+    public override void OnOpen()
+    {
+        //设置名字
+        nameText.text = PlayerData.userName;
     }
 
 }

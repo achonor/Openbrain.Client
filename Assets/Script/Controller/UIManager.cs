@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour {
 
     //普通UI根节点
     public Transform GameUIRoot;
+    //基础根节点
+    public Transform BaseUIRoot;
     //MessageUI根节点
     public Transform MessageUIRoot;
 

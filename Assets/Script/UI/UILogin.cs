@@ -10,7 +10,9 @@ public class UILogin : UIBase {
     private void Awake()
     {
         GameObject weChatBtn = transform.Find("WechatButton").gameObject;
+        GameObject QQBtn = transform.Find("QQButton").gameObject;
         EventTrigger.Get(weChatBtn).onClick = ClickWeChat;
+        EventTrigger.Get(QQBtn).onClick = ClickQQ;
     }
 
     private void Start()
@@ -25,6 +27,11 @@ public class UILogin : UIBase {
             //是否微信授权过，直接获取用户信息
             ShareSDKManager.Instance.GetUserInfo(PlatformType.WeChat);
         }
+        else if(true == ShareSDKManager.Instance.IsAuthorized(PlatformType.QQ))
+        {
+            //是否QQ授权过，直接获取用户信息
+            ShareSDKManager.Instance.GetUserInfo(PlatformType.QQ);
+        }
         else
         {
             //没有授权，重新等待用户操作
@@ -34,14 +41,31 @@ public class UILogin : UIBase {
     public void ClickWeChat(GameObject go)
     {
         Debug.Log("UILogin.ClickWeChat");
+#if UNITY_EDITOR
+        CommonRequest.ReqLoginGame("achonor", "我要玩女号");
+#elif UNITY_IOS || UNITY_ANDROID
         if (true == isLogining)
         {
             return;
         }
         isLogining = true;
         ShareSDKManager.Instance.WeChatAuthorize();
+#endif
     }
-
+    public void ClickQQ(GameObject go)
+    {
+        Debug.Log("UILogin.ClickQQ");
+#if UNITY_EDITOR
+        CommonRequest.ReqLoginGame("achonor", "我要玩女号");
+#elif UNITY_IOS || UNITY_ANDROID
+        if (true == isLogining)
+        {
+            return;
+        }
+        isLogining = true;
+        ShareSDKManager.Instance.QQAuthorize();
+#endif
+    }
 
     //授权结果回调
     public void AuthorizeCallback(PlatformType type, ResponseState state, Hashtable result)
@@ -55,7 +79,7 @@ public class UILogin : UIBase {
         }
         else
         {
-            Debug.Log("UILogin.AuthorizeSuccess Authorize faild!");
+            Debug.Log("UILogin.AuthorizeCallback Authorize faild!");
         }
     }
     //获取用户信息后调用
@@ -63,28 +87,21 @@ public class UILogin : UIBase {
     {
         if (ResponseState.Success == state)
         {
-            //头像
-            Debug.Log("headimgurl = " + (string)result["headimgurl"]);
+            Hashtable user = ShareSDKManager.Instance.ssdk.GetAuthInfo(type);
+            //ID
+            Debug.Log("userID = " + (string)user["userID"]);
             //名字
-            Debug.Log("nickname = " + (string)result["nickname"]);
+            Debug.Log("userName = " + (string)user["userName"]);
+            //头像
+            Debug.Log("userIcon = " + (string)user["userIcon"]);
             //请求登陆
-            ReqLoginGame((string)result["nickname"]);
+            CommonRequest.ReqLoginGame((string)user["userID"], (string)user["userName"]);
         }
         else
         {
-            Debug.Log("UILogin.GetUserInfoSuccess Get user info faild!");
+            Debug.Log("UILogin.GetUserInfoCallback Get user info faild!");
         }
     }
 
-    public void ReqLoginGame(string userName)
-    {
-        req_message_login_game reqMsg = new req_message_login_game();
-        reqMsg.UserName = userName;
-        Client.Instance.Request(reqMsg, (string data) =>
-        {
-            rep_message_login_game repMsg = Client.Deserialize(rep_message_login_game.Parser, data) as rep_message_login_game;
 
-            Debug.Log("UILogin.ClickWeChat Login Success isOK = " + repMsg.IsOK);
-        });
-    }
 }

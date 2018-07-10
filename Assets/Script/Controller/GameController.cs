@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour
     {
         //加载配置
         GameData.LoadConfigs();
+
+        //注册监听
+        RegisterEvent();
     }
 
     void Start()
@@ -18,4 +21,15 @@ public class GameController : MonoBehaviour
             Debug.Log("GameController.Start Open LoginUI Success!");
         });
     }
+
+    //注册监听
+    void RegisterEvent()
+    {
+        UserEventManager.RegisterEvent("rep_message_player_info", (param) =>
+        {
+            rep_message_player_info repMsg = Client.Deserialize(rep_message_player_info.Parser, (string)param) as rep_message_player_info;
+            PlayerData.UpdatePlayerData(repMsg.PlayerInfo);
+        });
+    }
+
 }

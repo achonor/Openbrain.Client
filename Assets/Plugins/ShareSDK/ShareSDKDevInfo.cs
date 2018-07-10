@@ -32,7 +32,7 @@ namespace cn.sharesdk.unity3d
         //public Mingdao mingdao;
         //public KakaoTalk kakaoTalk;
         //public KakaoStory kakaoStory;
-        //public QQ qq;
+        public QQ qq;
         //public QZone qzone;
         public WeChat wechat;
         //public WeChatMoments wechatMoments; 
@@ -110,8 +110,8 @@ namespace cn.sharesdk.unity3d
 #if UNITY_ANDROID
 		public const int type = (int) PlatformType.QQ;
 		public string SortId = "2";
-		public string AppId = "100371282";
-		public string AppKey = "aed9b0303e3ed1e27bae87c33761161d";
+		public string AppId = "1106959835";
+		public string AppKey = "wVKjg7YpVbIdP7uJ";
 		public bool ShareByAppClient = true;
 #elif UNITY_IPHONE
 		public const int type = (int) PlatformType.QQ;

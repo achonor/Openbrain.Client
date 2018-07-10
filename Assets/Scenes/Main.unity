@@ -553,6 +553,12 @@ MonoBehaviour:
   appKey: 26c1a28e9d5cb
   appSecret: 10d0fa0b7af6c61c369fadd2aaa8bf5e
   devInfo:
+    qq:
+      Enable: 1
+      SortId: 2
+      AppId: 1107034140
+      AppKey: Vc19b0yQKBAddCIn
+      ShareByAppClient: 1
     wechat:
       Enable: 1
       SortId: 5
@@ -910,6 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameUIRoot: {fileID: 313609730}
+  BaseUIRoot: {fileID: 1288623877}
   MessageUIRoot: {fileID: 936963122}
 --- !u!1 &1658190178
 GameObject:
