@@ -165,7 +165,7 @@ public class TCPSocket
                 {
                     BufferPool.AddBuffer(tempBuffer, size);
                 }
-            }
+            }catch (ThreadAbortException){}
             catch (Exception e)
             {
                 //tcpSocket.Disconnect(true);

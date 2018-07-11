@@ -235,23 +235,30 @@ public class Client : MonoBehaviour {
         //数据
         string strData = proto.MessageData.ToStringUtf8();
         //取消菊花
-        LoadLayerManager.Instance.RemoveLoad();
+        if (0 != proto.MessageID)
+        {
+            //0是推送协议
+            LoadLayerManager.Instance.RemoveLoad();
+        }
         //事件
         UserEventManager.TriggerEvent(proto.MessageName, strData);
 
         //激活回调函数
-        try
+        if (CallbackDict.ContainsKey(proto.MessageID))
         {
-            System.Action<string> callback = CallbackDict[proto.MessageID];
-            if (null != callback)
+            try
             {
-                callback(strData);
+                System.Action<string> callback = CallbackDict[proto.MessageID];
+                if (null != callback)
+                {
+                    callback(strData);
+                }
+                CallbackDict.Remove(proto.MessageID);
             }
-            CallbackDict.Remove(proto.MessageID);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError(e);
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
     }
 
