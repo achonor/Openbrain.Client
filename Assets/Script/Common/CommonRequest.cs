@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CommonRequest {
     //请求登陆游戏
-    public static void ReqLoginGame(string userID, string userName)
+    public static void ReqLoginGame(string userID, string userName, string userIcon = null)
     {
         Debug.Log("UILogin.ReqLoginGame userID = " + userID + " userName " + userName);
         req_message_login_game reqMsg = new req_message_login_game();
         reqMsg.UserID = userID;
         reqMsg.UserName = userName;
+        reqMsg.UserIcon = null != userIcon ? userIcon : PlayerData.userIcon;
         Client.Instance.Request(reqMsg, (string data) =>
         {
             rep_message_login_game repMsg = Client.Deserialize(rep_message_login_game.Parser, data) as rep_message_login_game;

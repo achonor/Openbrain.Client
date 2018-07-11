@@ -24,20 +24,27 @@ public static partial class CmdReflection {
         string.Concat(
           "CgljbWQucHJvdG8idQoKcm9vdF9wcm90bxISCgpjb25uZWN0X0lEGAEgASgF",
           "EhIKCm1lc3NhZ2VfSUQYAiABKAUSFAoMbWVzc2FnZV9uYW1lGAMgASgJEhQK",
-          "DG1lc3NhZ2VfZGF0YRgEIAEoDBITCgtzZXJ2ZXJfdGltZRgFIAEoASJLChJz",
-          "dHJ1Y3RfcGxheWVyX2luZm8SDwoHdXNlcl9JRBgBIAEoCRIRCgl1c2VyX25h",
-          "bWUYAiABKAkSEQoJdXNlcl9pY29uGAMgASgJIjwKFnJlcV9tZXNzYWdlX2xv",
-          "Z2luX2dhbWUSDwoHdXNlcl9JRBgBIAEoCRIRCgl1c2VyX25hbWUYAiABKAki",
-          "UAoWcmVwX21lc3NhZ2VfbG9naW5fZ2FtZRIMCgRpc09LGAEgASgFEigKC3Bs",
-          "YXllcl9pbmZvGAIgASgLMhMuc3RydWN0X3BsYXllcl9pbmZvIkMKF3JlcF9t",
-          "ZXNzYWdlX3BsYXllcl9pbmZvEigKC3BsYXllcl9pbmZvGAEgASgLMhMuc3Ry",
-          "dWN0X3BsYXllcl9pbmZvYgZwcm90bzM="));
+          "DG1lc3NhZ2VfZGF0YRgEIAEoDBITCgtzZXJ2ZXJfdGltZRgFIAEoASKqAQoS",
+          "c3RydWN0X3BsYXllcl9pbmZvEhEKCXVzZXJfbmFtZRgBIAEoCRIRCgl1c2Vy",
+          "X2ljb24YAiABKAkSDgoGZW5lcmd5GAMgASgFEgwKBGdlbXMYBCABKAUSIQoF",
+          "bGV2ZWwYBSABKA4yEi5lbnVtX3BsYXllcl9sZXZlbBItCgtwcm9maWNpZW5j",
+          "eRgGIAEoDjIYLmVudW1fcGxheWVyX3Byb2ZpY2llbmN5Ik8KFnJlcV9tZXNz",
+          "YWdlX2xvZ2luX2dhbWUSDwoHdXNlcl9JRBgBIAEoCRIRCgl1c2VyX25hbWUY",
+          "AiABKAkSEQoJdXNlcl9pY29uGAMgASgJIlAKFnJlcF9tZXNzYWdlX2xvZ2lu",
+          "X2dhbWUSDAoEaXNPSxgBIAEoBRIoCgtwbGF5ZXJfaW5mbxgCIAEoCzITLnN0",
+          "cnVjdF9wbGF5ZXJfaW5mbyJDChdyZXBfbWVzc2FnZV9wbGF5ZXJfaW5mbxIo",
+          "CgtwbGF5ZXJfaW5mbxgBIAEoCzITLnN0cnVjdF9wbGF5ZXJfaW5mbypQChFl",
+          "bnVtX3BsYXllcl9sZXZlbBIKCgZDT1BQRVIQABIKCgZTSUxWRVIQARIICgRH",
+          "T0xEEAMSDAoIUExBVElOVU0QBBILCgdESUFNT05EEAUqdgoXZW51bV9wbGF5",
+          "ZXJfcHJvZmljaWVuY3kSBwoDVE9FEAASCAoEQ0FMRhABEggKBEtORUUQAhIJ",
+          "CgVUSElHSBADEggKBEJVVFQQBBIJCgVCRUxMWRAFEgkKBUNIRVNUEAYSCAoE",
+          "TkVDSxAHEgkKBUJSQUlOEAhiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
-        new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+        new pbr::GeneratedClrTypeInfo(new[] {typeof(global::enum_player_level), typeof(global::enum_player_proficiency), }, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::root_proto), global::root_proto.Parser, new[]{ "ConnectID", "MessageID", "MessageName", "MessageData", "ServerTime" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::struct_player_info), global::struct_player_info.Parser, new[]{ "UserID", "UserName", "UserIcon" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::req_message_login_game), global::req_message_login_game.Parser, new[]{ "UserID", "UserName" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::struct_player_info), global::struct_player_info.Parser, new[]{ "UserName", "UserIcon", "Energy", "Gems", "Level", "Proficiency" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::req_message_login_game), global::req_message_login_game.Parser, new[]{ "UserID", "UserName", "UserIcon" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_login_game), global::rep_message_login_game.Parser, new[]{ "IsOK", "PlayerInfo" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_player_info), global::rep_message_player_info.Parser, new[]{ "PlayerInfo" }, null, null, null)
         }));
@@ -45,6 +52,77 @@ public static partial class CmdReflection {
   #endregion
 
 }
+#region Enums
+/// <summary>
+///等级枚举
+/// </summary>
+public enum enum_player_level {
+  /// <summary>
+  ///青铜
+  /// </summary>
+  [pbr::OriginalName("COPPER")] Copper = 0,
+  /// <summary>
+  ///白银
+  /// </summary>
+  [pbr::OriginalName("SILVER")] Silver = 1,
+  /// <summary>
+  ///黄金
+  /// </summary>
+  [pbr::OriginalName("GOLD")] Gold = 3,
+  /// <summary>
+  ///铂金
+  /// </summary>
+  [pbr::OriginalName("PLATINUM")] Platinum = 4,
+  /// <summary>
+  ///钻石
+  /// </summary>
+  [pbr::OriginalName("DIAMOND")] Diamond = 5,
+}
+
+/// <summary>
+///熟练度枚举
+/// </summary>
+public enum enum_player_proficiency {
+  /// <summary>
+  ///脚趾
+  /// </summary>
+  [pbr::OriginalName("TOE")] Toe = 0,
+  /// <summary>
+  ///小腿
+  /// </summary>
+  [pbr::OriginalName("CALF")] Calf = 1,
+  /// <summary>
+  ///膝盖
+  /// </summary>
+  [pbr::OriginalName("KNEE")] Knee = 2,
+  /// <summary>
+  ///大腿
+  /// </summary>
+  [pbr::OriginalName("THIGH")] Thigh = 3,
+  /// <summary>
+  ///屁股
+  /// </summary>
+  [pbr::OriginalName("BUTT")] Butt = 4,
+  /// <summary>
+  ///肚子
+  /// </summary>
+  [pbr::OriginalName("BELLY")] Belly = 5,
+  /// <summary>
+  ///胸膛
+  /// </summary>
+  [pbr::OriginalName("CHEST")] Chest = 6,
+  /// <summary>
+  ///脖子
+  /// </summary>
+  [pbr::OriginalName("NECK")] Neck = 7,
+  /// <summary>
+  ///大脑	
+  /// </summary>
+  [pbr::OriginalName("BRAIN")] Brain = 8,
+}
+
+#endregion
+
 #region Messages
 /// <summary>
 ///协议外壳
@@ -318,6 +396,293 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public struct_player_info(struct_player_info other) : this() {
+    userName_ = other.userName_;
+    userIcon_ = other.userIcon_;
+    energy_ = other.energy_;
+    gems_ = other.gems_;
+    level_ = other.level_;
+    proficiency_ = other.proficiency_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public struct_player_info Clone() {
+    return new struct_player_info(this);
+  }
+
+  /// <summary>Field number for the "user_name" field.</summary>
+  public const int UserNameFieldNumber = 1;
+  private string userName_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string UserName {
+    get { return userName_; }
+    set {
+      userName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "user_icon" field.</summary>
+  public const int UserIconFieldNumber = 2;
+  private string userIcon_ = "";
+  /// <summary>
+  ///暂时没用
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string UserIcon {
+    get { return userIcon_; }
+    set {
+      userIcon_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "energy" field.</summary>
+  public const int EnergyFieldNumber = 3;
+  private int energy_;
+  /// <summary>
+  ///体力
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Energy {
+    get { return energy_; }
+    set {
+      energy_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "gems" field.</summary>
+  public const int GemsFieldNumber = 4;
+  private int gems_;
+  /// <summary>
+  ///钻石
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Gems {
+    get { return gems_; }
+    set {
+      gems_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "level" field.</summary>
+  public const int LevelFieldNumber = 5;
+  private global::enum_player_level level_ = 0;
+  /// <summary>
+  ///等级（新手）	
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::enum_player_level Level {
+    get { return level_; }
+    set {
+      level_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "proficiency" field.</summary>
+  public const int ProficiencyFieldNumber = 6;
+  private global::enum_player_proficiency proficiency_ = 0;
+  /// <summary>
+  ///熟练度（脚趾）
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::enum_player_proficiency Proficiency {
+    get { return proficiency_; }
+    set {
+      proficiency_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as struct_player_info);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(struct_player_info other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (UserName != other.UserName) return false;
+    if (UserIcon != other.UserIcon) return false;
+    if (Energy != other.Energy) return false;
+    if (Gems != other.Gems) return false;
+    if (Level != other.Level) return false;
+    if (Proficiency != other.Proficiency) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (UserName.Length != 0) hash ^= UserName.GetHashCode();
+    if (UserIcon.Length != 0) hash ^= UserIcon.GetHashCode();
+    if (Energy != 0) hash ^= Energy.GetHashCode();
+    if (Gems != 0) hash ^= Gems.GetHashCode();
+    if (Level != 0) hash ^= Level.GetHashCode();
+    if (Proficiency != 0) hash ^= Proficiency.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (UserName.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(UserName);
+    }
+    if (UserIcon.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(UserIcon);
+    }
+    if (Energy != 0) {
+      output.WriteRawTag(24);
+      output.WriteInt32(Energy);
+    }
+    if (Gems != 0) {
+      output.WriteRawTag(32);
+      output.WriteInt32(Gems);
+    }
+    if (Level != 0) {
+      output.WriteRawTag(40);
+      output.WriteEnum((int) Level);
+    }
+    if (Proficiency != 0) {
+      output.WriteRawTag(48);
+      output.WriteEnum((int) Proficiency);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (UserName.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
+    }
+    if (UserIcon.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(UserIcon);
+    }
+    if (Energy != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Energy);
+    }
+    if (Gems != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Gems);
+    }
+    if (Level != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Level);
+    }
+    if (Proficiency != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Proficiency);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(struct_player_info other) {
+    if (other == null) {
+      return;
+    }
+    if (other.UserName.Length != 0) {
+      UserName = other.UserName;
+    }
+    if (other.UserIcon.Length != 0) {
+      UserIcon = other.UserIcon;
+    }
+    if (other.Energy != 0) {
+      Energy = other.Energy;
+    }
+    if (other.Gems != 0) {
+      Gems = other.Gems;
+    }
+    if (other.Level != 0) {
+      Level = other.Level;
+    }
+    if (other.Proficiency != 0) {
+      Proficiency = other.Proficiency;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          UserName = input.ReadString();
+          break;
+        }
+        case 18: {
+          UserIcon = input.ReadString();
+          break;
+        }
+        case 24: {
+          Energy = input.ReadInt32();
+          break;
+        }
+        case 32: {
+          Gems = input.ReadInt32();
+          break;
+        }
+        case 40: {
+          level_ = (global::enum_player_level) input.ReadEnum();
+          break;
+        }
+        case 48: {
+          proficiency_ = (global::enum_player_proficiency) input.ReadEnum();
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+///登陆协议
+/// </summary>
+public sealed partial class req_message_login_game : pb::IMessage<req_message_login_game> {
+  private static readonly pb::MessageParser<req_message_login_game> _parser = new pb::MessageParser<req_message_login_game>(() => new req_message_login_game());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<req_message_login_game> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[2]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_login_game() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_login_game(req_message_login_game other) : this() {
     userID_ = other.userID_;
     userName_ = other.userName_;
     userIcon_ = other.userIcon_;
@@ -325,8 +690,8 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public struct_player_info Clone() {
-    return new struct_player_info(this);
+  public req_message_login_game Clone() {
+    return new req_message_login_game(this);
   }
 
   /// <summary>Field number for the "user_ID" field.</summary>
@@ -364,11 +729,11 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
-    return Equals(other as struct_player_info);
+    return Equals(other as req_message_login_game);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(struct_player_info other) {
+  public bool Equals(req_message_login_game other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
@@ -436,7 +801,7 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(struct_player_info other) {
+  public void MergeFrom(req_message_login_game other) {
     if (other == null) {
       return;
     }
@@ -470,166 +835,6 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
         }
         case 26: {
           UserIcon = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
-
-}
-
-/// <summary>
-///登陆协议
-/// </summary>
-public sealed partial class req_message_login_game : pb::IMessage<req_message_login_game> {
-  private static readonly pb::MessageParser<req_message_login_game> _parser = new pb::MessageParser<req_message_login_game>(() => new req_message_login_game());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<req_message_login_game> Parser { get { return _parser; } }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::CmdReflection.Descriptor.MessageTypes[2]; }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public req_message_login_game() {
-    OnConstruction();
-  }
-
-  partial void OnConstruction();
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public req_message_login_game(req_message_login_game other) : this() {
-    userID_ = other.userID_;
-    userName_ = other.userName_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public req_message_login_game Clone() {
-    return new req_message_login_game(this);
-  }
-
-  /// <summary>Field number for the "user_ID" field.</summary>
-  public const int UserIDFieldNumber = 1;
-  private string userID_ = "";
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string UserID {
-    get { return userID_; }
-    set {
-      userID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
-
-  /// <summary>Field number for the "user_name" field.</summary>
-  public const int UserNameFieldNumber = 2;
-  private string userName_ = "";
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string UserName {
-    get { return userName_; }
-    set {
-      userName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as req_message_login_game);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(req_message_login_game other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (UserID != other.UserID) return false;
-    if (UserName != other.UserName) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (UserID.Length != 0) hash ^= UserID.GetHashCode();
-    if (UserName.Length != 0) hash ^= UserName.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (UserID.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(UserID);
-    }
-    if (UserName.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(UserName);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (UserID.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(UserID);
-    }
-    if (UserName.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(req_message_login_game other) {
-    if (other == null) {
-      return;
-    }
-    if (other.UserID.Length != 0) {
-      UserID = other.UserID;
-    }
-    if (other.UserName.Length != 0) {
-      UserName = other.UserName;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          UserID = input.ReadString();
-          break;
-        }
-        case 18: {
-          UserName = input.ReadString();
           break;
         }
       }

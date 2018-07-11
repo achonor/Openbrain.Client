@@ -4,17 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIMain : UIBase {
-    //昵称Text
-    Text nameText;
     Polygon polygon;
     Transform[] pointList = new Transform[6];
     Transform[] maxPointList = new Transform[6];
     private void Awake()
     {
-
-        //昵称Text
-        nameText = transform.Find("PlayerInfo/PlayerName").GetComponent<Text>();
-
         //六边形控件
         polygon = transform.Find("Hexagon/Polygon").GetComponent<Polygon>();
         //六边形顶点
@@ -43,8 +37,36 @@ public class UIMain : UIBase {
 
     public override void OnOpen()
     {
-        //设置名字
-        nameText.text = PlayerData.userName;
+        //刷新UI
+        this.RefreshUI();
     }
 
+    public void RefreshUI()
+    {
+        
+        //设置名字
+        var nameText = transform.Find("PlayerInfo/PlayerName").GetComponent<Text>();
+        nameText.text = PlayerData.userName;
+        //头像
+        if (!string.IsNullOrEmpty(PlayerData.userIcon))
+        {
+            var headIcon = transform.Find("PlayerInfo/HeadImage/Mask/Image").GetComponent<Image>();
+            StartCoroutine(Function.DownloadImage(headIcon, PlayerData.userIcon));
+        }
+        //体力
+        var energyText = transform.Find("Energy/Number").GetComponent<Text>();
+        energyText.text = PlayerData.energy.ToString();
+
+        //钻石
+        var gemsText = transform.Find("Gems/Number").GetComponent<Text>();
+        gemsText.text = PlayerData.gems.ToString();
+
+        //等级
+        var levelText = transform.Find("PlayerInfo/Level").GetComponent<Text>();
+        levelText.text = Function.LevelToString(PlayerData.level);
+
+        //体力
+        var proficiencyText = transform.Find("PlayerInfo/Proficiency").GetComponent<Text>();
+        proficiencyText.text = Function.ProficiencyToString(PlayerData.proficiency);
+    }
 }

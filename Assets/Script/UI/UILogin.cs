@@ -42,7 +42,7 @@ public class UILogin : UIBase {
     {
         Debug.Log("UILogin.ClickWeChat");
 #if UNITY_EDITOR
-        CommonRequest.ReqLoginGame("achonor", "我要玩女号");
+        CommonRequest.ReqLoginGame("achonor", "我要玩女号", @"http://thirdqq.qlogo.cn/qqapp/1107034140/D532B5446BA9E5AC90AB5138D1BD19BC/100");
 #elif UNITY_IOS || UNITY_ANDROID
         if (true == isLogining)
         {
@@ -56,7 +56,7 @@ public class UILogin : UIBase {
     {
         Debug.Log("UILogin.ClickQQ");
 #if UNITY_EDITOR
-        CommonRequest.ReqLoginGame("achonor", "我要玩女号");
+        CommonRequest.ReqLoginGame("achonor", "我要玩女号", @"http://thirdqq.qlogo.cn/qqapp/1107034140/D532B5446BA9E5AC90AB5138D1BD19BC/100");
 #elif UNITY_IOS || UNITY_ANDROID
         if (true == isLogining)
         {
@@ -95,7 +95,7 @@ public class UILogin : UIBase {
             //头像
             Debug.Log("userIcon = " + (string)user["userIcon"]);
             //请求登陆
-            CommonRequest.ReqLoginGame((string)user["userID"], (string)user["userName"]);
+            CommonRequest.ReqLoginGame((string)user["userID"], (string)user["userName"], (string)user["userIcon"]);
         }
         else
         {
