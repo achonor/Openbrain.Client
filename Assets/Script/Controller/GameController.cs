@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     {
         UserEventManager.RegisterEvent("rep_message_player_info", (param) =>
         {
-            rep_message_player_info repMsg = Client.Deserialize(rep_message_player_info.Parser, (string)param) as rep_message_player_info;
+            rep_message_player_info repMsg = Client.Deserialize(rep_message_player_info.Parser, (byte[])param) as rep_message_player_info;
             PlayerData.UpdatePlayerData(repMsg.PlayerInfo);
         });
     }

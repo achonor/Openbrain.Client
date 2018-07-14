@@ -11,7 +11,7 @@ public class CommonRequest {
         reqMsg.UserID = userID;
         reqMsg.UserName = userName;
         reqMsg.UserIcon = null != userIcon ? userIcon : PlayerData.userIcon;
-        Client.Instance.Request(reqMsg, (string data) =>
+        Client.Instance.Request(reqMsg, (byte[] data) =>
         {
             rep_message_login_game repMsg = Client.Deserialize(rep_message_login_game.Parser, data) as rep_message_login_game;
             Debug.Log("UILogin.ClickWeChat Login Success isOK = " + repMsg.IsOK);

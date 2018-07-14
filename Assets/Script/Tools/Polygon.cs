@@ -4,9 +4,25 @@ using System.Collections;
  
 public class Polygon : Graphic
 {
-    void Update()
+    public Transform[] pointList;
+    public Transform[] maxPointList;
+
+
+    public void SetValue(float[] values)
     {
-        //SetAllDirty();
+        if (values.Length != pointList.Length)
+        {
+            Debug.LogError("Polygon.SetValue Length not equal");
+            return;
+        }
+        for (int idx = 0; idx < values.Length; idx++)
+        {
+            var point = pointList[idx];
+            var maxPoint = maxPointList[idx];
+            point.localPosition = (maxPoint.localPosition - point.localPosition) * values[idx] * 0.01f;
+        }
+        //刷新
+        SetAllDirty();
     }
 
     protected override void OnPopulateMesh(VertexHelper vh)
@@ -21,7 +37,7 @@ public class Polygon : Graphic
         Color32 color32 = color;
         //添加中心点
         vh.AddVert(transform.localPosition, color32, new Vector2(0f, 0f));
-        foreach (Transform child in transform)
+        foreach (Transform child in pointList)
         {
             vh.AddVert(child.localPosition, color32, new Vector2(0f, 0f));
         }

@@ -24,26 +24,28 @@ public static partial class CmdReflection {
         string.Concat(
           "CgljbWQucHJvdG8idQoKcm9vdF9wcm90bxISCgpjb25uZWN0X0lEGAEgASgF",
           "EhIKCm1lc3NhZ2VfSUQYAiABKAUSFAoMbWVzc2FnZV9uYW1lGAMgASgJEhQK",
-          "DG1lc3NhZ2VfZGF0YRgEIAEoDBITCgtzZXJ2ZXJfdGltZRgFIAEoASKqAQoS",
+          "DG1lc3NhZ2VfZGF0YRgEIAEoDBITCgtzZXJ2ZXJfdGltZRgFIAEoASKVAgoS",
           "c3RydWN0X3BsYXllcl9pbmZvEhEKCXVzZXJfbmFtZRgBIAEoCRIRCgl1c2Vy",
           "X2ljb24YAiABKAkSDgoGZW5lcmd5GAMgASgFEgwKBGdlbXMYBCABKAUSIQoF",
           "bGV2ZWwYBSABKA4yEi5lbnVtX3BsYXllcl9sZXZlbBItCgtwcm9maWNpZW5j",
-          "eRgGIAEoDjIYLmVudW1fcGxheWVyX3Byb2ZpY2llbmN5Ik8KFnJlcV9tZXNz",
-          "YWdlX2xvZ2luX2dhbWUSDwoHdXNlcl9JRBgBIAEoCRIRCgl1c2VyX25hbWUY",
-          "AiABKAkSEQoJdXNlcl9pY29uGAMgASgJIlAKFnJlcF9tZXNzYWdlX2xvZ2lu",
-          "X2dhbWUSDAoEaXNPSxgBIAEoBRIoCgtwbGF5ZXJfaW5mbxgCIAEoCzITLnN0",
-          "cnVjdF9wbGF5ZXJfaW5mbyJDChdyZXBfbWVzc2FnZV9wbGF5ZXJfaW5mbxIo",
-          "CgtwbGF5ZXJfaW5mbxgBIAEoCzITLnN0cnVjdF9wbGF5ZXJfaW5mbypQChFl",
-          "bnVtX3BsYXllcl9sZXZlbBIKCgZDT1BQRVIQABIKCgZTSUxWRVIQARIICgRH",
-          "T0xEEAMSDAoIUExBVElOVU0QBBILCgdESUFNT05EEAUqdgoXZW51bV9wbGF5",
-          "ZXJfcHJvZmljaWVuY3kSBwoDVE9FEAASCAoEQ0FMRhABEggKBEtORUUQAhIJ",
-          "CgVUSElHSBADEggKBEJVVFQQBBIJCgVCRUxMWRAFEgkKBUNIRVNUEAYSCAoE",
-          "TkVDSxAHEgkKBUJSQUlOEAhiBnByb3RvMw=="));
+          "eRgGIAEoDjIYLmVudW1fcGxheWVyX3Byb2ZpY2llbmN5Eg0KBXNwZWVkGAcg",
+          "ASgCEhAKCGp1ZGdtZW50GAggASgCEhEKCWNhbGN1bGF0ZRgJIAEoAhIQCghh",
+          "Y2N1cmFjeRgKIAEoAhITCgtvYnNlcnZhdGlvbhgLIAEoAhIOCgZtZW1vcnkY",
+          "DCABKAIiTwoWcmVxX21lc3NhZ2VfbG9naW5fZ2FtZRIPCgd1c2VyX0lEGAEg",
+          "ASgJEhEKCXVzZXJfbmFtZRgCIAEoCRIRCgl1c2VyX2ljb24YAyABKAkiUAoW",
+          "cmVwX21lc3NhZ2VfbG9naW5fZ2FtZRIMCgRpc09LGAEgASgFEigKC3BsYXll",
+          "cl9pbmZvGAIgASgLMhMuc3RydWN0X3BsYXllcl9pbmZvIkMKF3JlcF9tZXNz",
+          "YWdlX3BsYXllcl9pbmZvEigKC3BsYXllcl9pbmZvGAEgASgLMhMuc3RydWN0",
+          "X3BsYXllcl9pbmZvKlAKEWVudW1fcGxheWVyX2xldmVsEgoKBkNPUFBFUhAA",
+          "EgoKBlNJTFZFUhABEggKBEdPTEQQAxIMCghQTEFUSU5VTRAEEgsKB0RJQU1P",
+          "TkQQBSp2ChdlbnVtX3BsYXllcl9wcm9maWNpZW5jeRIHCgNUT0UQABIICgRD",
+          "QUxGEAESCAoES05FRRACEgkKBVRISUdIEAMSCAoEQlVUVBAEEgkKBUJFTExZ",
+          "EAUSCQoFQ0hFU1QQBhIICgRORUNLEAcSCQoFQlJBSU4QCGIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::enum_player_level), typeof(global::enum_player_proficiency), }, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::root_proto), global::root_proto.Parser, new[]{ "ConnectID", "MessageID", "MessageName", "MessageData", "ServerTime" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::struct_player_info), global::struct_player_info.Parser, new[]{ "UserName", "UserIcon", "Energy", "Gems", "Level", "Proficiency" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::struct_player_info), global::struct_player_info.Parser, new[]{ "UserName", "UserIcon", "Energy", "Gems", "Level", "Proficiency", "Speed", "Judgment", "Calculate", "Accuracy", "Observation", "Memory" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::req_message_login_game), global::req_message_login_game.Parser, new[]{ "UserID", "UserName", "UserIcon" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_login_game), global::rep_message_login_game.Parser, new[]{ "IsOK", "PlayerInfo" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_player_info), global::rep_message_player_info.Parser, new[]{ "PlayerInfo" }, null, null, null)
@@ -402,6 +404,12 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     gems_ = other.gems_;
     level_ = other.level_;
     proficiency_ = other.proficiency_;
+    speed_ = other.speed_;
+    judgment_ = other.judgment_;
+    calculate_ = other.calculate_;
+    accuracy_ = other.accuracy_;
+    observation_ = other.observation_;
+    memory_ = other.memory_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -425,7 +433,7 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
   public const int UserIconFieldNumber = 2;
   private string userIcon_ = "";
   /// <summary>
-  ///暂时没用
+  ///icon
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public string UserIcon {
@@ -491,6 +499,90 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     }
   }
 
+  /// <summary>Field number for the "speed" field.</summary>
+  public const int SpeedFieldNumber = 7;
+  private float speed_;
+  /// <summary>
+  ///速度
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float Speed {
+    get { return speed_; }
+    set {
+      speed_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "judgment" field.</summary>
+  public const int JudgmentFieldNumber = 8;
+  private float judgment_;
+  /// <summary>
+  ///判断力
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float Judgment {
+    get { return judgment_; }
+    set {
+      judgment_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "calculate" field.</summary>
+  public const int CalculateFieldNumber = 9;
+  private float calculate_;
+  /// <summary>
+  ///计算力
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float Calculate {
+    get { return calculate_; }
+    set {
+      calculate_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "accuracy" field.</summary>
+  public const int AccuracyFieldNumber = 10;
+  private float accuracy_;
+  /// <summary>
+  ///精确度
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float Accuracy {
+    get { return accuracy_; }
+    set {
+      accuracy_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "observation" field.</summary>
+  public const int ObservationFieldNumber = 11;
+  private float observation_;
+  /// <summary>
+  ///观察力
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float Observation {
+    get { return observation_; }
+    set {
+      observation_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "memory" field.</summary>
+  public const int MemoryFieldNumber = 12;
+  private float memory_;
+  /// <summary>
+  ///记忆力
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float Memory {
+    get { return memory_; }
+    set {
+      memory_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as struct_player_info);
@@ -510,6 +602,12 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     if (Gems != other.Gems) return false;
     if (Level != other.Level) return false;
     if (Proficiency != other.Proficiency) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Speed, other.Speed)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Judgment, other.Judgment)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Calculate, other.Calculate)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Accuracy, other.Accuracy)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Observation, other.Observation)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Memory, other.Memory)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -522,6 +620,12 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     if (Gems != 0) hash ^= Gems.GetHashCode();
     if (Level != 0) hash ^= Level.GetHashCode();
     if (Proficiency != 0) hash ^= Proficiency.GetHashCode();
+    if (Speed != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Speed);
+    if (Judgment != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Judgment);
+    if (Calculate != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Calculate);
+    if (Accuracy != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Accuracy);
+    if (Observation != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Observation);
+    if (Memory != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Memory);
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -559,6 +663,30 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
       output.WriteRawTag(48);
       output.WriteEnum((int) Proficiency);
     }
+    if (Speed != 0F) {
+      output.WriteRawTag(61);
+      output.WriteFloat(Speed);
+    }
+    if (Judgment != 0F) {
+      output.WriteRawTag(69);
+      output.WriteFloat(Judgment);
+    }
+    if (Calculate != 0F) {
+      output.WriteRawTag(77);
+      output.WriteFloat(Calculate);
+    }
+    if (Accuracy != 0F) {
+      output.WriteRawTag(85);
+      output.WriteFloat(Accuracy);
+    }
+    if (Observation != 0F) {
+      output.WriteRawTag(93);
+      output.WriteFloat(Observation);
+    }
+    if (Memory != 0F) {
+      output.WriteRawTag(101);
+      output.WriteFloat(Memory);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -584,6 +712,24 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     }
     if (Proficiency != 0) {
       size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Proficiency);
+    }
+    if (Speed != 0F) {
+      size += 1 + 4;
+    }
+    if (Judgment != 0F) {
+      size += 1 + 4;
+    }
+    if (Calculate != 0F) {
+      size += 1 + 4;
+    }
+    if (Accuracy != 0F) {
+      size += 1 + 4;
+    }
+    if (Observation != 0F) {
+      size += 1 + 4;
+    }
+    if (Memory != 0F) {
+      size += 1 + 4;
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -613,6 +759,24 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     }
     if (other.Proficiency != 0) {
       Proficiency = other.Proficiency;
+    }
+    if (other.Speed != 0F) {
+      Speed = other.Speed;
+    }
+    if (other.Judgment != 0F) {
+      Judgment = other.Judgment;
+    }
+    if (other.Calculate != 0F) {
+      Calculate = other.Calculate;
+    }
+    if (other.Accuracy != 0F) {
+      Accuracy = other.Accuracy;
+    }
+    if (other.Observation != 0F) {
+      Observation = other.Observation;
+    }
+    if (other.Memory != 0F) {
+      Memory = other.Memory;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -647,6 +811,30 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
         }
         case 48: {
           proficiency_ = (global::enum_player_proficiency) input.ReadEnum();
+          break;
+        }
+        case 61: {
+          Speed = input.ReadFloat();
+          break;
+        }
+        case 69: {
+          Judgment = input.ReadFloat();
+          break;
+        }
+        case 77: {
+          Calculate = input.ReadFloat();
+          break;
+        }
+        case 85: {
+          Accuracy = input.ReadFloat();
+          break;
+        }
+        case 93: {
+          Observation = input.ReadFloat();
+          break;
+        }
+        case 101: {
+          Memory = input.ReadFloat();
           break;
         }
       }

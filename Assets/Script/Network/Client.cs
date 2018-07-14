@@ -10,6 +10,9 @@ using Google.Protobuf;
 
 using LitJson;
 
+
+public delegate void RequestCallback(byte[] byteData);
+
 public class Client : MonoBehaviour {
     public static Client Instance = null;
 
@@ -20,7 +23,7 @@ public class Client : MonoBehaviour {
     //数据发送队列
     private Queue<byte[]> SendQueue = new Queue<byte[]>();
     //回调函数字典
-    private Dictionary<int, System.Action<string>> CallbackDict = new Dictionary<int, System.Action<string>>();
+    private Dictionary<int, RequestCallback> CallbackDict = new Dictionary<int, RequestCallback>();
 
 
     //发送数据间隔(帧)
@@ -75,7 +78,7 @@ public class Client : MonoBehaviour {
         TCPSocket.Connect(ip, port);
     }
 
-    public void Request(IMessage msg, System.Action<string> callback = null) 
+    public void Request(IMessage msg, RequestCallback callback = null) 
     {
         root_proto proto = new root_proto();
         //序列化
@@ -233,7 +236,7 @@ public class Client : MonoBehaviour {
         //校正服务器时间
         Function.SetServerTime((long)proto.ServerTime);
         //数据
-        string strData = proto.MessageData.ToStringUtf8();
+        byte[] byteData = proto.MessageData.ToByteArray();
         //取消菊花
         if (0 != proto.MessageID)
         {
@@ -241,17 +244,17 @@ public class Client : MonoBehaviour {
             LoadLayerManager.Instance.RemoveLoad();
         }
         //事件
-        UserEventManager.TriggerEvent(proto.MessageName, strData);
+        UserEventManager.TriggerEvent(proto.MessageName, byteData);
 
         //激活回调函数
         if (CallbackDict.ContainsKey(proto.MessageID))
         {
             try
             {
-                System.Action<string> callback = CallbackDict[proto.MessageID];
+                RequestCallback callback = CallbackDict[proto.MessageID];
                 if (null != callback)
                 {
-                    callback(strData);
+                    callback(byteData);
                 }
                 CallbackDict.Remove(proto.MessageID);
             }
@@ -289,10 +292,4 @@ public class Client : MonoBehaviour {
         stream.Close();
         return default(IMessage);
     }
-    public static IMessage Deserialize(MessageParser parser, string data)
-    {
-        byte[] byteData = Encoding.UTF8.GetBytes(data);
-        return Deserialize(parser, byteData);
-    }
-
 }

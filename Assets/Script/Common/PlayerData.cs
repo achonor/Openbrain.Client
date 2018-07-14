@@ -17,6 +17,18 @@ public class PlayerData {
     public static enum_player_level level;
     //熟练度
     public static enum_player_proficiency proficiency;
+    //速度
+    public static float speed;
+    //判断力
+    public static float judgment;
+    //计算力
+    public static float calculate;
+    //精确度
+    public static float accuracy;
+    //观察力
+    public static float observation;
+    //记忆力
+    public static float memory;
 
 
     public static void UpdatePlayerData(struct_player_info info)
@@ -33,5 +45,11 @@ public class PlayerData {
         gems = info.Gems;
         level = info.Level;
         proficiency = info.Proficiency;
+        speed = info.Speed;
+        judgment = info.Judgment;
+        calculate = info.Calculate;
+        accuracy = info.Accuracy;
+        observation = info.Observation;
+        memory = info.Memory;
     }
 }
