@@ -737,11 +737,15 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 30dd036a-47ee-4f21-964f-0e24e218bc55
-  projectName: Openbrain (1)
+  cloudProjectId: 9043bef4-4dff-467d-9770-751f2d45d674
+  projectName: Openbrain (3)
   organizationId: achonor
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
