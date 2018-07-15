@@ -40,6 +40,11 @@ public class UILogin : UIBase {
 
     public void ClickWeChat(GameObject go)
     {
+        if (true)
+        {
+            TipsManager.ShowTips(Language.GetTextByKey(1));
+            return;
+        }
         Debug.Log("UILogin.ClickWeChat");
 #if UNITY_EDITOR
         CommonRequest.ReqLoginGame("achonor", "我要玩女号", @"http://thirdqq.qlogo.cn/qqapp/1107034140/D532B5446BA9E5AC90AB5138D1BD19BC/100");

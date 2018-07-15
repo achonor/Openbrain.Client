@@ -25,6 +25,10 @@ public class GameController : MonoBehaviour
     //注册监听
     void RegisterEvent()
     {
+        UserEventManager.RegisterEvent("LoginGame", (param) =>
+        {
+            UIManager.CloseUI("Prefabs/LoginUI");
+        });
         UserEventManager.RegisterEvent("rep_message_player_info", (param) =>
         {
             rep_message_player_info repMsg = Client.Deserialize(rep_message_player_info.Parser, (byte[])param) as rep_message_player_info;

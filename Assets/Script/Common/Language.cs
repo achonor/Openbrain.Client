@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Language {
     private static Dictionary<int, string> textDict = new Dictionary<int, string>() {
+        //tips
+        {00001, @"敬请期待..."},
         //等级
         {10001, @"青铜" },
         {10002, @"白银" },

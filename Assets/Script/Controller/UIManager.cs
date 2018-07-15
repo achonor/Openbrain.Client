@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour {
     public Transform BaseUIRoot;
     //MessageUI根节点
     public Transform MessageUIRoot;
+    //tips根节点
+    public Transform TipsUIRoot;
 
     //打开的UI
     private static Dictionary<string, GameObject> UIDict = new Dictionary<string, GameObject>();
@@ -28,7 +30,9 @@ public class UIManager : MonoBehaviour {
     public static void OpenUI(string prePath, Transform parent, System.Action<GameObject> callback = null)
     {
         //加载资源
-        UIDict.Add(prePath, null);
+        if (!UIDict.ContainsKey(prePath)){
+            UIDict.Add(prePath, null);
+        }
         ResourceManager.Instance.LoadResource(prePath, (GameObject obj) =>
         {
             if (null == obj)

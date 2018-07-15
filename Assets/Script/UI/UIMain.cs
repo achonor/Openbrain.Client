@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIMain : UIBase {
+
+    private void Awake()
+    {
+    }
 
     public override void OnOpen()
     {

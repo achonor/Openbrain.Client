@@ -8,6 +8,7 @@ public delegate void SchedulerCallback();
 
 public class SchedulerData
 {
+    private string name;
     private float startInterval;        //多少秒后启动
     private int runCount;               //运行次数
     private float timeInterval;         //每两次运行的时间间隔
@@ -16,8 +17,9 @@ public class SchedulerData
     private bool isPause = false;
     public IEnumerator handle;          //用于关闭定时器
 
-    public SchedulerData(float _startInterval = 0, int _runCount = 0, float _timeInterval = 1.0f, SchedulerCallback _callback = null)
+    public SchedulerData(string _name, float _startInterval = 0, int _runCount = 0, float _timeInterval = 1.0f, SchedulerCallback _callback = null)
     {
+        name = _name;
         startInterval = _startInterval;
         runCount = _runCount;
         timeInterval = _timeInterval;
@@ -51,6 +53,7 @@ public class SchedulerData
             count++;
             yield return new WaitForSeconds(timeInterval);
         }
+        Scheduler.Instance.Stop(name);
     }
 }
 
@@ -85,7 +88,7 @@ public class Scheduler : MonoBehaviour
             Debug.LogError("The name is illegal");
             return null;
         }
-        SchedulerData scheduler = new SchedulerData(_startInterval, _runCount, _timeInterval, _callback);
+        SchedulerData scheduler = new SchedulerData(name, _startInterval, _runCount, _timeInterval, _callback);
         scheduler.handle = scheduler.RunFunction();
         StartCoroutine(scheduler.handle);
         if (schedulers.ContainsKey(name))

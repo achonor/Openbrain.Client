@@ -9,6 +9,7 @@ public class CommonMethod {
         //加载TableUI
         UIManager.OpenUI("Prefabs/TableUI", UIManager.Instance.BaseUIRoot, (GameObject obj) =>
         {
+            UserEventManager.TriggerEvent("LoginGame");
             Debug.Log("CommonMethod.EnterGame Open TableUI Success!");
         });
     }
