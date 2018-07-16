@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TipsData
 {
-    public TipsData(string _content, Color _color, float _stayTime = 2.0f)
+    public TipsData(string _content, Color _color, float _stayTime)
     {
         content = _content;
         color = _color;
@@ -21,7 +21,7 @@ public class TipsManager {
     public static bool showing = false;
     private static Queue<TipsData> tipsQueue = new Queue<TipsData>();
 
-    public static void ShowTips(string text, object color = null, float stayTime = 2.0f)
+    public static void ShowTips(string text, object color = null, float stayTime = 1.0f)
     {
         if (null == color)
         {
