@@ -43,20 +43,25 @@ public class UITable : UIBase {
         }
         UIManager.OpenUI("Prefabs/MainUI", UIManager.Instance.GameUIRoot, (GameObject obj) =>
         {
+            this.homeUI = obj;
             Debug.Log("UITable.OnOpen Open MainUI Success!");
         });
     }
     public void ClickLevel(GameObject go)
     {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
     }
     public void ClickFriend(GameObject go)
     {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
     }
     public void ClickTask(GameObject go)
     {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
     }
     public void ClickMore(GameObject go)
     {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
     }
 
 

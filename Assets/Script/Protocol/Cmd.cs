@@ -24,31 +24,38 @@ public static partial class CmdReflection {
         string.Concat(
           "CgljbWQucHJvdG8idQoKcm9vdF9wcm90bxISCgpjb25uZWN0X0lEGAEgASgF",
           "EhIKCm1lc3NhZ2VfSUQYAiABKAUSFAoMbWVzc2FnZV9uYW1lGAMgASgJEhQK",
-          "DG1lc3NhZ2VfZGF0YRgEIAEoDBITCgtzZXJ2ZXJfdGltZRgFIAEoASKVAgoS",
+          "DG1lc3NhZ2VfZGF0YRgEIAEoDBITCgtzZXJ2ZXJfdGltZRgFIAEoASK1AgoS",
           "c3RydWN0X3BsYXllcl9pbmZvEhEKCXVzZXJfbmFtZRgBIAEoCRIRCgl1c2Vy",
           "X2ljb24YAiABKAkSDgoGZW5lcmd5GAMgASgFEgwKBGdlbXMYBCABKAUSIQoF",
           "bGV2ZWwYBSABKA4yEi5lbnVtX3BsYXllcl9sZXZlbBItCgtwcm9maWNpZW5j",
           "eRgGIAEoDjIYLmVudW1fcGxheWVyX3Byb2ZpY2llbmN5Eg0KBXNwZWVkGAcg",
           "ASgCEhAKCGp1ZGdtZW50GAggASgCEhEKCWNhbGN1bGF0ZRgJIAEoAhIQCghh",
           "Y2N1cmFjeRgKIAEoAhITCgtvYnNlcnZhdGlvbhgLIAEoAhIOCgZtZW1vcnkY",
-          "DCABKAIiTwoWcmVxX21lc3NhZ2VfbG9naW5fZ2FtZRIPCgd1c2VyX0lEGAEg",
-          "ASgJEhEKCXVzZXJfbmFtZRgCIAEoCRIRCgl1c2VyX2ljb24YAyABKAkiUAoW",
-          "cmVwX21lc3NhZ2VfbG9naW5fZ2FtZRIMCgRpc09LGAEgASgFEigKC3BsYXll",
-          "cl9pbmZvGAIgASgLMhMuc3RydWN0X3BsYXllcl9pbmZvIkMKF3JlcF9tZXNz",
-          "YWdlX3BsYXllcl9pbmZvEigKC3BsYXllcl9pbmZvGAEgASgLMhMuc3RydWN0",
-          "X3BsYXllcl9pbmZvKlAKEWVudW1fcGxheWVyX2xldmVsEgoKBkNPUFBFUhAA",
-          "EgoKBlNJTFZFUhABEggKBEdPTEQQAxIMCghQTEFUSU5VTRAEEgsKB0RJQU1P",
-          "TkQQBSp2ChdlbnVtX3BsYXllcl9wcm9maWNpZW5jeRIHCgNUT0UQABIICgRD",
-          "QUxGEAESCAoES05FRRACEgkKBVRISUdIEAMSCAoEQlVUVBAEEgkKBUJFTExZ",
-          "EAUSCQoFQ0hFU1QQBhIICgRORUNLEAcSCQoFQlJBSU4QCGIGcHJvdG8z"));
+          "DCABKAISDwoHcmFua2luZxgNIAEoBRINCgVncmFkZRgOIAEoBSJPChZyZXFf",
+          "bWVzc2FnZV9sb2dpbl9nYW1lEg8KB3VzZXJfSUQYASABKAkSEQoJdXNlcl9u",
+          "YW1lGAIgASgJEhEKCXVzZXJfaWNvbhgDIAEoCSJQChZyZXBfbWVzc2FnZV9s",
+          "b2dpbl9nYW1lEgwKBGlzT0sYASABKAUSKAoLcGxheWVyX2luZm8YAiABKAsy",
+          "Ey5zdHJ1Y3RfcGxheWVyX2luZm8iQwoXcmVwX21lc3NhZ2VfcGxheWVyX2lu",
+          "Zm8SKAoLcGxheWVyX2luZm8YASABKAsyEy5zdHJ1Y3RfcGxheWVyX2luZm8i",
+          "GQoXcmVxX21lc3NhZ2Vfc3RhcnRfbWF0Y2giJwoXcmVwX21lc3NhZ2Vfc3Rh",
+          "cnRfbWF0Y2gSDAoEaXNPSxgBIAEoBSJFChlyZXBfbWVzc2FnZV9tYXRjaF9z",
+          "dWNjZXNzEigKC3BsYXllcl9pbmZvGAEgASgLMhMuc3RydWN0X3BsYXllcl9p",
+          "bmZvKlAKEWVudW1fcGxheWVyX2xldmVsEgoKBkNPUFBFUhAAEgoKBlNJTFZF",
+          "UhABEggKBEdPTEQQAxIMCghQTEFUSU5VTRAEEgsKB0RJQU1PTkQQBSp2Chdl",
+          "bnVtX3BsYXllcl9wcm9maWNpZW5jeRIHCgNUT0UQABIICgRDQUxGEAESCAoE",
+          "S05FRRACEgkKBVRISUdIEAMSCAoEQlVUVBAEEgkKBUJFTExZEAUSCQoFQ0hF",
+          "U1QQBhIICgRORUNLEAcSCQoFQlJBSU4QCGIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::enum_player_level), typeof(global::enum_player_proficiency), }, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::root_proto), global::root_proto.Parser, new[]{ "ConnectID", "MessageID", "MessageName", "MessageData", "ServerTime" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::struct_player_info), global::struct_player_info.Parser, new[]{ "UserName", "UserIcon", "Energy", "Gems", "Level", "Proficiency", "Speed", "Judgment", "Calculate", "Accuracy", "Observation", "Memory" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::struct_player_info), global::struct_player_info.Parser, new[]{ "UserName", "UserIcon", "Energy", "Gems", "Level", "Proficiency", "Speed", "Judgment", "Calculate", "Accuracy", "Observation", "Memory", "Ranking", "Grade" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::req_message_login_game), global::req_message_login_game.Parser, new[]{ "UserID", "UserName", "UserIcon" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_login_game), global::rep_message_login_game.Parser, new[]{ "IsOK", "PlayerInfo" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_player_info), global::rep_message_player_info.Parser, new[]{ "PlayerInfo" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_player_info), global::rep_message_player_info.Parser, new[]{ "PlayerInfo" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::req_message_start_match), global::req_message_start_match.Parser, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_start_match), global::rep_message_start_match.Parser, new[]{ "IsOK" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_match_success), global::rep_message_match_success.Parser, new[]{ "PlayerInfo" }, null, null, null)
         }));
   }
   #endregion
@@ -410,6 +417,8 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     accuracy_ = other.accuracy_;
     observation_ = other.observation_;
     memory_ = other.memory_;
+    ranking_ = other.ranking_;
+    grade_ = other.grade_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -583,6 +592,34 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     }
   }
 
+  /// <summary>Field number for the "ranking" field.</summary>
+  public const int RankingFieldNumber = 13;
+  private int ranking_;
+  /// <summary>
+  ///排名
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Ranking {
+    get { return ranking_; }
+    set {
+      ranking_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "grade" field.</summary>
+  public const int GradeFieldNumber = 14;
+  private int grade_;
+  /// <summary>
+  ///积分
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Grade {
+    get { return grade_; }
+    set {
+      grade_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as struct_player_info);
@@ -608,6 +645,8 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Accuracy, other.Accuracy)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Observation, other.Observation)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Memory, other.Memory)) return false;
+    if (Ranking != other.Ranking) return false;
+    if (Grade != other.Grade) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -626,6 +665,8 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     if (Accuracy != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Accuracy);
     if (Observation != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Observation);
     if (Memory != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Memory);
+    if (Ranking != 0) hash ^= Ranking.GetHashCode();
+    if (Grade != 0) hash ^= Grade.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -687,6 +728,14 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
       output.WriteRawTag(101);
       output.WriteFloat(Memory);
     }
+    if (Ranking != 0) {
+      output.WriteRawTag(104);
+      output.WriteInt32(Ranking);
+    }
+    if (Grade != 0) {
+      output.WriteRawTag(112);
+      output.WriteInt32(Grade);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -730,6 +779,12 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     }
     if (Memory != 0F) {
       size += 1 + 4;
+    }
+    if (Ranking != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Ranking);
+    }
+    if (Grade != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Grade);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -777,6 +832,12 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
     }
     if (other.Memory != 0F) {
       Memory = other.Memory;
+    }
+    if (other.Ranking != 0) {
+      Ranking = other.Ranking;
+    }
+    if (other.Grade != 0) {
+      Grade = other.Grade;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -835,6 +896,14 @@ public sealed partial class struct_player_info : pb::IMessage<struct_player_info
         }
         case 101: {
           Memory = input.ReadFloat();
+          break;
+        }
+        case 104: {
+          Ranking = input.ReadInt32();
+          break;
+        }
+        case 112: {
+          Grade = input.ReadInt32();
           break;
         }
       }
@@ -1299,6 +1368,380 @@ public sealed partial class rep_message_player_info : pb::IMessage<rep_message_p
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public void MergeFrom(rep_message_player_info other) {
+    if (other == null) {
+      return;
+    }
+    if (other.playerInfo_ != null) {
+      if (playerInfo_ == null) {
+        playerInfo_ = new global::struct_player_info();
+      }
+      PlayerInfo.MergeFrom(other.PlayerInfo);
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          if (playerInfo_ == null) {
+            playerInfo_ = new global::struct_player_info();
+          }
+          input.ReadMessage(playerInfo_);
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+///请求开始匹配
+/// </summary>
+public sealed partial class req_message_start_match : pb::IMessage<req_message_start_match> {
+  private static readonly pb::MessageParser<req_message_start_match> _parser = new pb::MessageParser<req_message_start_match>(() => new req_message_start_match());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<req_message_start_match> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[5]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_start_match() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_start_match(req_message_start_match other) : this() {
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_start_match Clone() {
+    return new req_message_start_match(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as req_message_start_match);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(req_message_start_match other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(req_message_start_match other) {
+    if (other == null) {
+      return;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+      }
+    }
+  }
+
+}
+
+public sealed partial class rep_message_start_match : pb::IMessage<rep_message_start_match> {
+  private static readonly pb::MessageParser<rep_message_start_match> _parser = new pb::MessageParser<rep_message_start_match>(() => new rep_message_start_match());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<rep_message_start_match> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[6]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_start_match() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_start_match(rep_message_start_match other) : this() {
+    isOK_ = other.isOK_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_start_match Clone() {
+    return new rep_message_start_match(this);
+  }
+
+  /// <summary>Field number for the "isOK" field.</summary>
+  public const int IsOKFieldNumber = 1;
+  private int isOK_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int IsOK {
+    get { return isOK_; }
+    set {
+      isOK_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as rep_message_start_match);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(rep_message_start_match other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (IsOK != other.IsOK) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (IsOK != 0) hash ^= IsOK.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (IsOK != 0) {
+      output.WriteRawTag(8);
+      output.WriteInt32(IsOK);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (IsOK != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsOK);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(rep_message_start_match other) {
+    if (other == null) {
+      return;
+    }
+    if (other.IsOK != 0) {
+      IsOK = other.IsOK;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          IsOK = input.ReadInt32();
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+///推送匹配成功
+/// </summary>
+public sealed partial class rep_message_match_success : pb::IMessage<rep_message_match_success> {
+  private static readonly pb::MessageParser<rep_message_match_success> _parser = new pb::MessageParser<rep_message_match_success>(() => new rep_message_match_success());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<rep_message_match_success> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[7]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_match_success() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_match_success(rep_message_match_success other) : this() {
+    playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_match_success Clone() {
+    return new rep_message_match_success(this);
+  }
+
+  /// <summary>Field number for the "player_info" field.</summary>
+  public const int PlayerInfoFieldNumber = 1;
+  private global::struct_player_info playerInfo_;
+  /// <summary>
+  ///匹配到的玩家信息
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::struct_player_info PlayerInfo {
+    get { return playerInfo_; }
+    set {
+      playerInfo_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as rep_message_match_success);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(rep_message_match_success other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (playerInfo_ != null) {
+      output.WriteRawTag(10);
+      output.WriteMessage(PlayerInfo);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (playerInfo_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(rep_message_match_success other) {
     if (other == null) {
       return;
     }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerData {
+    //服务发的玩家信息
+    public static struct_player_info playerInfo;
+
     //玩家id
     public static string userID;
     //玩家昵称
@@ -33,14 +36,18 @@ public class PlayerData {
 
     public static void UpdatePlayerData(struct_player_info info)
     {
+        playerInfo = info;
         if (!string.IsNullOrEmpty(info.UserName))
         {
             userName = info.UserName;
         }
+        playerInfo.UserName = userName;
         if (!string.IsNullOrEmpty(info.UserIcon))
         {
             userIcon = info.UserIcon;
         }
+        playerInfo.UserIcon = userIcon;
+
         energy = info.Energy;
         gems = info.Gems;
         level = info.Level;
@@ -52,4 +59,5 @@ public class PlayerData {
         observation = info.Observation;
         memory = info.Memory;
     }
+
 }

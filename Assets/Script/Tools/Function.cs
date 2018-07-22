@@ -70,7 +70,7 @@ public class Function{
 
 
     //加载url图
-    public static IEnumerator DownloadImage(Image image, string url)
+    public static IEnumerator DownloadImage(Image image, string url, System.Action<Sprite> callback = null)
     {
         WWW www = new WWW(url);
         yield return www;
@@ -82,6 +82,10 @@ public class Function{
             Texture2D tex = www.texture;
             Sprite temp = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
             image.sprite = temp;
+            if (null != callback)
+            {
+                callback(temp);
+            }
         }
     }
     //通过枚举获取等级文字

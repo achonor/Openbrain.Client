@@ -8,6 +8,19 @@ public class UIMain : UIBase {
 
     private void Awake()
     {
+
+        //按钮回调
+        //体力+
+        EventTrigger.Get(transform.Find("Energy/Add").gameObject).onClick = ClickEnergyAdd;
+        //钻石+
+        EventTrigger.Get(transform.Find("Gems/Add").gameObject).onClick = ClickGemsAdd;
+        //等级
+        EventTrigger.Get(transform.Find("PlayerInfo/Level").gameObject).onClick = ClickLevel;
+        //熟练度
+        EventTrigger.Get(transform.Find("PlayerInfo/Proficiency").gameObject).onClick = ClickProficiency;
+        //开战
+        EventTrigger.Get(transform.Find("StartButton").gameObject).onClick = ClickStart;
+
     }
 
     public override void OnOpen()
@@ -48,5 +61,39 @@ public class UIMain : UIBase {
         var polygon = transform.Find("Hexagon/Polygon").GetComponent<Polygon>();
         polygon.SetValue(new float[] {PlayerData.speed, PlayerData.judgment, PlayerData.calculate, PlayerData.accuracy, PlayerData.observation, PlayerData.memory});
 
+    }
+
+    void ClickEnergyAdd(GameObject obj)
+    {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
+    }
+    void ClickGemsAdd(GameObject obj)
+    {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
+    }
+    void ClickLevel(GameObject obj)
+    {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
+    }
+    void ClickProficiency(GameObject obj)
+    {
+        TipsManager.ShowTips(Language.GetTextByKey(1));
+    }
+    //开始游戏
+    void ClickStart(GameObject obj)
+    {
+        if(PlayerData.energy < 3)
+        {
+            TipsManager.ShowTips(Language.GetTextByKey(2));
+            return;
+        }
+        //开始
+        UIManager.OpenUI("Prefabs/MatchUI", UIManager.Instance.GameUIRoot, (GameObject uiObj) =>{
+            //请求开始
+            CommonRequest.ReqSatrtMatch();
+            //关闭UI
+            UIManager.CloseUI("Prefabs/TableUI");
+            UIManager.CloseUI("Prefabs/MainUI");
+        });
     }
 }
