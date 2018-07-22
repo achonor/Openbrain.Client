@@ -40,11 +40,15 @@ public static partial class CmdReflection {
           "GQoXcmVxX21lc3NhZ2Vfc3RhcnRfbWF0Y2giJwoXcmVwX21lc3NhZ2Vfc3Rh",
           "cnRfbWF0Y2gSDAoEaXNPSxgBIAEoBSJFChlyZXBfbWVzc2FnZV9tYXRjaF9z",
           "dWNjZXNzEigKC3BsYXllcl9pbmZvGAEgASgLMhMuc3RydWN0X3BsYXllcl9p",
-          "bmZvKlAKEWVudW1fcGxheWVyX2xldmVsEgoKBkNPUFBFUhAAEgoKBlNJTFZF",
-          "UhABEggKBEdPTEQQAxIMCghQTEFUSU5VTRAEEgsKB0RJQU1PTkQQBSp2Chdl",
-          "bnVtX3BsYXllcl9wcm9maWNpZW5jeRIHCgNUT0UQABIICgRDQUxGEAESCAoE",
-          "S05FRRACEgkKBVRISUdIEAMSCAoEQlVUVBAEEgkKBUJFTExZEAUSCQoFQ0hF",
-          "U1QQBhIICgRORUNLEAcSCQoFQlJBSU4QCGIGcHJvdG8z"));
+          "bmZvIhkKF3JlcV9tZXNzYWdlX3N0YXJ0X3JlYWR5IpcBChdyZXBfbWVzc2Fn",
+          "ZV9zdGFydF9yZWFkeRIMCgRpc09LGAEgASgFEg8KB2lubmluZ3MYAiABKAUS",
+          "EgoKc3RhcnRfdGltZRgDIAEoARIoCgtwbGF5ZXJfaW5mbxgEIAEoCzITLnN0",
+          "cnVjdF9wbGF5ZXJfaW5mbxIRCglyYW5kX3BsYXkYBSADKAUSDAoEcGxheRgG",
+          "IAEoBSpQChFlbnVtX3BsYXllcl9sZXZlbBIKCgZDT1BQRVIQABIKCgZTSUxW",
+          "RVIQARIICgRHT0xEEAMSDAoIUExBVElOVU0QBBILCgdESUFNT05EEAUqdgoX",
+          "ZW51bV9wbGF5ZXJfcHJvZmljaWVuY3kSBwoDVE9FEAASCAoEQ0FMRhABEggK",
+          "BEtORUUQAhIJCgVUSElHSBADEggKBEJVVFQQBBIJCgVCRUxMWRAFEgkKBUNI",
+          "RVNUEAYSCAoETkVDSxAHEgkKBUJSQUlOEAhiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::enum_player_level), typeof(global::enum_player_proficiency), }, new pbr::GeneratedClrTypeInfo[] {
@@ -55,7 +59,9 @@ public static partial class CmdReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_player_info), global::rep_message_player_info.Parser, new[]{ "PlayerInfo" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::req_message_start_match), global::req_message_start_match.Parser, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_start_match), global::rep_message_start_match.Parser, new[]{ "IsOK" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_match_success), global::rep_message_match_success.Parser, new[]{ "PlayerInfo" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_match_success), global::rep_message_match_success.Parser, new[]{ "PlayerInfo" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::req_message_start_ready), global::req_message_start_ready.Parser, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_start_ready), global::rep_message_start_ready.Parser, new[]{ "IsOK", "Innings", "StartTime", "PlayerInfo", "RandPlay", "Play" }, null, null, null)
         }));
   }
   #endregion
@@ -1767,6 +1773,393 @@ public sealed partial class rep_message_match_success : pb::IMessage<rep_message
             playerInfo_ = new global::struct_player_info();
           }
           input.ReadMessage(playerInfo_);
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+///请求开始准备
+/// </summary>
+public sealed partial class req_message_start_ready : pb::IMessage<req_message_start_ready> {
+  private static readonly pb::MessageParser<req_message_start_ready> _parser = new pb::MessageParser<req_message_start_ready>(() => new req_message_start_ready());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<req_message_start_ready> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[8]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_start_ready() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_start_ready(req_message_start_ready other) : this() {
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public req_message_start_ready Clone() {
+    return new req_message_start_ready(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as req_message_start_ready);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(req_message_start_ready other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(req_message_start_ready other) {
+    if (other == null) {
+      return;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+      }
+    }
+  }
+
+}
+
+public sealed partial class rep_message_start_ready : pb::IMessage<rep_message_start_ready> {
+  private static readonly pb::MessageParser<rep_message_start_ready> _parser = new pb::MessageParser<rep_message_start_ready>(() => new rep_message_start_ready());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<rep_message_start_ready> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[9]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_start_ready() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_start_ready(rep_message_start_ready other) : this() {
+    isOK_ = other.isOK_;
+    innings_ = other.innings_;
+    startTime_ = other.startTime_;
+    playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
+    randPlay_ = other.randPlay_.Clone();
+    play_ = other.play_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_start_ready Clone() {
+    return new rep_message_start_ready(this);
+  }
+
+  /// <summary>Field number for the "isOK" field.</summary>
+  public const int IsOKFieldNumber = 1;
+  private int isOK_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int IsOK {
+    get { return isOK_; }
+    set {
+      isOK_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "innings" field.</summary>
+  public const int InningsFieldNumber = 2;
+  private int innings_;
+  /// <summary>
+  ///当前是第几局
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Innings {
+    get { return innings_; }
+    set {
+      innings_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "start_time" field.</summary>
+  public const int StartTimeFieldNumber = 3;
+  private double startTime_;
+  /// <summary>
+  ///开始游戏时间
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public double StartTime {
+    get { return startTime_; }
+    set {
+      startTime_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "player_info" field.</summary>
+  public const int PlayerInfoFieldNumber = 4;
+  private global::struct_player_info playerInfo_;
+  /// <summary>
+  ///对手信息
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::struct_player_info PlayerInfo {
+    get { return playerInfo_; }
+    set {
+      playerInfo_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "rand_play" field.</summary>
+  public const int RandPlayFieldNumber = 5;
+  private static readonly pb::FieldCodec<int> _repeated_randPlay_codec
+      = pb::FieldCodec.ForInt32(42);
+  private readonly pbc::RepeatedField<int> randPlay_ = new pbc::RepeatedField<int>();
+  /// <summary>
+  ///展示随机玩法
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<int> RandPlay {
+    get { return randPlay_; }
+  }
+
+  /// <summary>Field number for the "play" field.</summary>
+  public const int PlayFieldNumber = 6;
+  private int play_;
+  /// <summary>
+  ///本局玩法
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Play {
+    get { return play_; }
+    set {
+      play_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as rep_message_start_ready);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(rep_message_start_ready other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (IsOK != other.IsOK) return false;
+    if (Innings != other.Innings) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(StartTime, other.StartTime)) return false;
+    if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
+    if(!randPlay_.Equals(other.randPlay_)) return false;
+    if (Play != other.Play) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (IsOK != 0) hash ^= IsOK.GetHashCode();
+    if (Innings != 0) hash ^= Innings.GetHashCode();
+    if (StartTime != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(StartTime);
+    if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
+    hash ^= randPlay_.GetHashCode();
+    if (Play != 0) hash ^= Play.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (IsOK != 0) {
+      output.WriteRawTag(8);
+      output.WriteInt32(IsOK);
+    }
+    if (Innings != 0) {
+      output.WriteRawTag(16);
+      output.WriteInt32(Innings);
+    }
+    if (StartTime != 0D) {
+      output.WriteRawTag(25);
+      output.WriteDouble(StartTime);
+    }
+    if (playerInfo_ != null) {
+      output.WriteRawTag(34);
+      output.WriteMessage(PlayerInfo);
+    }
+    randPlay_.WriteTo(output, _repeated_randPlay_codec);
+    if (Play != 0) {
+      output.WriteRawTag(48);
+      output.WriteInt32(Play);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (IsOK != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsOK);
+    }
+    if (Innings != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Innings);
+    }
+    if (StartTime != 0D) {
+      size += 1 + 8;
+    }
+    if (playerInfo_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
+    }
+    size += randPlay_.CalculateSize(_repeated_randPlay_codec);
+    if (Play != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Play);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(rep_message_start_ready other) {
+    if (other == null) {
+      return;
+    }
+    if (other.IsOK != 0) {
+      IsOK = other.IsOK;
+    }
+    if (other.Innings != 0) {
+      Innings = other.Innings;
+    }
+    if (other.StartTime != 0D) {
+      StartTime = other.StartTime;
+    }
+    if (other.playerInfo_ != null) {
+      if (playerInfo_ == null) {
+        playerInfo_ = new global::struct_player_info();
+      }
+      PlayerInfo.MergeFrom(other.PlayerInfo);
+    }
+    randPlay_.Add(other.randPlay_);
+    if (other.Play != 0) {
+      Play = other.Play;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          IsOK = input.ReadInt32();
+          break;
+        }
+        case 16: {
+          Innings = input.ReadInt32();
+          break;
+        }
+        case 25: {
+          StartTime = input.ReadDouble();
+          break;
+        }
+        case 34: {
+          if (playerInfo_ == null) {
+            playerInfo_ = new global::struct_player_info();
+          }
+          input.ReadMessage(playerInfo_);
+          break;
+        }
+        case 42:
+        case 40: {
+          randPlay_.AddEntriesFrom(input, _repeated_randPlay_codec);
+          break;
+        }
+        case 48: {
+          Play = input.ReadInt32();
           break;
         }
       }

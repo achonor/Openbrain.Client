@@ -42,4 +42,31 @@ public class CommonRequest {
             }
         });
     }
+    //请求开始准备
+    public static void ReqSatrtReady()
+    {
+        Debug.Log("CommonRequest.ReqSatrtReady");
+        req_message_start_ready reqMsg = new req_message_start_ready();
+        Client.Instance.Request(reqMsg, (byte[] data) =>
+        {
+            rep_message_start_ready repMsg = Client.Deserialize(rep_message_start_ready.Parser, data) as rep_message_start_ready;
+            Debug.Log("CommonRequest.ReqSatrtReady isOK = " + repMsg.IsOK);
+            if (0 == repMsg.IsOK)
+            {
+                //打开准备UI
+                UIManager.OpenUI("Prefabs/ReadyUI", UIManager.Instance.GameUIRoot, (uiObj)=> {
+                    UIReady uiReady = uiObj.transform.GetComponent<UIReady>();
+                    if (null != uiReady)
+                    {
+                        uiReady.RefreshUI(repMsg);
+                    }
+                });
+            }
+            else
+            {
+                Debug.LogError("CommonRequest.ReqSatrtReady Request Match Error!");
+            }
+        });
+    }
+
 }

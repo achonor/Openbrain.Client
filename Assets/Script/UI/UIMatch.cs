@@ -104,6 +104,11 @@ public class UIMatch : UIBase {
             bottomInfo.GetComponent<MoveTo>().Play();
             //停止定时器
             Scheduler.Instance.Stop("ChangeMatchingText");
+            //一秒钟后发送准备游戏协议
+            Scheduler.Instance.CreateScheduler("ReadyStartGame", 1.0f, 1, 0, () =>
+            {
+                CommonRequest.ReqSatrtReady();
+            });
         }
     }
 
