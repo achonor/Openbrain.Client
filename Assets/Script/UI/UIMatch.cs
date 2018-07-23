@@ -11,7 +11,7 @@ public class UIMatch : UIBase {
     private Transform matching;
     private Text matchingText;
 
-    private int[] matchingTextKey = { 10202, 10203, 10204, 10205};
+    private int[] matchingTextKey = {10202, 10203, 10204, 10205};
 
     private void Awake() {
         topInfo = transform.Find("TopInfo");
