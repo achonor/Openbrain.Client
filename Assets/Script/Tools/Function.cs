@@ -10,14 +10,14 @@ public class Function{
     //1970
     private static DateTime time1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0);
     //服务器和本地时间差
-    private static long offsetTime;
+    private static double offsetTime;
 
     //获取本地时间戳
-    public static long GetLocaLTime()
+    public static double GetLocaLTime()
     {
-        return Convert.ToInt64((DateTime.UtcNow - time1970).TotalSeconds);
+        return Convert.ToDouble((DateTime.UtcNow - time1970).TotalSeconds);
     }
-    public static long GetServerTime()
+    public static double GetServerTime()
     {
         return GetLocaLTime() + offsetTime;
     }
@@ -88,6 +88,18 @@ public class Function{
             }
         }
     }
+
+    public static void SetImageSprite(Image image, string iconPath)
+    {
+        Sprite sprite = Resources.Load(iconPath, typeof(Sprite)) as Sprite;
+        if (null == sprite)
+        {
+            Debug.LogError("SetImageSprite Error: " + iconPath);
+            return;
+        }
+        image.sprite = sprite;
+    }
+
     //通过枚举获取等级文字
     public static string LevelToString(enum_player_level level)
     {
@@ -135,5 +147,4 @@ public class Function{
                 return "NULL";
         }
     }
-
 }

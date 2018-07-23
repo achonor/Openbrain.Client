@@ -24,6 +24,8 @@ public class Client : MonoBehaviour {
     private Queue<byte[]> SendQueue = new Queue<byte[]>();
     //回调函数字典
     private Dictionary<int, RequestCallback> CallbackDict = new Dictionary<int, RequestCallback>();
+    //保存请求是否显示load
+    private Dictionary<int, bool> RequestLoadDict = new Dictionary<int, bool>();
 
 
     //发送数据间隔(帧)
@@ -78,7 +80,7 @@ public class Client : MonoBehaviour {
         TCPSocket.Connect(ip, port);
     }
 
-    public void Request(IMessage msg, RequestCallback callback = null) 
+    public void Request(IMessage msg, RequestCallback callback = null, bool needLoad = true) 
     {
         root_proto proto = new root_proto();
         //序列化
@@ -95,7 +97,11 @@ public class Client : MonoBehaviour {
         //加入发送队列
         SendQueue.Enqueue(protoByte);
         //菊花
-        LoadLayerManager.Instance.AddLoad();
+        RequestLoadDict.Add(proto.MessageID, needLoad);
+        if (true == needLoad)
+        {
+            LoadLayerManager.Instance.AddLoad();
+        }
     }
 
     //当前接收的状态
@@ -238,11 +244,13 @@ public class Client : MonoBehaviour {
         //数据
         byte[] byteData = proto.MessageData.ToByteArray();
         //取消菊花
-        if (0 != proto.MessageID)
+        if (0 != proto.MessageID && true == RequestLoadDict[proto.MessageID])
         {
             //0是推送协议
             LoadLayerManager.Instance.RemoveLoad();
         }
+        RequestLoadDict.Remove(proto.MessageID);
+
         //事件
         UserEventManager.TriggerEvent(proto.MessageName, byteData);
 
@@ -282,14 +290,6 @@ public class Client : MonoBehaviour {
     //反序列化
     public static IMessage Deserialize(MessageParser parser, byte[] byteData)
     {
-        Stream stream = new MemoryStream(byteData);
-        if (null != stream)
-        {
-            IMessage msg = parser.ParseFrom(stream);
-            stream.Close();
-            return msg;
-        }
-        stream.Close();
-        return default(IMessage);
+        return parser.ParseFrom(byteData);
     }
 }

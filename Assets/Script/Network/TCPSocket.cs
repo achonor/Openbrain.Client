@@ -117,7 +117,7 @@ public class TCPSocket
             }
         }, tcpSocket);
         //超时时间
-        long outTime = Function.GetServerTime() + ConnectTimeOut;
+        double outTime = Function.GetServerTime() + ConnectTimeOut;
         Scheduler.Instance.CreateScheduler("CHECK_BEGINCONNECT", 0, 0, 0.2f, () =>
         {
             Debug.Log("linkState = " + linkState + " Function.GetServerTime() = " + Function.GetServerTime() + " outTime = " + outTime);

@@ -50,13 +50,14 @@ public static partial class CmdReflection {
           "Cgdpbm5pbmdzGAEgASgFEhEKCWFkZF92YWx1ZRgCIAEoBSI3ChhyZXBfbWVz",
           "c2FnZV91cGRhdGFfZ3JhZGUSDAoEaXNPSxgBIAEoBRINCgVncmFkZRgCIAEo",
           "BSIyCiFyZXBfbWVzc2FnZV91cGRhdGFfb3Bwb25lbnRfZ3JhZGUSDQoFZ3Jh",
-          "ZGUYASABKAUqOwoKRVJST1JfQ09ERRIGCgJPSxAAEhAKC0hBU19SRUZFUkVF",
-          "ENEPEhMKDkdBTUVfTk9UX1NUQVJUELkXKlAKEWVudW1fcGxheWVyX2xldmVs",
-          "EgoKBkNPUFBFUhAAEgoKBlNJTFZFUhABEggKBEdPTEQQAxIMCghQTEFUSU5V",
-          "TRAEEgsKB0RJQU1PTkQQBSp2ChdlbnVtX3BsYXllcl9wcm9maWNpZW5jeRIH",
-          "CgNUT0UQABIICgRDQUxGEAESCAoES05FRRACEgkKBVRISUdIEAMSCAoEQlVU",
-          "VBAEEgkKBUJFTExZEAUSCQoFQ0hFU1QQBhIICgRORUNLEAcSCQoFQlJBSU4Q",
-          "CGIGcHJvdG8z"));
+          "ZGUYASABKAUqbwoKRVJST1JfQ09ERRIGCgJPSxAAEhAKC0hBU19SRUZFUkVF",
+          "ENEPEhMKDkdBTUVfTk9UX1NUQVJUENIPEhkKFElOTklOR1NfR0FNRV9IQVNf",
+          "RU5EENMPEhcKEk9QUE9ORU5UX05PVF9GT1VORBDUDypQChFlbnVtX3BsYXll",
+          "cl9sZXZlbBIKCgZDT1BQRVIQABIKCgZTSUxWRVIQARIICgRHT0xEEAMSDAoI",
+          "UExBVElOVU0QBBILCgdESUFNT05EEAUqdgoXZW51bV9wbGF5ZXJfcHJvZmlj",
+          "aWVuY3kSBwoDVE9FEAASCAoEQ0FMRhABEggKBEtORUUQAhIJCgVUSElHSBAD",
+          "EggKBEJVVFQQBBIJCgVCRUxMWRAFEgkKBUNIRVNUEAYSCAoETkVDSxAHEgkK",
+          "BUJSQUlOEAhiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ERROR_CODE), typeof(global::enum_player_level), typeof(global::enum_player_proficiency), }, new pbr::GeneratedClrTypeInfo[] {
@@ -93,7 +94,15 @@ public enum ERROR_CODE {
   /// <summary>
   ///游戏未开始
   /// </summary>
-  [pbr::OriginalName("GAME_NOT_START")] GameNotStart = 3001,
+  [pbr::OriginalName("GAME_NOT_START")] GameNotStart = 2002,
+  /// <summary>
+  ///本剧游戏已经结束
+  /// </summary>
+  [pbr::OriginalName("INNINGS_GAME_HAS_END")] InningsGameHasEnd = 2003,
+  /// <summary>
+  ///对手不存在
+  /// </summary>
+  [pbr::OriginalName("OPPONENT_NOT_FOUND")] OpponentNotFound = 2004,
 }
 
 /// <summary>

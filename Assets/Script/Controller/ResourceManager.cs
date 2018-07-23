@@ -13,7 +13,7 @@ public class ResourceObject
     public GameObject resObject;
     public System.Action<GameObject> loadedCallback;
     //释放时间戳
-    public long freeTime;
+    public double freeTime;
 
     public ResourceObject(string path, System.Action<GameObject> callback = null)
     {
@@ -69,7 +69,7 @@ public class ResourceManager : MonoBehaviour{
         //需要释放的资源列表
         List<ResourceObject> freeList = new List<ResourceObject>();
         //获取当前时间
-        long curTime = Function.GetServerTime();
+        double curTime = Function.GetServerTime();
         foreach(var res in CachePool.Values)
         {
             if (res.freeTime < curTime)

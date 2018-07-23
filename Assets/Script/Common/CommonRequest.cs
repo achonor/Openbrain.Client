@@ -60,6 +60,8 @@ public class CommonRequest {
                     {
                         uiReady.RefreshUI(repMsg);
                     }
+                    //关闭匹配UI
+                    UIManager.CloseUI("Prefabs/MatchUI");
                 });
             }
             else
