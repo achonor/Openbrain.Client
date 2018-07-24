@@ -68,7 +68,7 @@ public class UIReady : UIBase {
         //展示要随机的玩法
         playViewList.RegisterInitCallback((Transform obj, int index) =>
         {
-            int playID = readyInfo.RandPlay[index];
+            int playID = readyInfo.RandPlayId[index];
             //获取配置
             play_data playData = PlayDataConfig.Instance.GetDataByID(playID);
             //icon
@@ -77,7 +77,7 @@ public class UIReady : UIBase {
             obj.Find("Name").GetComponent<Text>().text = playData.Name;
         });
         //刷新列表
-        playViewList.totalCount = readyInfo.RandPlay.Count;
+        playViewList.totalCount = readyInfo.RandPlayId.Count;
         playViewList.RefillCells();
         //随机选中玩法
         int randCount = 0;
@@ -87,7 +87,7 @@ public class UIReady : UIBase {
             {
                 randRoot.GetChild(idx).Find("Icon/Choose").gameObject.SetActive(idx == randCount);
             }
-            if (readyInfo.RandPlay[randCount] == readyInfo.Play && readyInfo.StartTime - Function.GetServerTime() < 1.0)
+            if (readyInfo.RandPlayId[randCount] == readyInfo.PlayId && readyInfo.StartTime - Function.GetServerTime() < 1.0)
             {
                 //结束定时器
                 Scheduler.Instance.Stop("UIReady.RandPlay");
@@ -96,7 +96,7 @@ public class UIReady : UIBase {
                 scaleTo.Play();
 
             }
-            randCount = (randCount + 1) % readyInfo.RandPlay.Count;
+            randCount = (randCount + 1) % readyInfo.RandPlayId.Count;
         });
     }
 

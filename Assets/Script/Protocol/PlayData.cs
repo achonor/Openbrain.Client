@@ -22,14 +22,15 @@ public static partial class PlayDataReflection {
   static PlayDataReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIkEKCXBsYXlfZGF0YRIKCgJp",
-          "ZBgBIAEoDRIMCgRuYW1lGAIgASgJEgwKBGljb24YAyABKAkSDAoEdGltZRgE",
-          "IAEoDSIsCg9wbGF5X2RhdGFfQVJSQVkSGQoFaXRlbXMYASADKAsyCi5wbGF5",
-          "X2RhdGFiBnByb3RvMw=="));
+          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvInkKCXBsYXlfZGF0YRIKCgJp",
+          "ZBgBIAEoDRIMCgRuYW1lGAIgASgJEgwKBGljb24YAyABKAkSEgoKaW50cm9f",
+          "aWNvbhgEIAEoCRISCgppbnRyb190aW1lGAUgASgCEgwKBHRpbWUYBiABKAIS",
+          "DgoGcGFyYW0xGAcgAygNIiwKD3BsYXlfZGF0YV9BUlJBWRIZCgVpdGVtcxgB",
+          "IAMoCzIKLnBsYXlfZGF0YWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "Icon", "Time" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "Icon", "IntroIcon", "IntroTime", "Time", "Param1" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::play_data_ARRAY), global::play_data_ARRAY.Parser, new[]{ "Items" }, null, null, null)
         }));
   }
@@ -65,7 +66,10 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     id_ = other.id_;
     name_ = other.name_;
     icon_ = other.icon_;
+    introIcon_ = other.introIcon_;
+    introTime_ = other.introTime_;
     time_ = other.time_;
+    param1_ = other.param1_.Clone();
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -116,18 +120,59 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     }
   }
 
+  /// <summary>Field number for the "intro_icon" field.</summary>
+  public const int IntroIconFieldNumber = 4;
+  private string introIcon_ = "";
+  /// <summary>
+  ///* 介绍icon 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string IntroIcon {
+    get { return introIcon_; }
+    set {
+      introIcon_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "intro_time" field.</summary>
+  public const int IntroTimeFieldNumber = 5;
+  private float introTime_;
+  /// <summary>
+  ///* 介绍时间（秒） 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float IntroTime {
+    get { return introTime_; }
+    set {
+      introTime_ = value;
+    }
+  }
+
   /// <summary>Field number for the "time" field.</summary>
-  public const int TimeFieldNumber = 4;
-  private uint time_;
+  public const int TimeFieldNumber = 6;
+  private float time_;
   /// <summary>
   ///* 玩法时间（秒） 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public uint Time {
+  public float Time {
     get { return time_; }
     set {
       time_ = value;
     }
+  }
+
+  /// <summary>Field number for the "param1" field.</summary>
+  public const int Param1FieldNumber = 7;
+  private static readonly pb::FieldCodec<uint> _repeated_param1_codec
+      = pb::FieldCodec.ForUInt32(58);
+  private readonly pbc::RepeatedField<uint> param1_ = new pbc::RepeatedField<uint>();
+  /// <summary>
+  ///* 玩法参数 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<uint> Param1 {
+    get { return param1_; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -146,7 +191,10 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (Id != other.Id) return false;
     if (Name != other.Name) return false;
     if (Icon != other.Icon) return false;
-    if (Time != other.Time) return false;
+    if (IntroIcon != other.IntroIcon) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(IntroTime, other.IntroTime)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Time, other.Time)) return false;
+    if(!param1_.Equals(other.param1_)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -156,7 +204,10 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (Id != 0) hash ^= Id.GetHashCode();
     if (Name.Length != 0) hash ^= Name.GetHashCode();
     if (Icon.Length != 0) hash ^= Icon.GetHashCode();
-    if (Time != 0) hash ^= Time.GetHashCode();
+    if (IntroIcon.Length != 0) hash ^= IntroIcon.GetHashCode();
+    if (IntroTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(IntroTime);
+    if (Time != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Time);
+    hash ^= param1_.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -182,10 +233,19 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       output.WriteRawTag(26);
       output.WriteString(Icon);
     }
-    if (Time != 0) {
-      output.WriteRawTag(32);
-      output.WriteUInt32(Time);
+    if (IntroIcon.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteString(IntroIcon);
     }
+    if (IntroTime != 0F) {
+      output.WriteRawTag(45);
+      output.WriteFloat(IntroTime);
+    }
+    if (Time != 0F) {
+      output.WriteRawTag(53);
+      output.WriteFloat(Time);
+    }
+    param1_.WriteTo(output, _repeated_param1_codec);
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -203,9 +263,16 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (Icon.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Icon);
     }
-    if (Time != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Time);
+    if (IntroIcon.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(IntroIcon);
     }
+    if (IntroTime != 0F) {
+      size += 1 + 4;
+    }
+    if (Time != 0F) {
+      size += 1 + 4;
+    }
+    size += param1_.CalculateSize(_repeated_param1_codec);
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
     }
@@ -226,9 +293,16 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (other.Icon.Length != 0) {
       Icon = other.Icon;
     }
-    if (other.Time != 0) {
+    if (other.IntroIcon.Length != 0) {
+      IntroIcon = other.IntroIcon;
+    }
+    if (other.IntroTime != 0F) {
+      IntroTime = other.IntroTime;
+    }
+    if (other.Time != 0F) {
       Time = other.Time;
     }
+    param1_.Add(other.param1_);
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
 
@@ -252,8 +326,21 @@ public sealed partial class play_data : pb::IMessage<play_data> {
           Icon = input.ReadString();
           break;
         }
-        case 32: {
-          Time = input.ReadUInt32();
+        case 34: {
+          IntroIcon = input.ReadString();
+          break;
+        }
+        case 45: {
+          IntroTime = input.ReadFloat();
+          break;
+        }
+        case 53: {
+          Time = input.ReadFloat();
+          break;
+        }
+        case 58:
+        case 56: {
+          param1_.AddEntriesFrom(input, _repeated_param1_codec);
           break;
         }
       }

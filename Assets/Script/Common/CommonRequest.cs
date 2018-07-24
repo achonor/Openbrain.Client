@@ -87,6 +87,17 @@ public class CommonRequest {
                 {
                     callback(repMsg);
                 }
+                //打开PlayUI
+                UIManager.OpenUI("Prefabs/PlayUI", UIManager.Instance.GameUIRoot, (uiObj) =>
+                {
+                    UIPlay uiPlay = uiObj.transform.GetComponent<UIPlay>();
+                    if (null != uiPlay)
+                    {
+                        uiPlay.RefreshUI(repMsg);
+                    }
+                    //关闭准备UI
+                    UIManager.CloseUI("Prefabs/ReadyUI");
+                });
             }
             else
             {

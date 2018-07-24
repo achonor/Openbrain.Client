@@ -35,5 +35,5 @@ public abstract class TweenBase : MonoBehaviour {
     }
     protected abstract void Reset();
     public abstract void Init();
-    public abstract void Play();
+    public abstract void Play(System.Action callback = null);
 }

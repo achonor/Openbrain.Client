@@ -27,8 +27,14 @@ public class MoveBy : TweenBase
     {
         rectTransform.anchoredPosition = initPosition;
     }
-    public override void Play()
+    public override void Play(System.Action callback = null)
     {
-        DOTween.To(() => rectTransform.anchoredPosition, (value) => rectTransform.anchoredPosition = value, endPosition, duration);
+        var tweenTo = DOTween.To(() => rectTransform.anchoredPosition, (value) => rectTransform.anchoredPosition = value, endPosition, duration);
+        if (null != callback)
+        {
+            tweenTo.OnComplete(()=>{
+                callback();
+            });
+        }
     }
 }
