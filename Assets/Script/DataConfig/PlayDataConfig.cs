@@ -17,16 +17,24 @@ public class PlayDataConfig : DataReader {
             return _Instance;
         }
     }
+    //原始数据
+    play_data_ARRAY _srcData = null;
     //数据字典
     private Dictionary<int, play_data> _dataDict = null;
-    private PlayDataConfig()
+    public void LoadConfig(System.Action callback)
     {
         _dataDict = new Dictionary<int, play_data>();
-        play_data_ARRAY allData = ReadData() as play_data_ARRAY;
-        foreach (var data in allData.Items)
+        //读文件
+        ResourceManager.Instance.WWWLoad(GetDataConfigPath(), (byte[] datas) =>
         {
-            _dataDict.Add((int)data.Id, data);
-        }
+            //反序列化
+            _srcData = GetMessageParser().ParseFrom(datas) as play_data_ARRAY;
+            foreach (var data in _srcData.Items)
+            {
+                _dataDict.Add((int)data.Id, data);
+            }
+            callback();
+        });
     }
 
     public play_data GetDataByID(int id)

@@ -187,4 +187,19 @@ public class ResourceManager : MonoBehaviour{
         CoroutineHandle = null;
     }
 
+
+    //异步加载二进制数据
+    private IEnumerator _WWWLoad(string filePath, System.Action<byte[]> callback)
+    {
+#if UNITY_EDITOR || (!UNITY_ANDROID)
+        filePath = "file://" + filePath;
+#endif
+        WWW www = new WWW(filePath);
+        yield return www;
+        callback(www.bytes);
+    }
+    public void WWWLoad(string filePath, System.Action<byte[]> callback)
+    {
+        StartCoroutine(_WWWLoad(filePath, callback));
+    }
 }

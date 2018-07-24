@@ -22,13 +22,14 @@ public static partial class PlayDataReflection {
   static PlayDataReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIjMKCXBsYXlfZGF0YRIKCgJp",
-          "ZBgBIAEoDRIMCgRuYW1lGAIgASgJEgwKBGljb24YAyABKAkiLAoPcGxheV9k",
-          "YXRhX0FSUkFZEhkKBWl0ZW1zGAEgAygLMgoucGxheV9kYXRhYgZwcm90bzM="));
+          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIkEKCXBsYXlfZGF0YRIKCgJp",
+          "ZBgBIAEoDRIMCgRuYW1lGAIgASgJEgwKBGljb24YAyABKAkSDAoEdGltZRgE",
+          "IAEoDSIsCg9wbGF5X2RhdGFfQVJSQVkSGQoFaXRlbXMYASADKAsyCi5wbGF5",
+          "X2RhdGFiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "Icon" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "Icon", "Time" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::play_data_ARRAY), global::play_data_ARRAY.Parser, new[]{ "Items" }, null, null, null)
         }));
   }
@@ -64,6 +65,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     id_ = other.id_;
     name_ = other.name_;
     icon_ = other.icon_;
+    time_ = other.time_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -104,13 +106,27 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public const int IconFieldNumber = 3;
   private string icon_ = "";
   /// <summary>
-  ///*  
+  ///* icon 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public string Icon {
     get { return icon_; }
     set {
       icon_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "time" field.</summary>
+  public const int TimeFieldNumber = 4;
+  private uint time_;
+  /// <summary>
+  ///* Íæ·¨Ê±¼ä£¨Ãë£© 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public uint Time {
+    get { return time_; }
+    set {
+      time_ = value;
     }
   }
 
@@ -130,6 +146,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (Id != other.Id) return false;
     if (Name != other.Name) return false;
     if (Icon != other.Icon) return false;
+    if (Time != other.Time) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -139,6 +156,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (Id != 0) hash ^= Id.GetHashCode();
     if (Name.Length != 0) hash ^= Name.GetHashCode();
     if (Icon.Length != 0) hash ^= Icon.GetHashCode();
+    if (Time != 0) hash ^= Time.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -164,6 +182,10 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       output.WriteRawTag(26);
       output.WriteString(Icon);
     }
+    if (Time != 0) {
+      output.WriteRawTag(32);
+      output.WriteUInt32(Time);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -180,6 +202,9 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     }
     if (Icon.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Icon);
+    }
+    if (Time != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Time);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -200,6 +225,9 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     }
     if (other.Icon.Length != 0) {
       Icon = other.Icon;
+    }
+    if (other.Time != 0) {
+      Time = other.Time;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -222,6 +250,10 @@ public sealed partial class play_data : pb::IMessage<play_data> {
         }
         case 26: {
           Icon = input.ReadString();
+          break;
+        }
+        case 32: {
+          Time = input.ReadUInt32();
           break;
         }
       }

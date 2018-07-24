@@ -72,7 +72,7 @@ public class UIReady : UIBase {
             //获取配置
             play_data playData = PlayDataConfig.Instance.GetDataByID(playID);
             //icon
-            Function.SetImageSprite(obj.Find("Image").GetComponent<Image>(), playData.Icon);
+            Function.SetImageSprite(obj.Find("Icon/Image").GetComponent<Image>(), playData.Icon);
             //名字
             obj.Find("Name").GetComponent<Text>().text = playData.Name;
         });
@@ -85,14 +85,14 @@ public class UIReady : UIBase {
         Scheduler.Instance.CreateScheduler("UIReady.RandPlay", 0, 0, 0.3f, () => {
             for (int idx = 0; idx < randRoot.childCount; idx++)
             {
-                randRoot.GetChild(idx).Find("Choose").gameObject.SetActive(idx == randCount);
+                randRoot.GetChild(idx).Find("Icon/Choose").gameObject.SetActive(idx == randCount);
             }
             if (readyInfo.RandPlay[randCount] == readyInfo.Play && readyInfo.StartTime - Function.GetServerTime() < 1.0)
             {
                 //结束定时器
                 Scheduler.Instance.Stop("UIReady.RandPlay");
                 //播放一个放大效果
-                ScaleTo scaleTo = randRoot.GetChild(randCount).GetComponent<ScaleTo>();
+                ScaleTo scaleTo = randRoot.GetChild(randCount).Find("Icon").GetComponent<ScaleTo>();
                 scaleTo.Play();
 
             }

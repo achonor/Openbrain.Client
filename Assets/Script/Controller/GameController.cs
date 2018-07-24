@@ -15,10 +15,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        //游戏开始，打开登陆界面
-        UIManager.OpenUI("Prefabs/LoginUI", UIManager.Instance.GameUIRoot, (GameObject obj) =>
+        //游戏开始，打开LoadUI
+        UIManager.OpenUI("Prefabs/LoadUI", UIManager.Instance.GameUIRoot, (GameObject obj) =>
         {
-            Debug.Log("GameController.Start Open LoginUI Success!");
+            Debug.Log("GameController.Start Open LoadUI Success!");
         });
     }
 

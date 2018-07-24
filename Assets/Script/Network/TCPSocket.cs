@@ -102,7 +102,6 @@ public class TCPSocket
         //连接状态
         int linkState = -1;
         //异步连接
-        LoadLayerManager.Instance.AddLoad();
         tcpSocket.BeginConnect(IPAddress.Parse(ip), Convert.ToInt32(port), (IAsyncResult ar) => {
             //结束挂起的连接请求
             try{
@@ -126,14 +125,16 @@ public class TCPSocket
                 //还在连接中
                 return ;
             }
-            //移除菊花
-            LoadLayerManager.Instance.RemoveLoad();
             Scheduler.Instance.Stop("CHECK_BEGINCONNECT");
             if (0 == linkState || -1 == linkState)
             {
                 //失败
                 tcpSocket.Close();
                 IsConnected = false;
+                if (null != callback)
+                {
+                    callback(false);
+                }
             }
             else if(1 == linkState)
             {
@@ -143,6 +144,10 @@ public class TCPSocket
                 receiveThread = new Thread(new ThreadStart(OnReceive));
                 receiveThread.IsBackground = true;
                 receiveThread.Start();
+                if (null != callback)
+                {
+                    callback(true);
+                }
             }
         });
     }

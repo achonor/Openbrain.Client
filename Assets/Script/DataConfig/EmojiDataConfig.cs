@@ -17,18 +17,25 @@ public class EmojiDataConfig : DataReader {
             return _Instance;
         }
     }
+
     //原始数据
     emoji_data_ARRAY _srcData = null;
     //数据字典
     private Dictionary<int, emoji_data> _dataDict = null;
-    private EmojiDataConfig()
+    public void LoadConfig(System.Action callback)
     {
         _dataDict = new Dictionary<int, emoji_data>();
-        _srcData = ReadData() as emoji_data_ARRAY;
-        foreach (var data in _srcData.Items)
+        //读文件
+        ResourceManager.Instance.WWWLoad(GetDataConfigPath(), (byte[] datas) =>
         {
-            _dataDict.Add((int)data.Id, data);
-        }
+            //反序列化
+            _srcData = GetMessageParser().ParseFrom(datas) as emoji_data_ARRAY;
+            foreach (var data in _srcData.Items)
+            {
+                _dataDict.Add((int)data.Id, data);
+            }
+            callback();
+        });
     }
 
     public emoji_data GetDataByID(int id)

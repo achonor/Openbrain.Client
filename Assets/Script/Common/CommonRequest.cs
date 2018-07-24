@@ -92,6 +92,6 @@ public class CommonRequest {
             {
                 Debug.LogError("CommonRequest.ReqSatrtGame Request Start Error!");
             }
-        });
+        }, false);
     }
 }

@@ -7,10 +7,13 @@ public class UILogin : UIBase {
 
     //防止重复点击
     private bool isLogining = false;
+
+    private GameObject weChatBtn;
+    private GameObject QQBtn;
     private void Awake()
     {
-        GameObject weChatBtn = transform.Find("WechatButton").gameObject;
-        GameObject QQBtn = transform.Find("QQButton").gameObject;
+        weChatBtn = transform.Find("WechatButton").gameObject;
+        QQBtn = transform.Find("QQButton").gameObject;
         EventTrigger.Get(weChatBtn).onClick = ClickWeChat;
         EventTrigger.Get(QQBtn).onClick = ClickQQ;
     }
@@ -37,7 +40,6 @@ public class UILogin : UIBase {
             //没有授权，重新等待用户操作
         }
     }
-
     public void ClickWeChat(GameObject go)
     {
         if (true)

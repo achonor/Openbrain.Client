@@ -44,7 +44,6 @@ public class Client : MonoBehaviour {
 
     private void Start()
     {
-        ConnectNetwork();
     }
 
     private void Update()
@@ -68,7 +67,7 @@ public class Client : MonoBehaviour {
     }
 
 
-    public void ConnectNetwork(System.Action callback = null)
+    public void ConnectNetwork(bool needLoad = true, System.Action<bool> callback = null)
     {
         //获取服务器配置
         JsonData server = GameData.GetServerConfig();
@@ -77,7 +76,17 @@ public class Client : MonoBehaviour {
         Debug.Log("Client.ConnectNetwork Start Connect Server ip = " + ip + " port = " + port);
 
         //连接
-        TCPSocket.Connect(ip, port);
+        if (true == needLoad)
+        {
+            LoadLayerManager.Instance.AddLoad();
+        }
+        TCPSocket.Connect(ip, port, (isOK)=> {
+            if (true == needLoad)
+            {
+                LoadLayerManager.Instance.RemoveLoad();
+            }
+            callback(isOK);
+        });
     }
 
     public void Request(IMessage msg, RequestCallback callback = null, bool needLoad = true) 
