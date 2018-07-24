@@ -356,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224530557783787332}
   - component: {fileID: 222056721070204454}
-  - component: {fileID: 114397718346714682}
+  - component: {fileID: 114212018658609102}
   m_Layer: 5
   m_Name: TopInfo
   m_TagString: Untagged
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224539317171455142}
   - component: {fileID: 222987791600241954}
-  - component: {fileID: 114592313364700770}
+  - component: {fileID: 114425412412236430}
   m_Layer: 5
   m_Name: BottomInfo
   m_TagString: Untagged
@@ -1035,6 +1035,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114212018658609102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539523286721722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b261269aeaecfba489df656c61d7749d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enablePlay: 0
+  duration: 0.5
+  moveValue: {x: 100, y: 0}
 --- !u!114 &114335518511343234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1095,20 +1109,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u6211\u8981\u73A9\u5973\u53F7"
---- !u!114 &114397718346714682
+--- !u!114 &114425412412236430
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1539523286721722}
+  m_GameObject: {fileID: 1559561159715772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556284f05396ecd4fb924f85b838f91b, type: 3}
+  m_Script: {fileID: 11500000, guid: b261269aeaecfba489df656c61d7749d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enablePlay: 0
-  endPosition: {x: -320, y: 380, z: 0}
-  duration: 1
+  duration: 0.5
+  moveValue: {x: -100, y: 0}
 --- !u!114 &114436466326587178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1278,20 +1292,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114592313364700770
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1559561159715772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556284f05396ecd4fb924f85b838f91b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enablePlay: 0
-  endPosition: {x: 320, y: -380, z: 0}
-  duration: 1
 --- !u!114 &114636608403019282
 MonoBehaviour:
   m_ObjectHideFlags: 1

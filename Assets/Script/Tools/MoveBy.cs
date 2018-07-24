@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class MoveTo : TweenBase
+public class MoveBy : TweenBase
 {
-    //MoveTo的位置
-    public Vector2 endPosition = Vector2.zero;
+    //需要Move的值
+    public Vector2 moveValue;
     private Vector2 initPosition;
-    
-	void Awake() {
+    private Vector2 endPosition
+    {
+        get
+        {
+            return initPosition + moveValue;
+        }
+    }
+    protected Vector2 anchorPosition;
+
+    void Awake () {
         initPosition = rectTransform.anchoredPosition;
     }
 
-    protected override void Reset()
-    {
-        endPosition = rectTransform.anchoredPosition;
-    }
+    protected override void Reset(){}
+
     public override void Init()
     {
         rectTransform.anchoredPosition = initPosition;

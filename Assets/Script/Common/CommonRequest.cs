@@ -70,5 +70,28 @@ public class CommonRequest {
             }
         });
     }
-
+    //请求开始游戏
+    public static void ReqSatrtGame(System.Action<rep_message_start_game> callback = null)
+    {
+        Debug.Log("CommonRequest.ReqSatrtGame");
+        req_message_start_game reqMsg = new req_message_start_game();
+        Client.Instance.Request(reqMsg, (byte[] data) =>
+        {
+            rep_message_start_game repMsg = Client.Deserialize(rep_message_start_game.Parser, data) as rep_message_start_game;
+            Debug.Log("CommonRequest.ReqSatrtGame isOK = " + repMsg.IsOK);
+            if (0 == repMsg.IsOK)
+            {
+                //开始游戏
+                Debug.Log("end_time = " + repMsg.EndTime);
+                if (null != callback)
+                {
+                    callback(repMsg);
+                }
+            }
+            else
+            {
+                Debug.LogError("CommonRequest.ReqSatrtGame Request Start Error!");
+            }
+        });
+    }
 }

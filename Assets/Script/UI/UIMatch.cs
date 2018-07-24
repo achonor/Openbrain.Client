@@ -50,7 +50,7 @@ public class UIMatch : UIBase {
             var headIcon = rootObj.Find("BaseImage/HeadImage/Mask/Image").GetComponent<Image>();
             StartCoroutine(Function.DownloadImage(headIcon, playerInfo.UserIcon, (sp)=> {
                 //图片加载完成, 播放动画
-                topInfo.GetComponent<MoveTo>().Play();
+                topInfo.GetComponent<MoveBy>().Play();
             }));
         }
         //名字
@@ -101,7 +101,7 @@ public class UIMatch : UIBase {
         }
         else{
             //播放动画
-            bottomInfo.GetComponent<MoveTo>().Play();
+            bottomInfo.GetComponent<MoveBy>().Play();
             //停止定时器
             Scheduler.Instance.Stop("ChangeMatchingText");
             //一秒钟后发送准备游戏协议

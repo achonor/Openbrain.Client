@@ -56,6 +56,11 @@ public class UIReady : UIBase {
             if (countdownImage.fillAmount <= 0)
             {
                 Scheduler.Instance.Stop("UIReady.Countdown");
+                //请求开始
+                CommonRequest.ReqSatrtGame((repMsg)=> {
+                    //关闭UI
+                    //this.Close();
+                });
             }
         });
         //第几回合
@@ -74,11 +79,31 @@ public class UIReady : UIBase {
         //刷新列表
         playViewList.totalCount = readyInfo.RandPlay.Count;
         playViewList.RefillCells();
+        //随机选中玩法
+        int randCount = 0;
+        Transform randRoot = transform.Find("RandPlay/Viewport/Content");
+        Scheduler.Instance.CreateScheduler("UIReady.RandPlay", 0, 0, 0.3f, () => {
+            for (int idx = 0; idx < randRoot.childCount; idx++)
+            {
+                randRoot.GetChild(idx).Find("Choose").gameObject.SetActive(idx == randCount);
+            }
+            if (readyInfo.RandPlay[randCount] == readyInfo.Play && readyInfo.StartTime - Function.GetServerTime() < 1.0)
+            {
+                //结束定时器
+                Scheduler.Instance.Stop("UIReady.RandPlay");
+                //播放一个放大效果
+                ScaleTo scaleTo = randRoot.GetChild(randCount).GetComponent<ScaleTo>();
+                scaleTo.Play();
+
+            }
+            randCount = (randCount + 1) % readyInfo.RandPlay.Count;
+        });
     }
 
     public override void OnClose()
     {
         base.OnClose();
         Scheduler.Instance.Stop("UIReady.Countdown");
+        Scheduler.Instance.Stop("UIReady.RandPlay");
     }
 }

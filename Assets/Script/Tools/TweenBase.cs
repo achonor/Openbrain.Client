@@ -1,0 +1,39 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using DG.Tweening;
+
+//Tween动画基类
+
+public abstract class TweenBase : MonoBehaviour {
+
+    //是否需要显示的时候播放
+    public bool enablePlay = false;
+    //持续时间
+    public float duration = 0;
+
+    protected RectTransform _rectTransform = null;
+    protected RectTransform rectTransform
+    {
+        get
+        {
+            if (null == _rectTransform)
+            {
+                _rectTransform = transform.GetComponent<RectTransform>();
+            }
+            return _rectTransform;
+        }
+    }
+
+    void OnEnable()
+    {
+        if (true == enablePlay)
+        {
+            Init();
+            Play();
+        }
+    }
+    protected abstract void Reset();
+    public abstract void Init();
+    public abstract void Play();
+}
