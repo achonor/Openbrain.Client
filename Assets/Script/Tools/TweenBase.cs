@@ -5,7 +5,7 @@ using DG.Tweening;
 
 //Tween动画基类
 
-public abstract class TweenBase : MonoBehaviour {
+public class TweenBase : MonoBehaviour {
 
     //是否需要显示的时候播放
     public bool enablePlay = false;
@@ -33,7 +33,7 @@ public abstract class TweenBase : MonoBehaviour {
             Play();
         }
     }
-    protected abstract void Reset();
-    public abstract void Init();
-    public abstract void Play(System.Action callback = null);
+    protected virtual void Reset() { }
+    public virtual void Init() { }
+    public virtual void Play(System.Action callback = null) { }
 }

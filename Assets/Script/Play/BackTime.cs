@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//玩法基类
+//逆转时光
+public class BackTime : UIBase {
 
-public class PlayBase : UIBase {
 }
