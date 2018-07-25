@@ -7,6 +7,10 @@ public class UIPlay : UIBase {
 
     private rep_message_start_game playInfo;
     /// <summary>
+    /// 这是第几局
+    /// </summary>
+    private int innings = 0;
+    /// <summary>
     /// 当前界面状态 0.介绍阶段，1.游戏阶段
     /// </summary>
     private int state = 0;
@@ -14,26 +18,64 @@ public class UIPlay : UIBase {
     /// 当前倒计时时间
     /// </summary>
     private double countdownTime = 0;
+    /// <summary>
+    /// 自己的分数
+    /// </summary>
+    private int leftGrade = 0;
+    /// <summary>
+    /// 对手的分数
+    /// </summary>
+    private int rightGrade = 0;
 
     private Transform introUI;
     private Transform playUI;
+    private PlayBase playBase;
+    private Text leftGradeText;
+    private Text rightGradeText;
+    private Image sliderImage;
 
     private void Awake()
     {
         introUI = transform.Find("Intro");
         playUI = transform.Find("Play");
-
-        //注册按钮事件
+        leftGradeText = transform.Find("Grade/LeftText").GetComponent<Text>();
+        rightGradeText = transform.Find("Grade/RightText").GetComponent<Text>();
+        sliderImage = transform.Find("Grade/Mask/Image").GetComponent<Image>();
     }
-
 
     public override void OnOpen()
     {
         base.OnOpen();
+        //重设分数
+        leftGrade = 0;
+        rightGrade = 0;
+        SetGrade(0, 0);
+        //注册对手分数变更事件
+        UserEventManager.RegisterEvent("rep_message_updata_opponent_grade", (param) =>
+        {
+            rep_message_updata_opponent_grade repMsg = Client.Deserialize(rep_message_updata_opponent_grade.Parser, (byte[])param) as rep_message_updata_opponent_grade;
+            SetGrade(0, repMsg.Grade - rightGrade);
+        });
+
+        //注册局结束事件
+        UserEventManager.RegisterEvent("rep_message_innings_end", (param) =>
+        {
+            rep_message_innings_end repMsg = Client.Deserialize(rep_message_innings_end.Parser, (byte[])param) as rep_message_innings_end;
+            if (repMsg.HasInnings)
+            {
+                CommonRequest.ReqSatrtReady();
+            }
+            else
+            {
+                //暂时这样写
+                CommonMethod.EnterGame();
+            }
+        });
     }
 
-    public void RefreshUI(rep_message_start_game _playInfo)
+    public void RefreshUI(int _innings, rep_message_start_game _playInfo)
     {
+        this.innings = _innings;
         this.playInfo = _playInfo;
         //初始界面状态
         SetUIState(0);
@@ -51,7 +93,12 @@ public class UIPlay : UIBase {
             StartCoroutine(Function.DownloadImage(headIcon, opponentInfo.UserIcon));
         }
         //加载玩法prefab
-
+        play_data playData = PlayDataConfig.Instance.GetDataByID(this.playInfo.PlayId);
+        UIManager.OpenUI(playData.PrefabPath, playUI, (uiObj) =>
+        {
+            playBase = uiObj.transform.GetComponent<PlayBase>();
+            playBase.answerFinish = AnswerFinish;
+        });
     }
 
     /// <summary>
@@ -74,8 +121,45 @@ public class UIPlay : UIBase {
         {
             SetCountdownTime(this.playInfo.EndTime);
             //开始玩
+            playBase.StartPlay();
         }
     }
+
+    private void SetGrade(int _addLeftGrade, int _addRightGrade)
+    {
+        leftGrade += _addLeftGrade;
+        rightGrade += _addRightGrade;
+        leftGradeText.text = leftGrade.ToString();
+        rightGradeText.text = rightGrade.ToString();
+
+        float sumGrade = leftGrade + rightGrade;
+        //设置UI
+        if (0 == sumGrade)
+        {
+            sliderImage.fillAmount = 0.5f;
+        }
+        else
+        {
+            sliderImage.fillAmount = leftGrade / sumGrade;
+        }
+    }
+    
+    /// <summary>
+    /// 每次回答完成回调
+    /// </summary>
+    /// <param name="isOK">是否正确</param>
+    /// <param name="addGrade">增加的分数</param>
+    public void AnswerFinish(bool isOK, int addGrade)
+    {
+        //同步分数
+        req_message_updata_grade rProto = new req_message_updata_grade();
+        rProto.Innings = innings;
+        rProto.AddValue = addGrade;
+        Client.Instance.Request(rProto, null, false);
+        //更新界面分数
+        SetGrade(addGrade, 0);
+    }
+
     /// <summary>
     /// 设置倒计时
     /// </summary>
@@ -104,6 +188,7 @@ public class UIPlay : UIBase {
                 else
                 {
                     //结束
+                    playBase.Close();
                 }
             }
         });
@@ -113,5 +198,7 @@ public class UIPlay : UIBase {
     {
         base.OnClose();
         Scheduler.Instance.Stop("UIPlay.SetCountdownTime");
+        UserEventManager.UnRegisterEvent("rep_message_updata_opponent_grade");
+        UserEventManager.UnRegisterEvent("rep_message_innings_end");
     }
 }

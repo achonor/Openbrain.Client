@@ -116,5 +116,8 @@ public class UIMatch : UIBase {
     {
         base.OnClose();
         Scheduler.Instance.Stop("ChangeMatchingText");
+
+        //注销事件
+        UserEventManager.UnRegisterEvent("rep_message_match_success");
     }
 }

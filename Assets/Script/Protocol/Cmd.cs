@@ -52,14 +52,15 @@ public static partial class CmdReflection {
           "Cgdpbm5pbmdzGAEgASgFEhEKCWFkZF92YWx1ZRgCIAEoBSI3ChhyZXBfbWVz",
           "c2FnZV91cGRhdGFfZ3JhZGUSDAoEaXNPSxgBIAEoBRINCgVncmFkZRgCIAEo",
           "BSIyCiFyZXBfbWVzc2FnZV91cGRhdGFfb3Bwb25lbnRfZ3JhZGUSDQoFZ3Jh",
-          "ZGUYASABKAUqbwoKRVJST1JfQ09ERRIGCgJPSxAAEhAKC0hBU19SRUZFUkVF",
-          "ENEPEhMKDkdBTUVfTk9UX1NUQVJUENIPEhkKFElOTklOR1NfR0FNRV9IQVNf",
-          "RU5EENMPEhcKEk9QUE9ORU5UX05PVF9GT1VORBDUDypQChFlbnVtX3BsYXll",
-          "cl9sZXZlbBIKCgZDT1BQRVIQABIKCgZTSUxWRVIQARIICgRHT0xEEAMSDAoI",
-          "UExBVElOVU0QBBILCgdESUFNT05EEAUqdgoXZW51bV9wbGF5ZXJfcHJvZmlj",
-          "aWVuY3kSBwoDVE9FEAASCAoEQ0FMRhABEggKBEtORUUQAhIJCgVUSElHSBAD",
-          "EggKBEJVVFQQBBIJCgVCRUxMWRAFEgkKBUNIRVNUEAYSCAoETkVDSxAHEgkK",
-          "BUJSQUlOEAhiBnByb3RvMw=="));
+          "ZGUYASABKAUiLgoXcmVwX21lc3NhZ2VfaW5uaW5nc19lbmQSEwoLaGFzX2lu",
+          "bmluZ3MYASABKAgqbwoKRVJST1JfQ09ERRIGCgJPSxAAEhAKC0hBU19SRUZF",
+          "UkVFENEPEhMKDkdBTUVfTk9UX1NUQVJUENIPEhkKFElOTklOR1NfR0FNRV9I",
+          "QVNfRU5EENMPEhcKEk9QUE9ORU5UX05PVF9GT1VORBDUDypQChFlbnVtX3Bs",
+          "YXllcl9sZXZlbBIKCgZDT1BQRVIQABIKCgZTSUxWRVIQARIICgRHT0xEEAMS",
+          "DAoIUExBVElOVU0QBBILCgdESUFNT05EEAUqdgoXZW51bV9wbGF5ZXJfcHJv",
+          "ZmljaWVuY3kSBwoDVE9FEAASCAoEQ0FMRhABEggKBEtORUUQAhIJCgVUSElH",
+          "SBADEggKBEJVVFQQBBIJCgVCRUxMWRAFEgkKBUNIRVNUEAYSCAoETkVDSxAH",
+          "EgkKBUJSQUlOEAhiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ERROR_CODE), typeof(global::enum_player_level), typeof(global::enum_player_proficiency), }, new pbr::GeneratedClrTypeInfo[] {
@@ -77,7 +78,8 @@ public static partial class CmdReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_start_game), global::rep_message_start_game.Parser, new[]{ "IsOK", "PlayId", "IntroEndTime", "EndTime", "PlayerInfo" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::req_message_updata_grade), global::req_message_updata_grade.Parser, new[]{ "Innings", "AddValue" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_updata_grade), global::rep_message_updata_grade.Parser, new[]{ "IsOK", "Grade" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_updata_opponent_grade), global::rep_message_updata_opponent_grade.Parser, new[]{ "Grade" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_updata_opponent_grade), global::rep_message_updata_opponent_grade.Parser, new[]{ "Grade" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_innings_end), global::rep_message_innings_end.Parser, new[]{ "HasInnings" }, null, null, null)
         }));
   }
   #endregion
@@ -3045,6 +3047,141 @@ public sealed partial class rep_message_updata_opponent_grade : pb::IMessage<rep
           break;
         case 8: {
           Grade = input.ReadInt32();
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+///推送本局结束
+/// </summary>
+public sealed partial class rep_message_innings_end : pb::IMessage<rep_message_innings_end> {
+  private static readonly pb::MessageParser<rep_message_innings_end> _parser = new pb::MessageParser<rep_message_innings_end>(() => new rep_message_innings_end());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<rep_message_innings_end> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[15]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_innings_end() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_innings_end(rep_message_innings_end other) : this() {
+    hasInnings_ = other.hasInnings_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_innings_end Clone() {
+    return new rep_message_innings_end(this);
+  }
+
+  /// <summary>Field number for the "has_innings" field.</summary>
+  public const int HasInningsFieldNumber = 1;
+  private bool hasInnings_;
+  /// <summary>
+  ///是否还有下一局
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool HasInnings {
+    get { return hasInnings_; }
+    set {
+      hasInnings_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as rep_message_innings_end);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(rep_message_innings_end other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (HasInnings != other.HasInnings) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (HasInnings != false) hash ^= HasInnings.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    if (HasInnings != false) {
+      output.WriteRawTag(8);
+      output.WriteBool(HasInnings);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (HasInnings != false) {
+      size += 1 + 1;
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(rep_message_innings_end other) {
+    if (other == null) {
+      return;
+    }
+    if (other.HasInnings != false) {
+      HasInnings = other.HasInnings;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          HasInnings = input.ReadBool();
           break;
         }
       }

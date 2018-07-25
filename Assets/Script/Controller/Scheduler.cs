@@ -88,15 +88,15 @@ public class Scheduler : MonoBehaviour
             Debug.LogError("The name is illegal");
             return null;
         }
-        SchedulerData scheduler = new SchedulerData(name, _startInterval, _runCount, _timeInterval, _callback);
-        scheduler.handle = scheduler.RunFunction();
-        StartCoroutine(scheduler.handle);
         if (schedulers.ContainsKey(name))
         {
             //关闭同名定时器
             Stop(name);
-            Debug.LogError("Create Same name Scheduler!!!");
+            Debug.LogError("Create Same name Scheduler name = " + name);
         }
+        SchedulerData scheduler = new SchedulerData(name, _startInterval, _runCount, _timeInterval, _callback);
+        scheduler.handle = scheduler.RunFunction();
+        StartCoroutine(scheduler.handle);
         //保存
         schedulers.Add(name, scheduler);
         return scheduler;

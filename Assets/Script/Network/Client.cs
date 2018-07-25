@@ -247,7 +247,7 @@ public class Client : MonoBehaviour {
 
         root_proto proto = new root_proto();
         proto = Deserialize(root_proto.Parser, data) as root_proto;
-
+        Debug.Log("Client.receiveData messageName = " + proto.MessageName);
         //校正服务器时间
         Function.SetServerTime((long)proto.ServerTime);
         //数据

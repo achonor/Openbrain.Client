@@ -30,7 +30,7 @@ public class UserEventManager : MonoBehaviour {
         }
     }
     //注销事件
-    public static void UnregisterEvent(string name)
+    public static void UnRegisterEvent(string name)
     {
         if (string.IsNullOrEmpty(name))
         {

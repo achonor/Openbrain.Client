@@ -22,15 +22,16 @@ public static partial class PlayDataReflection {
   static PlayDataReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvInkKCXBsYXlfZGF0YRIKCgJp",
-          "ZBgBIAEoDRIMCgRuYW1lGAIgASgJEgwKBGljb24YAyABKAkSEgoKaW50cm9f",
-          "aWNvbhgEIAEoCRISCgppbnRyb190aW1lGAUgASgCEgwKBHRpbWUYBiABKAIS",
-          "DgoGcGFyYW0xGAcgAygNIiwKD3BsYXlfZGF0YV9BUlJBWRIZCgVpdGVtcxgB",
-          "IAMoCzIKLnBsYXlfZGF0YWIGcHJvdG8z"));
+          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIq4BCglwbGF5X2RhdGESCgoC",
+          "aWQYASABKA0SDAoEbmFtZRgCIAEoCRITCgtwcmVmYWJfcGF0aBgDIAEoCRIM",
+          "CgRpY29uGAQgASgJEhIKCmludHJvX2ljb24YBSABKAkSEgoKaW50cm9fdGlt",
+          "ZRgGIAEoAhIMCgR0aW1lGAcgASgCEg4KBnBhcmFtMRgIIAMoDRIOCgZwYXJh",
+          "bTIYCSADKA0SDgoGcGFyYW0zGAogAygNIiwKD3BsYXlfZGF0YV9BUlJBWRIZ",
+          "CgVpdGVtcxgBIAMoCzIKLnBsYXlfZGF0YWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "Icon", "IntroIcon", "IntroTime", "Time", "Param1" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "PrefabPath", "Icon", "IntroIcon", "IntroTime", "Time", "Param1", "Param2", "Param3" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::play_data_ARRAY), global::play_data_ARRAY.Parser, new[]{ "Items" }, null, null, null)
         }));
   }
@@ -65,11 +66,14 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public play_data(play_data other) : this() {
     id_ = other.id_;
     name_ = other.name_;
+    prefabPath_ = other.prefabPath_;
     icon_ = other.icon_;
     introIcon_ = other.introIcon_;
     introTime_ = other.introTime_;
     time_ = other.time_;
     param1_ = other.param1_.Clone();
+    param2_ = other.param2_.Clone();
+    param3_ = other.param3_.Clone();
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -106,8 +110,22 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     }
   }
 
+  /// <summary>Field number for the "prefab_path" field.</summary>
+  public const int PrefabPathFieldNumber = 3;
+  private string prefabPath_ = "";
+  /// <summary>
+  ///* 玩法prefab路径 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string PrefabPath {
+    get { return prefabPath_; }
+    set {
+      prefabPath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
   /// <summary>Field number for the "icon" field.</summary>
-  public const int IconFieldNumber = 3;
+  public const int IconFieldNumber = 4;
   private string icon_ = "";
   /// <summary>
   ///* icon 
@@ -121,7 +139,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   }
 
   /// <summary>Field number for the "intro_icon" field.</summary>
-  public const int IntroIconFieldNumber = 4;
+  public const int IntroIconFieldNumber = 5;
   private string introIcon_ = "";
   /// <summary>
   ///* 介绍icon 
@@ -135,7 +153,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   }
 
   /// <summary>Field number for the "intro_time" field.</summary>
-  public const int IntroTimeFieldNumber = 5;
+  public const int IntroTimeFieldNumber = 6;
   private float introTime_;
   /// <summary>
   ///* 介绍时间（秒） 
@@ -149,7 +167,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   }
 
   /// <summary>Field number for the "time" field.</summary>
-  public const int TimeFieldNumber = 6;
+  public const int TimeFieldNumber = 7;
   private float time_;
   /// <summary>
   ///* 玩法时间（秒） 
@@ -163,9 +181,9 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   }
 
   /// <summary>Field number for the "param1" field.</summary>
-  public const int Param1FieldNumber = 7;
+  public const int Param1FieldNumber = 8;
   private static readonly pb::FieldCodec<uint> _repeated_param1_codec
-      = pb::FieldCodec.ForUInt32(58);
+      = pb::FieldCodec.ForUInt32(66);
   private readonly pbc::RepeatedField<uint> param1_ = new pbc::RepeatedField<uint>();
   /// <summary>
   ///* 玩法参数 
@@ -173,6 +191,32 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<uint> Param1 {
     get { return param1_; }
+  }
+
+  /// <summary>Field number for the "param2" field.</summary>
+  public const int Param2FieldNumber = 9;
+  private static readonly pb::FieldCodec<uint> _repeated_param2_codec
+      = pb::FieldCodec.ForUInt32(74);
+  private readonly pbc::RepeatedField<uint> param2_ = new pbc::RepeatedField<uint>();
+  /// <summary>
+  ///* 玩法参数 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<uint> Param2 {
+    get { return param2_; }
+  }
+
+  /// <summary>Field number for the "param3" field.</summary>
+  public const int Param3FieldNumber = 10;
+  private static readonly pb::FieldCodec<uint> _repeated_param3_codec
+      = pb::FieldCodec.ForUInt32(82);
+  private readonly pbc::RepeatedField<uint> param3_ = new pbc::RepeatedField<uint>();
+  /// <summary>
+  ///* 玩法参数 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<uint> Param3 {
+    get { return param3_; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -190,11 +234,14 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     }
     if (Id != other.Id) return false;
     if (Name != other.Name) return false;
+    if (PrefabPath != other.PrefabPath) return false;
     if (Icon != other.Icon) return false;
     if (IntroIcon != other.IntroIcon) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(IntroTime, other.IntroTime)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Time, other.Time)) return false;
     if(!param1_.Equals(other.param1_)) return false;
+    if(!param2_.Equals(other.param2_)) return false;
+    if(!param3_.Equals(other.param3_)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -203,11 +250,14 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     int hash = 1;
     if (Id != 0) hash ^= Id.GetHashCode();
     if (Name.Length != 0) hash ^= Name.GetHashCode();
+    if (PrefabPath.Length != 0) hash ^= PrefabPath.GetHashCode();
     if (Icon.Length != 0) hash ^= Icon.GetHashCode();
     if (IntroIcon.Length != 0) hash ^= IntroIcon.GetHashCode();
     if (IntroTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(IntroTime);
     if (Time != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Time);
     hash ^= param1_.GetHashCode();
+    hash ^= param2_.GetHashCode();
+    hash ^= param3_.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -229,23 +279,29 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       output.WriteRawTag(18);
       output.WriteString(Name);
     }
-    if (Icon.Length != 0) {
+    if (PrefabPath.Length != 0) {
       output.WriteRawTag(26);
+      output.WriteString(PrefabPath);
+    }
+    if (Icon.Length != 0) {
+      output.WriteRawTag(34);
       output.WriteString(Icon);
     }
     if (IntroIcon.Length != 0) {
-      output.WriteRawTag(34);
+      output.WriteRawTag(42);
       output.WriteString(IntroIcon);
     }
     if (IntroTime != 0F) {
-      output.WriteRawTag(45);
+      output.WriteRawTag(53);
       output.WriteFloat(IntroTime);
     }
     if (Time != 0F) {
-      output.WriteRawTag(53);
+      output.WriteRawTag(61);
       output.WriteFloat(Time);
     }
     param1_.WriteTo(output, _repeated_param1_codec);
+    param2_.WriteTo(output, _repeated_param2_codec);
+    param3_.WriteTo(output, _repeated_param3_codec);
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -260,6 +316,9 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (Name.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
     }
+    if (PrefabPath.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(PrefabPath);
+    }
     if (Icon.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Icon);
     }
@@ -273,6 +332,8 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       size += 1 + 4;
     }
     size += param1_.CalculateSize(_repeated_param1_codec);
+    size += param2_.CalculateSize(_repeated_param2_codec);
+    size += param3_.CalculateSize(_repeated_param3_codec);
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
     }
@@ -290,6 +351,9 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (other.Name.Length != 0) {
       Name = other.Name;
     }
+    if (other.PrefabPath.Length != 0) {
+      PrefabPath = other.PrefabPath;
+    }
     if (other.Icon.Length != 0) {
       Icon = other.Icon;
     }
@@ -303,6 +367,8 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       Time = other.Time;
     }
     param1_.Add(other.param1_);
+    param2_.Add(other.param2_);
+    param3_.Add(other.param3_);
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
 
@@ -323,24 +389,38 @@ public sealed partial class play_data : pb::IMessage<play_data> {
           break;
         }
         case 26: {
-          Icon = input.ReadString();
+          PrefabPath = input.ReadString();
           break;
         }
         case 34: {
+          Icon = input.ReadString();
+          break;
+        }
+        case 42: {
           IntroIcon = input.ReadString();
           break;
         }
-        case 45: {
+        case 53: {
           IntroTime = input.ReadFloat();
           break;
         }
-        case 53: {
+        case 61: {
           Time = input.ReadFloat();
           break;
         }
-        case 58:
-        case 56: {
+        case 66:
+        case 64: {
           param1_.AddEntriesFrom(input, _repeated_param1_codec);
+          break;
+        }
+        case 74:
+        case 72: {
+          param2_.AddEntriesFrom(input, _repeated_param2_codec);
+          break;
+        }
+        case 82:
+        case 80: {
+          param3_.AddEntriesFrom(input, _repeated_param3_codec);
           break;
         }
       }

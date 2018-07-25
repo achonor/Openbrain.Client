@@ -62,6 +62,8 @@ public class CommonRequest {
                     }
                     //关闭匹配UI
                     UIManager.CloseUI("Prefabs/MatchUI");
+                    //关闭上一局UI
+                    UIManager.CloseUI("Prefabs/PlayUI");
                 });
             }
             else
@@ -71,10 +73,11 @@ public class CommonRequest {
         });
     }
     //请求开始游戏
-    public static void ReqSatrtGame(System.Action<rep_message_start_game> callback = null)
+    public static void ReqSatrtGame(int innings, System.Action<rep_message_start_game> callback = null)
     {
         Debug.Log("CommonRequest.ReqSatrtGame");
         req_message_start_game reqMsg = new req_message_start_game();
+        reqMsg.Innings = innings;
         Client.Instance.Request(reqMsg, (byte[] data) =>
         {
             rep_message_start_game repMsg = Client.Deserialize(rep_message_start_game.Parser, data) as rep_message_start_game;
@@ -93,7 +96,7 @@ public class CommonRequest {
                     UIPlay uiPlay = uiObj.transform.GetComponent<UIPlay>();
                     if (null != uiPlay)
                     {
-                        uiPlay.RefreshUI(repMsg);
+                        uiPlay.RefreshUI(innings, repMsg);
                     }
                     //关闭准备UI
                     UIManager.CloseUI("Prefabs/ReadyUI");

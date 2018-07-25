@@ -33,6 +33,7 @@ public class UIReady : UIBase {
     public void RefreshUI(rep_message_start_ready readyInfo)
     {
         struct_player_info opponentInfo = readyInfo.PlayerInfo;
+        Debug.Log("UIReady.RefreshUI readyInfo = " + readyInfo);
         //我的头像
         if (!string.IsNullOrEmpty(PlayerData.userIcon))
         {
@@ -57,7 +58,7 @@ public class UIReady : UIBase {
             {
                 Scheduler.Instance.Stop("UIReady.Countdown");
                 //请求开始
-                CommonRequest.ReqSatrtGame((repMsg)=> {
+                CommonRequest.ReqSatrtGame(readyInfo.Innings, (repMsg)=> {
                     //关闭UI
                     //this.Close();
                 });

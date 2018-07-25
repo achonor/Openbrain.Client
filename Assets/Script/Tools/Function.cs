@@ -67,6 +67,60 @@ public class Function{
         second.CopyTo(result, first.Length);
         return result;
     }
+    /// <summary>
+    /// 随机范围内不重复的多个数字
+    /// </summary>
+    /// <param name="min">最小值</param>
+    /// <param name="max">最大值</param>
+    /// <param name="size">随机个数</param>
+    /// <returns></returns>
+    public static int[] RandInRange(int min, int max, int size)
+    {
+        int[] result = new int[size];
+        if ((max - min + 1) < size)
+        {
+            Debug.LogError("Function.RandInRange Range less size!");
+            return result;
+        }
+        Dictionary<int, bool> selectDict = new Dictionary<int, bool>();
+        for (int i = 0; i < size; i++)
+        {
+            int maxCount = 99;
+            while (0 < (maxCount--))
+            {
+                int number = UnityEngine.Random.Range(min, max);
+                if (!selectDict.ContainsKey(number))
+                {
+                    selectDict.Add(number, true);
+                    result[i] = number;
+                    break;
+                }
+            }
+            if (0 == maxCount)
+            {
+                Debug.LogError("Function.RandInRange 0 == maxCount");
+            }
+        }
+        return result;
+    }
+    /// <summary>
+    /// 随机数组内不重复的size个对象
+    /// </summary>
+    /// <typeparam name="T">object</typeparam>
+    /// <param name="range">随机数组</param>
+    /// <param name="size">随机个数</param>
+    /// <returns></returns>
+    public static T[] RandInRange<T>(T[] range, int size)
+    {
+        T[] result = new T[size];
+        int[] intResule = RandInRange(0, range.Length - 1, size);
+        for (int i = 0; i < size; i++)
+        {
+            result[i] = range[intResule[i]];
+        }
+        return result;
+    }
+
 
 
     //加载url图
