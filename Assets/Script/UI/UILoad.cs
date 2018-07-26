@@ -19,7 +19,7 @@ public class UILoad : UIBase {
         //定时器显示文字
         int runCount = 0;
         Text loadText = transform.Find("InitText").GetComponent<Text>();
-        Scheduler.Instance.CreateScheduler("UILoad.LoadData", 0, 0, 0.3f, () =>
+        Scheduler.Instance.CreateScheduler("UILoad.LoadData", 0, 0, 0.3f, (param) =>
         {
             loadText.text = Language.GetTextByKey(LoadTextKey[runCount % LoadTextKey.Length]);
             runCount++;

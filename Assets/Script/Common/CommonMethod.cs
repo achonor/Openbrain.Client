@@ -37,7 +37,7 @@ public class CommonMethod {
 
         //保留，方便提升性能
         async_count++;
-        Scheduler.Instance.CreateScheduler("CommonMethod.InitGame", 2, 1, 0, () =>
+        Scheduler.Instance.CreateScheduler("CommonMethod.InitGame", 2, 1, 0, (param) =>
         {
             async_end();
         });

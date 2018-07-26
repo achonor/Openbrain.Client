@@ -58,7 +58,7 @@ public class ResourceManager : MonoBehaviour{
     private void Start()
     {
         //注册资源释放定时器
-        Scheduler.Instance.CreateScheduler("FREE_RESOURCE", 0, 0, 1.0f, () =>
+        Scheduler.Instance.CreateScheduler("FREE_RESOURCE", 0, 0, 1.0f, (param) =>
         {
             LoopCachePool();
         });

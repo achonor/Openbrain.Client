@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 //定时器回调函数
-public delegate void SchedulerCallback();
+public delegate void SchedulerCallback(object param);
 
 public class SchedulerData
 {
@@ -13,17 +13,19 @@ public class SchedulerData
     private int runCount;               //运行次数
     private float timeInterval;         //每两次运行的时间间隔
     private SchedulerCallback callback; //回调
+    private object param;               //回调参数
 
     private bool isPause = false;
     public IEnumerator handle;          //用于关闭定时器
 
-    public SchedulerData(string _name, float _startInterval = 0, int _runCount = 0, float _timeInterval = 1.0f, SchedulerCallback _callback = null)
+    public SchedulerData(string _name, float _startInterval = 0, int _runCount = 0, float _timeInterval = 1.0f, SchedulerCallback _callback = null, object _param = null)
     {
         name = _name;
         startInterval = _startInterval;
         runCount = _runCount;
         timeInterval = _timeInterval;
         callback = _callback;
+        param = _param;
     }
     public IEnumerator RunFunction()
     {
@@ -43,7 +45,7 @@ public class SchedulerData
             {
                 try
                 {
-                    callback();
+                    callback(param);
                 }
                 catch (Exception e)
                 {
@@ -81,7 +83,7 @@ public class Scheduler : MonoBehaviour
         }
     }
 
-    public SchedulerData CreateScheduler(string name, float _startInterval = 0, int _runCount = 0, float _timeInterval = 1.0f, SchedulerCallback _callback = null)
+    public SchedulerData CreateScheduler(string name, float _startInterval = 0, int _runCount = 0, float _timeInterval = 1.0f, SchedulerCallback _callback = null, object _param = null)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -94,7 +96,7 @@ public class Scheduler : MonoBehaviour
             Stop(name);
             Debug.LogError("Create Same name Scheduler name = " + name);
         }
-        SchedulerData scheduler = new SchedulerData(name, _startInterval, _runCount, _timeInterval, _callback);
+        SchedulerData scheduler = new SchedulerData(name, _startInterval, _runCount, _timeInterval, _callback, _param);
         scheduler.handle = scheduler.RunFunction();
         StartCoroutine(scheduler.handle);
         //保存

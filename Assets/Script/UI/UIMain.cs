@@ -92,8 +92,13 @@ public class UIMain : UIBase {
             //请求开始
             CommonRequest.ReqSatrtMatch();
             //关闭UI
-            UIManager.CloseUI("Prefabs/TableUI");
             UIManager.CloseUI("Prefabs/MainUI");
+            //隐藏TableUI
+            GameObject uiTable = UIManager.GetUIByName("Prefabs/TableUI");
+            if (null != uiTable)
+            {
+                uiTable.SetActive(false);
+            }
         });
     }
 }

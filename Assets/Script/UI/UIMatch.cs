@@ -89,7 +89,7 @@ public class UIMatch : UIBase {
         if (0 == state) {
             //定时替换匹配中文字
             int matchingCount = 0;
-            Scheduler.Instance.CreateScheduler("ChangeMatchingText", 0, 0, 0.3f, () =>
+            Scheduler.Instance.CreateScheduler("ChangeMatchingText", 0, 0, 0.3f, (param) =>
             {
                 string curText = Language.GetTextByKey(matchingTextKey[matchingCount % matchingTextKey.Length]);
                 if (!string.IsNullOrEmpty(curText))
@@ -105,7 +105,7 @@ public class UIMatch : UIBase {
             //停止定时器
             Scheduler.Instance.Stop("ChangeMatchingText");
             //一秒钟后发送准备游戏协议
-            Scheduler.Instance.CreateScheduler("ReadyStartGame", 1.0f, 1, 0, () =>
+            Scheduler.Instance.CreateScheduler("ReadyStartGame", 1.0f, 1, 0, (param) =>
             {
                 CommonRequest.ReqSatrtReady();
             });

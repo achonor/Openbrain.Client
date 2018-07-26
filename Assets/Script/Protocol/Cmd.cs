@@ -53,14 +53,16 @@ public static partial class CmdReflection {
           "c2FnZV91cGRhdGFfZ3JhZGUSDAoEaXNPSxgBIAEoBRINCgVncmFkZRgCIAEo",
           "BSIyCiFyZXBfbWVzc2FnZV91cGRhdGFfb3Bwb25lbnRfZ3JhZGUSDQoFZ3Jh",
           "ZGUYASABKAUiLgoXcmVwX21lc3NhZ2VfaW5uaW5nc19lbmQSEwoLaGFzX2lu",
-          "bmluZ3MYASABKAgqbwoKRVJST1JfQ09ERRIGCgJPSxAAEhAKC0hBU19SRUZF",
-          "UkVFENEPEhMKDkdBTUVfTk9UX1NUQVJUENIPEhkKFElOTklOR1NfR0FNRV9I",
-          "QVNfRU5EENMPEhcKEk9QUE9ORU5UX05PVF9GT1VORBDUDypQChFlbnVtX3Bs",
-          "YXllcl9sZXZlbBIKCgZDT1BQRVIQABIKCgZTSUxWRVIQARIICgRHT0xEEAMS",
-          "DAoIUExBVElOVU0QBBILCgdESUFNT05EEAUqdgoXZW51bV9wbGF5ZXJfcHJv",
-          "ZmljaWVuY3kSBwoDVE9FEAASCAoEQ0FMRhABEggKBEtORUUQAhIJCgVUSElH",
-          "SBADEggKBEJVVFQQBBIJCgVCRUxMWRAFEgkKBUNIRVNUEAYSCAoETkVDSxAH",
-          "EgkKBUJSQUlOEAhiBnByb3RvMw=="));
+          "bmluZ3MYASABKAgiaQoUcmVwX21lc3NhZ2VfZ2FtZV9lbmQSEgoKbGVmdF9n",
+          "cmFkZRgBIAMoBRITCgtyaWdodF9ncmFkZRgCIAMoBRIoCgtwbGF5ZXJfaW5m",
+          "bxgFIAEoCzITLnN0cnVjdF9wbGF5ZXJfaW5mbypvCgpFUlJPUl9DT0RFEgYK",
+          "Ak9LEAASEAoLSEFTX1JFRkVSRUUQ0Q8SEwoOR0FNRV9OT1RfU1RBUlQQ0g8S",
+          "GQoUSU5OSU5HU19HQU1FX0hBU19FTkQQ0w8SFwoST1BQT05FTlRfTk9UX0ZP",
+          "VU5EENQPKlAKEWVudW1fcGxheWVyX2xldmVsEgoKBkNPUFBFUhAAEgoKBlNJ",
+          "TFZFUhABEggKBEdPTEQQAxIMCghQTEFUSU5VTRAEEgsKB0RJQU1PTkQQBSp2",
+          "ChdlbnVtX3BsYXllcl9wcm9maWNpZW5jeRIHCgNUT0UQABIICgRDQUxGEAES",
+          "CAoES05FRRACEgkKBVRISUdIEAMSCAoEQlVUVBAEEgkKBUJFTExZEAUSCQoF",
+          "Q0hFU1QQBhIICgRORUNLEAcSCQoFQlJBSU4QCGIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ERROR_CODE), typeof(global::enum_player_level), typeof(global::enum_player_proficiency), }, new pbr::GeneratedClrTypeInfo[] {
@@ -79,7 +81,8 @@ public static partial class CmdReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::req_message_updata_grade), global::req_message_updata_grade.Parser, new[]{ "Innings", "AddValue" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_updata_grade), global::rep_message_updata_grade.Parser, new[]{ "IsOK", "Grade" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_updata_opponent_grade), global::rep_message_updata_opponent_grade.Parser, new[]{ "Grade" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_innings_end), global::rep_message_innings_end.Parser, new[]{ "HasInnings" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_innings_end), global::rep_message_innings_end.Parser, new[]{ "HasInnings" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::rep_message_game_end), global::rep_message_game_end.Parser, new[]{ "LeftGrade", "RightGrade", "PlayerInfo" }, null, null, null)
         }));
   }
   #endregion
@@ -3182,6 +3185,189 @@ public sealed partial class rep_message_innings_end : pb::IMessage<rep_message_i
           break;
         case 8: {
           HasInnings = input.ReadBool();
+          break;
+        }
+      }
+    }
+  }
+
+}
+
+/// <summary>
+///推送游戏结束
+/// </summary>
+public sealed partial class rep_message_game_end : pb::IMessage<rep_message_game_end> {
+  private static readonly pb::MessageParser<rep_message_game_end> _parser = new pb::MessageParser<rep_message_game_end>(() => new rep_message_game_end());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<rep_message_game_end> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::CmdReflection.Descriptor.MessageTypes[16]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_game_end() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_game_end(rep_message_game_end other) : this() {
+    leftGrade_ = other.leftGrade_.Clone();
+    rightGrade_ = other.rightGrade_.Clone();
+    playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public rep_message_game_end Clone() {
+    return new rep_message_game_end(this);
+  }
+
+  /// <summary>Field number for the "left_grade" field.</summary>
+  public const int LeftGradeFieldNumber = 1;
+  private static readonly pb::FieldCodec<int> _repeated_leftGrade_codec
+      = pb::FieldCodec.ForInt32(10);
+  private readonly pbc::RepeatedField<int> leftGrade_ = new pbc::RepeatedField<int>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<int> LeftGrade {
+    get { return leftGrade_; }
+  }
+
+  /// <summary>Field number for the "right_grade" field.</summary>
+  public const int RightGradeFieldNumber = 2;
+  private static readonly pb::FieldCodec<int> _repeated_rightGrade_codec
+      = pb::FieldCodec.ForInt32(18);
+  private readonly pbc::RepeatedField<int> rightGrade_ = new pbc::RepeatedField<int>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<int> RightGrade {
+    get { return rightGrade_; }
+  }
+
+  /// <summary>Field number for the "player_info" field.</summary>
+  public const int PlayerInfoFieldNumber = 5;
+  private global::struct_player_info playerInfo_;
+  /// <summary>
+  ///对手信息
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::struct_player_info PlayerInfo {
+    get { return playerInfo_; }
+    set {
+      playerInfo_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as rep_message_game_end);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(rep_message_game_end other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if(!leftGrade_.Equals(other.leftGrade_)) return false;
+    if(!rightGrade_.Equals(other.rightGrade_)) return false;
+    if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    hash ^= leftGrade_.GetHashCode();
+    hash ^= rightGrade_.GetHashCode();
+    if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+    leftGrade_.WriteTo(output, _repeated_leftGrade_codec);
+    rightGrade_.WriteTo(output, _repeated_rightGrade_codec);
+    if (playerInfo_ != null) {
+      output.WriteRawTag(42);
+      output.WriteMessage(PlayerInfo);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    size += leftGrade_.CalculateSize(_repeated_leftGrade_codec);
+    size += rightGrade_.CalculateSize(_repeated_rightGrade_codec);
+    if (playerInfo_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(rep_message_game_end other) {
+    if (other == null) {
+      return;
+    }
+    leftGrade_.Add(other.leftGrade_);
+    rightGrade_.Add(other.rightGrade_);
+    if (other.playerInfo_ != null) {
+      if (playerInfo_ == null) {
+        playerInfo_ = new global::struct_player_info();
+      }
+      PlayerInfo.MergeFrom(other.PlayerInfo);
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10:
+        case 8: {
+          leftGrade_.AddEntriesFrom(input, _repeated_leftGrade_codec);
+          break;
+        }
+        case 18:
+        case 16: {
+          rightGrade_.AddEntriesFrom(input, _repeated_rightGrade_codec);
+          break;
+        }
+        case 42: {
+          if (playerInfo_ == null) {
+            playerInfo_ = new global::struct_player_info();
+          }
+          input.ReadMessage(playerInfo_);
           break;
         }
       }

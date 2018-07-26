@@ -65,11 +65,18 @@ public class UIPlay : UIBase {
             {
                 CommonRequest.ReqSatrtReady();
             }
-            else
+        });
+        //注册游戏结束事件
+        UserEventManager.RegisterEvent("rep_message_game_end", (param) =>
+        {
+            rep_message_game_end repMsg = Client.Deserialize(rep_message_game_end.Parser, (byte[])param) as rep_message_game_end;
+            UIManager.OpenUI("Prefabs/GameEndUI", UIManager.Instance.GameUIRoot, (uiObj) =>
             {
-                //暂时这样写
-                CommonMethod.EnterGame();
-            }
+                UIGameEnd uiGameEnd = uiObj.transform.GetComponent<UIGameEnd>();
+                uiGameEnd.RefreshUI(repMsg);
+                //关闭UIPlay
+                this.Close();
+            });
         });
     }
 
@@ -170,7 +177,7 @@ public class UIPlay : UIBase {
         //Text控件
         Text countdownText = transform.Find("PlayerInfo/Countdown").GetComponent<Text>();
         //创建定时器
-        Scheduler.Instance.CreateScheduler("UIPlay.SetCountdownTime", 0, 0, 1.0f, () =>
+        Scheduler.Instance.CreateScheduler("UIPlay.SetCountdownTime", 0, 0, 1.0f, (param) =>
         {
             double lastTime = countdownTime - Function.GetServerTime();
             if (lastTime < 0)

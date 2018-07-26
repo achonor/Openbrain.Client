@@ -94,4 +94,13 @@ public class UIManager : MonoBehaviour {
             ui.OnOpen();
         }
     }
+
+    public static GameObject GetUIByName(string name)
+    {
+        if (UIDict.ContainsKey(name))
+        {
+            return UIDict[name];
+        }
+        return null;
+    }
 }

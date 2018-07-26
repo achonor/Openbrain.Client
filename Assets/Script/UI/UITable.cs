@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class UITable : UIBase {
 
-
     protected GameObject homeUI = null;
     protected GameObject levelUI = null;
     protected GameObject friendUI = null;
@@ -20,11 +19,6 @@ public class UITable : UIBase {
         EventTrigger.Get(transform.Find("ButtonList/Friend").gameObject).onClick = ClickFriend;
         EventTrigger.Get(transform.Find("ButtonList/Task").gameObject).onClick = ClickTask;
         EventTrigger.Get(transform.Find("ButtonList/More").gameObject).onClick = ClickMore;
-    }
-
-    private void Start()
-    {
-        
     }
 
     public override void OnOpen()

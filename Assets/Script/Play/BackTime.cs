@@ -70,7 +70,7 @@ public class BackTime : PlayBase {
         }
         //按顺序出现色块
         int tmpCount = 0;
-        Scheduler.Instance.CreateScheduler("BackTime.CreateProblem1", 0, 0, 0.3f, () =>
+        Scheduler.Instance.CreateScheduler("BackTime.CreateProblem1", 0, 0, 0.3f, (param1) =>
         {
             Transform tmpBlock = blockList[problemResult[tmpCount]];
             //蓝色
@@ -82,7 +82,7 @@ public class BackTime : PlayBase {
                 //所有色块都显示了
                 Scheduler.Instance.Stop("BackTime.CreateProblem1");
                 //过一会让色块变成红色
-                Scheduler.Instance.CreateScheduler("BackTime.CreateProblem2", 0, 1, 0.5f, () =>
+                Scheduler.Instance.CreateScheduler("BackTime.CreateProblem2", 0, 1, 0.5f, (param2) =>
                 {
                     foreach (var idx in problemResult)
                     {

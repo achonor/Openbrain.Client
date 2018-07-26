@@ -49,7 +49,7 @@ public class UIReady : UIBase {
         //倒计时
         float totalTime = (float)(readyInfo.StartTime - Function.GetServerTime());
         Image countdownImage = transform.Find("Countdown/Bar").GetComponent<Image>();
-        Scheduler.Instance.CreateScheduler("UIReady.Countdown", 0, 0, 0.01f, () =>
+        Scheduler.Instance.CreateScheduler("UIReady.Countdown", 0, 0, 0.01f, (param) =>
         {
             float lastTime = (float)(readyInfo.StartTime - Function.GetServerTime());
             countdownImage.fillAmount = lastTime / totalTime;
@@ -83,7 +83,7 @@ public class UIReady : UIBase {
         //随机选中玩法
         int randCount = 0;
         Transform randRoot = transform.Find("RandPlay/Viewport/Content");
-        Scheduler.Instance.CreateScheduler("UIReady.RandPlay", 0, 0, 0.3f, () => {
+        Scheduler.Instance.CreateScheduler("UIReady.RandPlay", 0, 0, 0.3f, (param) => {
             for (int idx = 0; idx < randRoot.childCount; idx++)
             {
                 randRoot.GetChild(idx).Find("Icon/Choose").gameObject.SetActive(idx == randCount);

@@ -48,7 +48,7 @@ public class TipsManager {
             UITips uiTips = obj.GetComponent<UITips>();
             uiTips.StartShow(tips);
 
-            Scheduler.Instance.CreateScheduler("tips" + Function.GetServerTime(), tips.stayTime, 1, 0, () => {
+            Scheduler.Instance.CreateScheduler("tips" + Function.GetServerTime(), tips.stayTime, 1, 0, (param) => {
                 UIManager.CloseUI("Prefabs/TipsUI");
                 _ShowTips();
             });
