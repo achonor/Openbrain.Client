@@ -82,5 +82,7 @@ public class UITable : UIBase {
         {
             this.moreUI.SetActive(false);
         }
+        //如果有就关闭
+        UIManager.CloseUI("Prefabs/GameEndUI");
     }
 }
