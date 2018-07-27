@@ -22,16 +22,17 @@ public static partial class PlayDataReflection {
   static PlayDataReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIq4BCglwbGF5X2RhdGESCgoC",
+          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIsEBCglwbGF5X2RhdGESCgoC",
           "aWQYASABKA0SDAoEbmFtZRgCIAEoCRITCgtwcmVmYWJfcGF0aBgDIAEoCRIM",
           "CgRpY29uGAQgASgJEhIKCmludHJvX2ljb24YBSABKAkSEgoKaW50cm9fdGlt",
-          "ZRgGIAEoAhIMCgR0aW1lGAcgASgCEg4KBnBhcmFtMRgIIAMoDRIOCgZwYXJh",
-          "bTIYCSADKA0SDgoGcGFyYW0zGAogAygNIiwKD3BsYXlfZGF0YV9BUlJBWRIZ",
-          "CgVpdGVtcxgBIAMoCzIKLnBsYXlfZGF0YWIGcHJvdG8z"));
+          "ZRgGIAEoAhIMCgR0aW1lGAcgASgCEhEKCWF0dHJpYnV0ZRgIIAMoDRIOCgZw",
+          "YXJhbTEYCSADKA0SDgoGcGFyYW0yGAogAygNEg4KBnBhcmFtMxgLIAMoDSIs",
+          "Cg9wbGF5X2RhdGFfQVJSQVkSGQoFaXRlbXMYASADKAsyCi5wbGF5X2RhdGFi",
+          "BnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "PrefabPath", "Icon", "IntroIcon", "IntroTime", "Time", "Param1", "Param2", "Param3" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "PrefabPath", "Icon", "IntroIcon", "IntroTime", "Time", "Attribute", "Param1", "Param2", "Param3" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::play_data_ARRAY), global::play_data_ARRAY.Parser, new[]{ "Items" }, null, null, null)
         }));
   }
@@ -71,6 +72,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     introIcon_ = other.introIcon_;
     introTime_ = other.introTime_;
     time_ = other.time_;
+    attribute_ = other.attribute_.Clone();
     param1_ = other.param1_.Clone();
     param2_ = other.param2_.Clone();
     param3_ = other.param3_.Clone();
@@ -180,10 +182,23 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     }
   }
 
-  /// <summary>Field number for the "param1" field.</summary>
-  public const int Param1FieldNumber = 8;
-  private static readonly pb::FieldCodec<uint> _repeated_param1_codec
+  /// <summary>Field number for the "attribute" field.</summary>
+  public const int AttributeFieldNumber = 8;
+  private static readonly pb::FieldCodec<uint> _repeated_attribute_codec
       = pb::FieldCodec.ForUInt32(66);
+  private readonly pbc::RepeatedField<uint> attribute_ = new pbc::RepeatedField<uint>();
+  /// <summary>
+  ///* 分数影响的属性变化(万分比) 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<uint> Attribute {
+    get { return attribute_; }
+  }
+
+  /// <summary>Field number for the "param1" field.</summary>
+  public const int Param1FieldNumber = 9;
+  private static readonly pb::FieldCodec<uint> _repeated_param1_codec
+      = pb::FieldCodec.ForUInt32(74);
   private readonly pbc::RepeatedField<uint> param1_ = new pbc::RepeatedField<uint>();
   /// <summary>
   ///* 玩法参数 
@@ -194,9 +209,9 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   }
 
   /// <summary>Field number for the "param2" field.</summary>
-  public const int Param2FieldNumber = 9;
+  public const int Param2FieldNumber = 10;
   private static readonly pb::FieldCodec<uint> _repeated_param2_codec
-      = pb::FieldCodec.ForUInt32(74);
+      = pb::FieldCodec.ForUInt32(82);
   private readonly pbc::RepeatedField<uint> param2_ = new pbc::RepeatedField<uint>();
   /// <summary>
   ///* 玩法参数 
@@ -207,9 +222,9 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   }
 
   /// <summary>Field number for the "param3" field.</summary>
-  public const int Param3FieldNumber = 10;
+  public const int Param3FieldNumber = 11;
   private static readonly pb::FieldCodec<uint> _repeated_param3_codec
-      = pb::FieldCodec.ForUInt32(82);
+      = pb::FieldCodec.ForUInt32(90);
   private readonly pbc::RepeatedField<uint> param3_ = new pbc::RepeatedField<uint>();
   /// <summary>
   ///* 玩法参数 
@@ -239,6 +254,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (IntroIcon != other.IntroIcon) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(IntroTime, other.IntroTime)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Time, other.Time)) return false;
+    if(!attribute_.Equals(other.attribute_)) return false;
     if(!param1_.Equals(other.param1_)) return false;
     if(!param2_.Equals(other.param2_)) return false;
     if(!param3_.Equals(other.param3_)) return false;
@@ -255,6 +271,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (IntroIcon.Length != 0) hash ^= IntroIcon.GetHashCode();
     if (IntroTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(IntroTime);
     if (Time != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Time);
+    hash ^= attribute_.GetHashCode();
     hash ^= param1_.GetHashCode();
     hash ^= param2_.GetHashCode();
     hash ^= param3_.GetHashCode();
@@ -299,6 +316,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       output.WriteRawTag(61);
       output.WriteFloat(Time);
     }
+    attribute_.WriteTo(output, _repeated_attribute_codec);
     param1_.WriteTo(output, _repeated_param1_codec);
     param2_.WriteTo(output, _repeated_param2_codec);
     param3_.WriteTo(output, _repeated_param3_codec);
@@ -331,6 +349,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (Time != 0F) {
       size += 1 + 4;
     }
+    size += attribute_.CalculateSize(_repeated_attribute_codec);
     size += param1_.CalculateSize(_repeated_param1_codec);
     size += param2_.CalculateSize(_repeated_param2_codec);
     size += param3_.CalculateSize(_repeated_param3_codec);
@@ -366,6 +385,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if (other.Time != 0F) {
       Time = other.Time;
     }
+    attribute_.Add(other.attribute_);
     param1_.Add(other.param1_);
     param2_.Add(other.param2_);
     param3_.Add(other.param3_);
@@ -410,16 +430,21 @@ public sealed partial class play_data : pb::IMessage<play_data> {
         }
         case 66:
         case 64: {
-          param1_.AddEntriesFrom(input, _repeated_param1_codec);
+          attribute_.AddEntriesFrom(input, _repeated_attribute_codec);
           break;
         }
         case 74:
         case 72: {
-          param2_.AddEntriesFrom(input, _repeated_param2_codec);
+          param1_.AddEntriesFrom(input, _repeated_param1_codec);
           break;
         }
         case 82:
         case 80: {
+          param2_.AddEntriesFrom(input, _repeated_param2_codec);
+          break;
+        }
+        case 90:
+        case 88: {
           param3_.AddEntriesFrom(input, _repeated_param3_codec);
           break;
         }
