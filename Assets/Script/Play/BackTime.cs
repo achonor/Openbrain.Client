@@ -5,12 +5,6 @@ using UnityEngine.UI;
 
 //逆转时光
 public class BackTime : PlayBase {
-
-    //红色
-    private Color RedBlock = new Color(247, 73, 74, 255) / 255f;
-    //蓝色
-    private Color BlueBlock = new Color(8, 69, 99, 255) / 255f;
-
     private GameObject mMask;
     private Transform mContent;
     private List<Transform> blockList = new List<Transform>();
@@ -74,7 +68,7 @@ public class BackTime : PlayBase {
         {
             Transform tmpBlock = blockList[problemResult[tmpCount]];
             //蓝色
-            tmpBlock.GetComponent<Image>().color = BlueBlock;
+            tmpBlock.GetComponent<Image>().color = GameData.BlueBlock;
             tmpBlock.gameObject.SetActive(true);
             tmpCount++;
             if (tmpCount == problemResult.Count)
@@ -86,7 +80,7 @@ public class BackTime : PlayBase {
                 {
                     foreach (var idx in problemResult)
                     {
-                        blockList[idx].GetComponent<Image>().color = RedBlock;
+                        blockList[idx].GetComponent<Image>().color = GameData.RedBlock;
                     }
                     //取消遮罩
                     mMask.SetActive(false);

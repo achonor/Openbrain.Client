@@ -50,6 +50,10 @@ public class UIGameEnd : UIBase {
         float rightSum = 0;
         for (int i = 0; i < endInfo.LeftGrade.Count; i++)
         {
+            //玩法名
+            play_data playData = PlayDataConfig.Instance.GetDataByID(endInfo.PlayList[i]);
+            transform.Find(string.Format("GradeList/{0}/Name", i)).GetComponent<Text>().text = playData.Name;
+
             leftSum += endInfo.LeftGrade[i];
             rightSum += endInfo.RightGrade[i];
             transform.Find(string.Format("GradeList/{0}/LeftText", i)).GetComponent<Text>().text = endInfo.LeftGrade[i].ToString();
@@ -80,6 +84,36 @@ public class UIGameEnd : UIBase {
             DOTween.To(() => sumLeftIamge.fillAmount, (value) => sumLeftIamge.fillAmount = value, (0 == allSum) ? 0.5f : leftSum / allSum, 1f);
             DOTween.To(() => sumRightIamge.fillAmount, (value) => sumRightIamge.fillAmount = value, (0 == allSum) ? 0.5f : rightSum / allSum, 1f);
         });
+        //结果
+        string resultStr = "";
+        Color resultColor = Color.white;
+        if (rightSum < leftSum)
+        {
+            resultColor = GameData.Yellow;
+            resultStr = Language.GetTextByKey(10501);
+        }
+        else if (leftSum < rightSum)
+        {
+            resultColor = GameData.Bule;
+            resultStr = Language.GetTextByKey(10502);
+        }
+        else
+        {
+            resultColor = GameData.Gray;
+            resultStr = Language.GetTextByKey(10503);
+        }
+        Text resultText = transform.Find("PlayerInfo/Text").GetComponent<Text>();
+        resultText.text = resultStr;
+        resultText.color = resultColor;
+        //属性变化
+        for (int i = 0; i < endInfo.AttributeOffset.Count; i++)
+        {
+            float offset = endInfo.AttributeOffset[i];
+            Transform attrObj = transform.Find("Attribute/Layout/" + i);
+            attrObj.Find("Down").gameObject.SetActive(offset < 0);
+            attrObj.Find("Up").gameObject.SetActive(0 < offset);
+            attrObj.Find("Keep").gameObject.SetActive(0 == offset);
+        }
     }
 
     public override void OnClose()

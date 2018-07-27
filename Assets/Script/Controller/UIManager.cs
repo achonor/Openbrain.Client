@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour {
     {
         if (!UIDict.ContainsKey(prePath))
         {
-            Debug.LogError("UIManager.CloseUI faild: not found!");
+            Debug.LogWarning("UIManager.CloseUI faild: not found!");
             return;
         }
         GameObject obj = UIDict[prePath];

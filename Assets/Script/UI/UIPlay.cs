@@ -135,7 +135,9 @@ public class UIPlay : UIBase {
     private void SetGrade(int _addLeftGrade, int _addRightGrade)
     {
         leftGrade += _addLeftGrade;
+        if (leftGrade < 0) leftGrade = 0;
         rightGrade += _addRightGrade;
+        if (rightGrade < 0) rightGrade = 0;
         leftGradeText.text = leftGrade.ToString();
         rightGradeText.text = rightGrade.ToString();
 
@@ -204,6 +206,10 @@ public class UIPlay : UIBase {
     public override void OnClose()
     {
         base.OnClose();
+        if (null != playBase)
+        {
+            playBase.Close();
+        }
         Scheduler.Instance.Stop("UIPlay.SetCountdownTime");
         UserEventManager.UnRegisterEvent("rep_message_updata_opponent_grade");
         UserEventManager.UnRegisterEvent("rep_message_innings_end");
