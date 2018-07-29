@@ -33,7 +33,10 @@ public class BackTime : PlayBase {
             //注册回调函数
             EventTrigger.Get(tmpBlock.gameObject).onClick = (obj) =>
             {
-                ClickBlock(obj, blockList.IndexOf(obj.transform));
+                obj.transform.GetComponent<Flashing>().Play(() =>
+                {
+                    ClickBlock(obj, blockList.IndexOf(obj.transform));
+                });
             };
         }
         //读取配置表数据
@@ -61,32 +64,31 @@ public class BackTime : PlayBase {
         foreach(var block in blockList)
         {
             block.gameObject.SetActive(false);
+            block.transform.GetComponent<Flashing>().Init();
         }
         //按顺序出现色块
         int tmpCount = 0;
-        Scheduler.Instance.CreateScheduler("BackTime.CreateProblem1", 0, 0, 0.3f, (param1) =>
+        Scheduler.Instance.CreateScheduler("BackTime.CreateProblem", 0, 0, 0.3f, (param1) =>
         {
             Transform tmpBlock = blockList[problemResult[tmpCount]];
             //蓝色
             tmpBlock.GetComponent<Image>().color = GameData.BlueBlock;
             tmpBlock.gameObject.SetActive(true);
-            tmpCount++;
-            if (tmpCount == problemResult.Count)
-            {
-                //所有色块都显示了
-                Scheduler.Instance.Stop("BackTime.CreateProblem1");
-                //过一会让色块变成红色
-                Scheduler.Instance.CreateScheduler("BackTime.CreateProblem2", 0, 1, 0.5f, (param2) =>
+            tmpBlock.GetComponent<Flashing>().ReversePlay(() => {
+                tmpCount++;
+                if (tmpCount == problemResult.Count)
                 {
+                    //所有色块都显示了
+                    Scheduler.Instance.Stop("BackTime.CreateProblem");
+                    //过一会让色块变成红色
                     foreach (var idx in problemResult)
                     {
                         blockList[idx].GetComponent<Image>().color = GameData.RedBlock;
                     }
                     //取消遮罩
                     mMask.SetActive(false);
-                });
-            }
-
+                }
+            });
         });
     }
     
