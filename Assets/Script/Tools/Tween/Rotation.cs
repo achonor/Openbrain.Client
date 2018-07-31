@@ -39,7 +39,7 @@ public class Rotation : TweenBase
         
     }
 
-    public override void Play(System.Action callback = null)
+    public override Tweener Play(System.Action callback = null)
     {
         SaveInit();
         var tween = transform.DORotate(endAngle, duration);
@@ -50,8 +50,9 @@ public class Rotation : TweenBase
                 callback();
             });
         }
+        return tween;
     }
-    public override void ReversePlay(System.Action callback = null)
+    public override Tweener ReversePlay(System.Action callback = null)
     {
         SaveInit();
         transform.localRotation = Quaternion.Euler(endAngle);
@@ -63,5 +64,6 @@ public class Rotation : TweenBase
                 callback();
             });
         }
+        return tween;
     }
 }

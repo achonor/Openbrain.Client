@@ -38,7 +38,7 @@ public class Flashing : TweenBase
         played = true;
     }
 
-    public override void Play(System.Action callback = null)
+    public override Tweener Play(System.Action callback = null)
     {
         SaveInit();
         Image image = transform.GetComponent<Image>();
@@ -51,8 +51,9 @@ public class Flashing : TweenBase
                 callback();
             });
         }
+        return tween;
     }
-    public override void ReversePlay(System.Action callback = null)
+    public override Tweener ReversePlay(System.Action callback = null)
     {
         SaveInit();
         Image image = transform.GetComponent<Image>();
@@ -68,5 +69,6 @@ public class Flashing : TweenBase
                 callback();
             });
         }
+        return tween;
     }
 }

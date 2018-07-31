@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 //记忆翻牌
 public class MemoryCard : PlayBase {
@@ -23,7 +24,7 @@ public class MemoryCard : PlayBase {
         {
             Transform tmpBlock = mContent.Find(idx.ToString());
             //先隐藏吧
-            tmpBlock.gameObject.SetActive(false);
+            //tmpBlock.gameObject.SetActive(false);
             blockList.Add(tmpBlock);
             //注册回调函数
             EventTrigger.Get(tmpBlock.gameObject).onClick = (obj) =>
@@ -85,7 +86,7 @@ public class MemoryCard : PlayBase {
     int clickCount = 0;
     private void ClickBlock(GameObject objBlock, int index)
     {
-        SetBlockState(objBlock, clickCount++ % 2 == 1);
+        SetBlockState(objBlock, clickCount++ % 2 == 0);
     }
 
     public void SetBlockState(GameObject objBlock, bool value)
@@ -94,17 +95,28 @@ public class MemoryCard : PlayBase {
         Rotation rotation = objBlock.transform.GetComponent<Rotation>();
         if (true == value)
         {
-            rotation.Play(() =>
+            Tweener tween = rotation.Play(() =>
             {
                 rotation.Init();
-                objMask.SetActive(true);
+            });
+            tween.OnUpdate(() =>
+            {
+                if (90 <= objBlock.transform.localRotation.eulerAngles.y)
+                {
+                    objMask.SetActive(true);
+                }
             });
         }
         else
         {
-            rotation.ReversePlay(() =>
+            Tweener tween = rotation.ReversePlay(() =>
+            {});
+            tween.OnUpdate(() =>
             {
-                objMask.SetActive(false);
+                if (objBlock.transform.localRotation.eulerAngles.y <= 90)
+                {
+                    objMask.SetActive(false);
+                }
             });
         }
     }

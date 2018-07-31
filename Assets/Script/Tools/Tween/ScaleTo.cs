@@ -22,7 +22,7 @@ public class ScaleTo : TweenBase {
     {
         transform.localScale = initScale;
     }
-    public override void Play(System.Action callback = null)
+    public override Tweener Play(System.Action callback = null)
     {
         var tweenTo = DOTween.To(() => transform.localScale, (value) => transform.localScale = value, endScale, duration);
         if (null != callback)
@@ -32,5 +32,6 @@ public class ScaleTo : TweenBase {
                 callback();
             });
         }
+        return tweenTo;
     }
 }
