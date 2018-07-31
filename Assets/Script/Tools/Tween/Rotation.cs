@@ -27,17 +27,6 @@ public class Rotation : TweenBase
         played = true;
         initRotation = transform.localRotation;
     }
-    /// <summary>
-    /// 旋转过程中的事件
-    /// </summary>
-    /// <param name="type">1.x轴，2.y轴，3.轴</param>
-    /// <param name="angle">角度</param>
-    /// <param name="callback">回调</param>
-    private float lastOffset = 360;
-    public void SetEvent(int type, float angle, System.Action callback = null)
-    {
-        
-    }
 
     public override Tweener Play(System.Action callback = null)
     {
