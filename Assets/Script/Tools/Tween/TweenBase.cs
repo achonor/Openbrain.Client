@@ -36,4 +36,5 @@ public class TweenBase : MonoBehaviour {
     protected virtual void Reset() { }
     public virtual void Init() { }
     public virtual void Play(System.Action callback = null) { }
+    public virtual void ReversePlay(System.Action callback = null) { }
 }

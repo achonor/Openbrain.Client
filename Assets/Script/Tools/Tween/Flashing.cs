@@ -23,17 +23,25 @@ public class Flashing : TweenBase
         {
             return;
         }
-        //transform.localScale = initScale;
-        //image.color = new Color(image.color.r, image.color.b, image.color.g, initAlpha);
+        transform.localScale = initScale;
+        image.color = new Color(image.color.r, image.color.b, image.color.g, initAlpha);
     }
-
-    public override void Play(System.Action callback = null)
+    public void SaveInit()
     {
+        if (played)
+        {
+            return;
+        }
         Image image = transform.GetComponent<Image>();
         initScale = transform.localScale;
         initAlpha = image.color.a;
         played = true;
+    }
 
+    public override void Play(System.Action callback = null)
+    {
+        SaveInit();
+        Image image = transform.GetComponent<Image>();
         image.DOFade(endAlpha, duration);
         var tween = transform.DOScale(endScale, duration);
         if (null != callback)
@@ -44,13 +52,10 @@ public class Flashing : TweenBase
             });
         }
     }
-    public void ReversePlay(System.Action callback = null)
+    public override void ReversePlay(System.Action callback = null)
     {
+        SaveInit();
         Image image = transform.GetComponent<Image>();
-        initScale = transform.localScale;
-        initAlpha = image.color.a;
-        played = true;
-
         image.color = new Color(image.color.r, image.color.g, image.color.b, endAlpha);
         transform.localScale = endScale;
 

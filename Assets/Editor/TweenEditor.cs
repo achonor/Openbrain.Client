@@ -10,13 +10,16 @@ public class TweenEditor : Editor
     {
         base.OnInspectorGUI();
         TweenBase tweenClass = (TweenBase)target;
-        //  按钮
         if (GUILayout.Button("Play"))  
         {
             tweenClass.Play();
             return;
         }
-        //  按钮
+        if (GUILayout.Button("ReversePlay"))
+        {
+            tweenClass.ReversePlay();
+            return;
+        }
         if (GUILayout.Button("Reset"))
         {
             tweenClass.Init();

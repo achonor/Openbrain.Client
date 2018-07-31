@@ -9,8 +9,8 @@ public class GameData{
 
     public static Color Gray        = new Color(125, 125, 125, 255) / 255f;
     public static Color Bule        = new Color( 66, 178, 231, 255) / 255f;
-    public static Color LightRed    = new Color(138, 214, 230, 255) / 255f;
-    public static Color LightBlue   = new Color(255, 153, 153, 255) / 255f;
+    public static Color LightRed    = new Color(255, 153, 153, 255) / 255f;
+    public static Color LightBlue   = new Color(138, 214, 230, 255) / 255f;
     public static Color Yellow      = new Color(255, 207,  49, 255) / 255f;
     public static Color RedBlock    = new Color(247,  73,  74, 255) / 255f;
     public static Color BlueBlock   = new Color(  8,  69,  99, 255) / 255f;
