@@ -81,6 +81,31 @@ public class Function{
         {
             Debug.LogError("Function.RandInRange Range less size!");
             return result;
+        } else if (max - min + 1 == size) {
+            for (int i =  min; i <= max; i++)
+            {
+                result[i - min] = i;
+            }
+            return result;
+        } else if (max - min + 1 < (size << 1))
+        {
+            int tmpSize = max - min + 1 - size;
+            Dictionary<int, bool> isSelect = new Dictionary<int, bool>();
+            int[] tmpRet = RandInRange(min, max, tmpSize);
+            for (int i = 0; i < tmpSize; i++)
+            {
+                isSelect[tmpRet[i]] = true;
+            }
+            int tmpIndex = 0;
+            for (int i = min; i <= max; i++)
+            {
+                if (isSelect.ContainsKey(i) && true == isSelect[i])
+                {
+                    continue;
+                }
+                result[tmpIndex++] = i;
+            }
+            return result;
         }
         Dictionary<int, bool> selectDict = new Dictionary<int, bool>();
         for (int i = 0; i < size; i++)
