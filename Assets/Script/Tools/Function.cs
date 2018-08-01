@@ -146,7 +146,16 @@ public class Function{
         return result;
     }
 
-
+    public static void UpsetArray<T>(T[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            int idx = UnityEngine.Random.Range(0, array.Length - 1);
+            T tmpValue = array[i];
+            array[i] = array[idx];
+            array[idx] = tmpValue;
+        }
+    }
 
     //加载url图
     public static IEnumerator DownloadImage(Image image, string url, System.Action<Sprite> callback = null)

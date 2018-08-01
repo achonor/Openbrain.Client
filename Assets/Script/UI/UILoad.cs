@@ -24,6 +24,17 @@ public class UILoad : UIBase {
             loadText.text = Language.GetTextByKey(LoadTextKey[runCount % LoadTextKey.Length]);
             runCount++;
         });
+
+        /*(test
+        int[] array = new int[10] {1, 2, 3,4, 5, 6, 7, 8, 9, 0};
+        Function.UpsetArray<int>(array);
+        string debugStr = "";
+        for (int i = 0; i < array.Length; i++)
+        {
+            debugStr = debugStr + " " + array[i];
+        }
+        Debug.Log("debugStr = " + debugStr);
+        */
     }
 
     public override void OnClose()
