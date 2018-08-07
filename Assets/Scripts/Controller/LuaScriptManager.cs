@@ -20,6 +20,7 @@ public class LuaScriptManager {
     static string[] SearchPath = new string[]
     {
         "LuaScripts",
+        "LuaScripts/Base",
         "LuaScripts/UIModule"
     };
 
@@ -36,6 +37,8 @@ public class LuaScriptManager {
         {
             _luaState.AddSearchPath(ResourcesPath + path);
         }
+        //加载class文件
+        RunLuaFile("class.lua");
     }
 
     //获取lua在ResourcesPath下的路径
@@ -55,7 +58,7 @@ public class LuaScriptManager {
     public static object RunLuaFile(string fileName)
     {
         TextAsset textAsset = null;
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         //先尝试从ab中加载
         textAsset = AssetBundleLoader.LoadFileFromAssetBundle<TextAsset>("luaassetbundle", fileName);
         Debug.Log("luaassetbundle." + fileName + "load success!");
