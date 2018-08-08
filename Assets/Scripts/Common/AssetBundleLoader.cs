@@ -17,7 +17,7 @@ public class AssetBundleLoader {
     public static AssetBundle LoadAssetBundle(string abName)
     {
 
-        string abPath = AssetbundleRootPath + abName;
+        string abPath = AssetbundleRootPath + abName + ".assetbundle";
         AssetBundle assetBundle = AssetBundle.LoadFromFile(abPath);
         if (null != assetBundle)
         {
@@ -44,6 +44,25 @@ public class AssetBundleLoader {
             return asset;
         }
         else {
+            Debug.LogError("Not found AssetBundle name = " + abName);
+            return null;
+        }
+    }
+
+    public static AssetBundleRequest LoadFileFromAssetBundleAsync(string abName, string fileName)
+    {
+        AssetBundle assetBundle = null;
+        if (!assetBundleDict.ContainsKey(abName))
+        {
+            LoadAssetBundle(abName);
+        }
+        if (assetBundleDict.TryGetValue(abName, out assetBundle))
+        {
+            AssetBundleRequest assetBundleRequest = assetBundle.LoadAssetAsync(fileName);
+            return assetBundleRequest;
+        }
+        else
+        {
             Debug.LogError("Not found AssetBundle name = " + abName);
             return null;
         }

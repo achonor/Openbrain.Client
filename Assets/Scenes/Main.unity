@@ -850,6 +850,7 @@ GameObject:
   - component: {fileID: 1540127849}
   - component: {fileID: 1540127848}
   - component: {fileID: 1540127851}
+  - component: {fileID: 1540127852}
   m_Layer: 0
   m_Name: UIRoot
   m_TagString: Untagged
@@ -953,6 +954,19 @@ MonoBehaviour:
   BaseUIRoot: {fileID: 1288623877}
   MessageUIRoot: {fileID: 936963122}
   TipsUIRoot: {fileID: 422878901}
+--- !u!114 &1540127852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1540127846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d552ff3a1a0d5c41aa3f9ac11b0e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  luaFile: LuaTest.lua
 --- !u!1 &1658190178
 GameObject:
   m_ObjectHideFlags: 0

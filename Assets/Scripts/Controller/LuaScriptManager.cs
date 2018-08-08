@@ -16,12 +16,12 @@ public class LuaScriptManager {
             return _luaState;
         }
     }
-    static string ResourcesPath = Application.dataPath + "\\Resources/";
+    static string ResourcesPath = Application.dataPath + "/";
     static string[] SearchPath = new string[]
     {
-        "LuaScripts",
-        "LuaScripts/Base",
-        "LuaScripts/UIModule"
+        "Lua/LuaScripts",
+        "Lua/LuaScripts/Base",
+        "Lua/LuaScripts/UIModule"
     };
 
     public static void Init()
@@ -46,10 +46,11 @@ public class LuaScriptManager {
     {
         foreach (var path in SearchPath)
         {
-            string fullPath = string.Format("{0}{1}/{2}.bytes", ResourcesPath, path, name);
+            string fullPath = string.Format("{0}{1}/{2}", ResourcesPath, path, name);
             if (File.Exists(fullPath))
             {
-                return string.Format("{0}/{1}", path, name);
+                return fullPath;
+                //return string.Format("{0}/{1}", path, name);
             }
         }
         return null;
@@ -60,15 +61,22 @@ public class LuaScriptManager {
         TextAsset textAsset = null;
 #if !UNITY_EDITOR
         //先尝试从ab中加载
-        textAsset = AssetBundleLoader.LoadFileFromAssetBundle<TextAsset>("luaassetbundle", fileName);
-        Debug.Log("luaassetbundle." + fileName + "load success!");
-#endif
+        textAsset = AssetBundleLoader.LoadFileFromAssetBundle<TextAsset>("luascripts", fileName);
         if (null == textAsset)
         {
-            //如果找不到，从文件加载
-            string filePath = GetLuaPath(fileName);
-            textAsset = Resources.Load<TextAsset>(filePath);
+            Debug.Log("from luascripts load " + fileName + " faild!");
         }
+#endif
+#if UNITY_EDITOR
+        if (null == textAsset)
+        {
+            string filePath = GetLuaPath(fileName);
+            var utf8WithoutBom = new System.Text.UTF8Encoding(false);
+            StreamReader srcFile = new StreamReader(filePath, utf8WithoutBom);
+            string srcText = srcFile.ReadToEnd();
+            textAsset = new TextAsset(srcText);
+        }
+#endif
         return RunLuaString(textAsset.text);
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 /*
  * 资源加载，释放管理器
@@ -9,17 +10,19 @@ using UnityEngine;
 public class ResourceObject
 {
     public string name;
+    public bool inBundle;
     public bool isLoading;
     public GameObject resObject;
     public System.Action<GameObject> loadedCallback;
     //释放时间戳
     public double freeTime;
 
-    public ResourceObject(string path, System.Action<GameObject> callback = null)
+    public ResourceObject(string path, bool _inBundle = false, System.Action<GameObject> callback = null)
     {
         name = path;
         isLoading = true;
         resObject = null;
+        inBundle = _inBundle;
         loadedCallback = callback;
     }
 
@@ -86,7 +89,7 @@ public class ResourceManager : MonoBehaviour{
             Destroy(res.resObject);
         }
     }
-    public void LoadResource(string path, System.Action<GameObject> callback = null)
+    public void LoadResource(string path, bool _inBundle = false, System.Action<GameObject> callback = null)
     {
         ResourceObject resObject;
         if (ResDict.TryGetValue(path, out resObject))
@@ -115,7 +118,7 @@ public class ResourceManager : MonoBehaviour{
         else
         {
             //需要加载
-            resObject = new ResourceObject(path, callback);
+            resObject = new ResourceObject(path, _inBundle, callback);
             //加入load队列
             LoadQueue.Enqueue(resObject);
             //放入字典
@@ -172,10 +175,23 @@ public class ResourceManager : MonoBehaviour{
         {
             ResourceObject resObject = LoadQueue.Dequeue();
             //加载
-            ResourceRequest request = Resources.LoadAsync(resObject.name);
-            yield return request;
-            //实例化
-            resObject.resObject = Instantiate(request.asset) as GameObject;
+            if (!resObject.inBundle)
+            {
+                //Resources中加载
+                ResourceRequest request = Resources.LoadAsync(resObject.name);
+                yield return request;
+                //实例化
+                resObject.resObject = Instantiate(request.asset) as GameObject;
+            }
+            else
+            {
+                //AssetBundle中加载
+                string fileName = Path.GetFileName(resObject.name);
+                AssetBundleRequest request = AssetBundleLoader.LoadFileFromAssetBundleAsync(fileName.ToLower(), fileName);
+                yield return request;
+                //实例化
+                resObject.resObject = Instantiate(request.asset) as GameObject;
+            }
             if (null == resObject.resObject)
             {
                 Debug.LogError("ResourceManager._Load Load Faild name = " + resObject.name);
