@@ -43,10 +43,12 @@ public class UITable : UIBase {
     }
     public void ClickLevel(GameObject go)
     {
+        UIManager.CloseUI("Prefabs/MainUI");
         TipsManager.ShowTips(Language.GetTextByKey(1));
     }
     public void ClickFriend(GameObject go)
     {
+        UIManager.OpenUI("Prefabs/MainUI", UIManager.Instance.GameUIRoot);
         TipsManager.ShowTips(Language.GetTextByKey(1));
     }
     public void ClickTask(GameObject go)

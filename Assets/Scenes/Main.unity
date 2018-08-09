@@ -611,6 +611,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1275926621}
   - component: {fileID: 1275926622}
+  - component: {fileID: 1275926624}
+  - component: {fileID: 1275926623}
   m_Layer: 0
   m_Name: ResourceManager
   m_TagString: Untagged
@@ -647,7 +649,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6021e2db377458447bb6462f56be669c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1275926623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275926620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a0a389ad39b74468fa4cb2735388ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   poolNode: {fileID: 2087626129}
+--- !u!114 &1275926624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275926620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bda8ffe4bb71494fba4a77233ba2409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1288623876
 GameObject:
   m_ObjectHideFlags: 0
