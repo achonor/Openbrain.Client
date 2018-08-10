@@ -1,0 +1,6 @@
+2
+人物信息6血量blood6[None]魔法值magic6[None]攻击力attack6[None]生命回复blood back7[None]法力回复magic back7[None]攻击类型attack type4近战,远程
+宠物信息3宠物名字name0[None]宠物生命blood6[None]宠物技能skill15[None]
+2
+英雄hero06200010005000.498,0#10.346,0#1111
+宠物pet06010003.2,-10#10-3.4,-10#10002
