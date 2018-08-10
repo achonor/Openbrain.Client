@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 using LuaInterface;
 using UnityEditor;
+using Google.Protobuf;
 
 using BindType = ToLuaMenu.BindType;
 using System.Reflection;
@@ -150,7 +152,40 @@ public static class CustomSettings
         _GT(typeof(RenderTexture)),
         _GT(typeof(Resources)),     
         _GT(typeof(LuaProfiler)),
+
+        //自己的
         _GT(typeof(Scheduler)),
+        _GT(typeof(EventTrigger)),
+        _GT(typeof(GameData)),
+        _GT(typeof(PlayDataConfig)),
+        _GT(typeof(CommonMethod)),
+        _GT(typeof(EmojiDataConfig)),
+        _GT(typeof(UIManager)),
+        _GT(typeof(UserEventManager)),
+        _GT(typeof(Client)),
+        _GT(typeof(CommonRequest)),
+        _GT(typeof(TipsManager)),
+        _GT(typeof(LoadLayerManager)),
+        _GT(typeof(ResourceManager)),
+        _GT(typeof(Language)),
+        _GT(typeof(Function)),
+        _GT(typeof(LoopScrollRect)),
+        _GT(typeof(LoopHorizontalScrollRect)),
+        _GT(typeof(LoopVerticalScrollRect)),
+        _GT(typeof(Polygon)),
+
+        //BCTween
+        _GT(typeof(BCTweenAlpha)),
+        _GT(typeof(BCTweenColor)),
+        _GT(typeof(BCTweenGroup)),
+        _GT(typeof(BCTweenPosition)),
+        _GT(typeof(BCTweenScale)),
+        _GT(typeof(BCTweenTweener)),
+        _GT(typeof(BCTweenAnything)),
+        _GT(typeof(BCTweenRandTrigger)),
+        _GT(typeof(BCTweenNumText)),
+
+
     };
 
     public static List<Type> dynamicList = new List<Type>()
