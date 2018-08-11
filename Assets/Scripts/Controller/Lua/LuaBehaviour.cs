@@ -27,7 +27,7 @@ public class LuaBehaviour : UIBase
 
     private void Awake()
     {
-        luaInstance = LuaScriptManager.RunLuaFile(luaFile) as LuaTable;
+        luaInstance = LuaScriptManager.Instance.RunLuaFile<LuaTable>(luaFile);
         luaClassName = (string)luaInstance["className"];
 
         //初始化lua类

@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224939642734647964}
   - component: {fileID: 114261541894611730}
+  - component: {fileID: 114619755402349954}
   m_Layer: 5
   m_Name: LoadUI
   m_TagString: Untagged
@@ -143,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c841aad569c946f45abe7f1f12280e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
 --- !u!114 &114578491329560426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,6 +178,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u6B63\u5728\u521D\u59CB\u5316\u6E38\u620F\u6570\u636E..."
+--- !u!114 &114619755402349954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201325643714522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d552ff3a1a0d5c41aa3f9ac11b0e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  luaFile: LuaTest.lua
 --- !u!222 &222084728348494934
 CanvasRenderer:
   m_ObjectHideFlags: 1

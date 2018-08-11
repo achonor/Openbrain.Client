@@ -72,7 +72,7 @@ public class BackTime : PlayBase {
         {
             Transform tmpBlock = blockList[problemResult[tmpCount]];
             //蓝色
-            tmpBlock.GetComponent<Image>().color = GameData.BlueBlock;
+            tmpBlock.GetComponent<Image>().color = GameConst.BlueBlock;
             tmpBlock.gameObject.SetActive(true);
             tmpBlock.GetComponent<Flashing>().ReversePlay(() => {
                 tmpCount++;
@@ -83,7 +83,7 @@ public class BackTime : PlayBase {
                     //过一会让色块变成红色
                     foreach (var idx in problemResult)
                     {
-                        blockList[idx].GetComponent<Image>().color = GameData.RedBlock;
+                        blockList[idx].GetComponent<Image>().color = GameConst.RedBlock;
                     }
                     //取消遮罩
                     mMask.SetActive(false);

@@ -14,6 +14,7 @@ public static class LuaBinder
 		SchedulerWrap.Register(L);
 		EventTriggerWrap.Register(L);
 		GameDataWrap.Register(L);
+		GameConstWrap.Register(L);
 		PlayDataConfigWrap.Register(L);
 		CommonMethodWrap.Register(L);
 		EmojiDataConfigWrap.Register(L);

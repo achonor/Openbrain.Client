@@ -89,17 +89,17 @@ public class UIGameEnd : UIBase {
         Color resultColor = Color.white;
         if (rightSum < leftSum)
         {
-            resultColor = GameData.Yellow;
+            resultColor = GameConst.Yellow;
             resultStr = Language.GetTextByKey(10501);
         }
         else if (leftSum < rightSum)
         {
-            resultColor = GameData.Bule;
+            resultColor = GameConst.Bule;
             resultStr = Language.GetTextByKey(10502);
         }
         else
         {
-            resultColor = GameData.Gray;
+            resultColor = GameConst.Gray;
             resultStr = Language.GetTextByKey(10503);
         }
         Text resultText = transform.Find("PlayerInfo/Text").GetComponent<Text>();

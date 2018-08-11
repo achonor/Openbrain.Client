@@ -43,7 +43,7 @@ class Person
 
 public class TestProtoBuffer : LuaClient
 {
-    private string script = @"      
+    private string script = @"     
         local common_pb = require 'Protol.common_pb'
         local person_pb = require 'Protol.person_pb'
        

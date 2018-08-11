@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
@@ -233,6 +234,95 @@ public class Function{
                 return Language.GetTextByKey(10109);
             default:
                 return "NULL";
+        }
+    }
+
+    /// <summary>
+    /// 目录覆盖
+    /// </summary>
+    /// <param name="sourceDir"></param>
+    /// <param name="destDir"></param>
+    public static void OverDirectory(DirectoryInfo sourceDir, string destDir)
+    {
+        if (!Directory.Exists(destDir))
+        {
+            Directory.CreateDirectory(destDir);
+        }
+        foreach (var nextFile in sourceDir.GetFiles())
+        {
+            File.Copy(nextFile.FullName, destDir + "/" + nextFile.Name, true);
+        }
+        foreach (DirectoryInfo nextFolder in sourceDir.GetDirectories())
+        {
+            OverDirectory(nextFolder, destDir + "/" + nextFolder.Name);
+        }
+    }
+    /// <summary>
+    /// 获取目录下所有文件
+    /// </summary>
+    /// <param name="sourceDir">目录</param>
+    /// <param name="outList">返回的文件列表</param>
+    public static void GetDirectoryAllFile(DirectoryInfo sourceDir, List<FileInfo> outList)
+    {
+        foreach (var nextFile in sourceDir.GetFiles())
+        {
+            outList.Add(nextFile);
+        }
+        foreach (DirectoryInfo nextFolder in sourceDir.GetDirectories())
+        {
+            GetDirectoryAllFile(nextFolder, outList);
+        }
+    }
+
+    /// <summary>
+    /// 写入数据到文件
+    /// </summary>
+    /// <param name="content"></param>
+    /// <param name="filePath"></param>
+    public static void WriteFile(byte[] content, string filePath)
+    {
+        //判断路径是否存在
+        FileInfo fileInfo = new FileInfo(filePath);
+        if (!fileInfo.Directory.Exists)
+        {
+            //不能存在要先创建目录
+            fileInfo.Directory.Create();
+        }
+        //文件已存在，先删除
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+        FileStream fileStream = File.Create(filePath);
+        fileStream.Write(content, 0, content.Length);
+        //保存
+        fileStream.Flush();
+        fileStream.Close();
+    }
+    /// <summary>
+    /// 获取文件MD5
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
+    public static string GetMD5HashFromFile(string fileName)
+    {
+        try
+        {
+            FileStream file = new FileStream(fileName, FileMode.Open);
+            System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] retVal = md5.ComputeHash(file);
+            file.Close();
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < retVal.Length; i++)
+            {
+                sb.Append(retVal[i].ToString("x2"));
+            }
+            return sb.ToString();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("GetMD5HashFromFile() fail,error:" + ex.Message);
         }
     }
 }

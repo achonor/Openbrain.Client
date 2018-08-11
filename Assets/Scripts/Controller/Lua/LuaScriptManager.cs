@@ -4,19 +4,10 @@ using UnityEngine;
 using LuaInterface;
 using System.IO;
 
-public class LuaScriptManager {
-    private static LuaState _luaState;
-    public static LuaState luaState {
-        get
-        {
-            if (null == _luaState)
-            {
-                Init();
-            }
-            return _luaState;
-        }
-    }
-    static string ResourcesPath = Application.dataPath + "/";
+public class LuaScriptManager : LuaClient
+{
+    public new static LuaScriptManager Instance;
+    
     static string[] SearchPath = new string[]
     {
         "Lua/LuaScripts",
@@ -24,64 +15,49 @@ public class LuaScriptManager {
         "Lua/LuaScripts/UIModule"
     };
 
-    public static void Init()
+
+    new void Awake()
     {
-        new LuaResLoader();
-        _luaState = new LuaState();
-        _luaState.LogGC = true;
-        _luaState.Start();
-        LuaBinder.Bind(_luaState);
-        DelegateFactory.Init();
-        //添加搜索路径
-        foreach(var path in SearchPath)
-        {
-            _luaState.AddSearchPath(ResourcesPath + path);
-        }
-        //加载class文件
-        RunLuaFile("class.lua");
+        Debug.Log("LuaScriptManager.Awake1");
+        base.Awake();
+        Instance = this;
+        Debug.Log("LuaScriptManager.Awake2");
+    }
+    protected override LuaFileUtils InitLoader()
+    {
+        return new LuaResLoader();
     }
 
-    //获取lua在ResourcesPath下的路径
-    public static string GetLuaPath(string name)
+    protected override void OnLoadFinished()
     {
+        base.OnLoadFinished();
+        Debug.Log(Application.persistentDataPath);
+        //添加搜索路径
         foreach (var path in SearchPath)
         {
-            string fullPath = string.Format("{0}{1}/{2}", ResourcesPath, path, name);
-            if (File.Exists(fullPath))
-            {
-                return fullPath;
-                //return string.Format("{0}/{1}", path, name);
-            }
-        }
-        return null;
-    }
-
-    public static object RunLuaFile(string fileName)
-    {
-        TextAsset textAsset = null;
-#if !UNITY_EDITOR
-        //先尝试从ab中加载
-        textAsset = AssetBundleLoader.LoadFileFromAssetBundle<TextAsset>("luascripts", fileName);
-        if (null == textAsset)
-        {
-            Debug.Log("from luascripts load " + fileName + " faild!");
-        }
-#endif
 #if UNITY_EDITOR
-        if (null == textAsset)
-        {
-            string filePath = GetLuaPath(fileName);
-            var utf8WithoutBom = new System.Text.UTF8Encoding(false);
-            StreamReader srcFile = new StreamReader(filePath, utf8WithoutBom);
-            string srcText = srcFile.ReadToEnd();
-            textAsset = new TextAsset(srcText);
-        }
+            luaState.AddSearchPath(Application.dataPath + "/" + path);
+#else
+            string tmpPath = string.Format("{0}/{1}/{2}", Application.persistentDataPath, GameConst.osDir, path);
+            Debug.Log("LuaScriptManager.OnLoadFinished AddSearchPath = " + tmpPath);
+            luaState.AddSearchPath(tmpPath);
 #endif
-        return RunLuaString(textAsset.text);
+        }
+
     }
 
-    public static object RunLuaString(string luaStr)
+    public T RunLuaFile<T>(string fileName)
     {
-        return luaState.DoString<object>(luaStr);
+        return luaState.DoFile<T>(fileName);
+    }
+
+    public T RunLuaString<T>(string luaStr)
+    {
+        return luaState.DoString<T>(luaStr);
+    }
+
+    new void OnApplicationQuit()
+    {
+        base.Destroy();
     }
 }

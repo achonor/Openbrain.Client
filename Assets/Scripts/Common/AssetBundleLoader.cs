@@ -3,21 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 public class AssetBundleLoader {
-    //static string AssetbundleRootPath = Application.persistentDataPath + "/";
-#if UNITY_IOS
-    static string AssetbundleRootPath = Application.streamingAssetsPath + "/AssetBundles/ios/";
-#elif UNITY_ANDROID
-    static string AssetbundleRootPath = Application.streamingAssetsPath + "/AssetBundles/android/";
-#else
-    static string AssetbundleRootPath = Application.streamingAssetsPath + "/AssetBundles/editor/";
-#endif
 
     static Dictionary<string, AssetBundle> assetBundleDict = new Dictionary<string, AssetBundle>();
 
     public static AssetBundle LoadAssetBundle(string abName)
     {
 
-        string abPath = AssetbundleRootPath + abName + ".assetbundle";
+        string abPath = GameConst.assetbundleRootPath + abName + ".assetbundle";
         AssetBundle assetBundle = AssetBundle.LoadFromFile(abPath);
         if (null != assetBundle)
         {

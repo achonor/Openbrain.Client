@@ -157,6 +157,7 @@ public static class CustomSettings
         _GT(typeof(Scheduler)),
         _GT(typeof(EventTrigger)),
         _GT(typeof(GameData)),
+        _GT(typeof(GameConst)),
         _GT(typeof(PlayDataConfig)),
         _GT(typeof(CommonMethod)),
         _GT(typeof(EmojiDataConfig)),

@@ -1,3 +1,4 @@
+require("Base.class")
 local LuaTest = class("LuaTest").New()
 
 function LuaTest:Awake()
@@ -6,7 +7,7 @@ end
 
 function LuaTest:Start()
 	Scheduler.Instance:CreateScheduler("LuaTest.Start", 0, 0, 1.0, function(param)
-		print("LuaTest:Start.Scheduler ...............")
+		print("LuaTest:Start.Scheduler ................")
 	end, nil);
 end
 
