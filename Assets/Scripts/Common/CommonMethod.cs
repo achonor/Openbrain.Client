@@ -53,4 +53,21 @@ public class CommonMethod {
             Debug.Log("CommonMethod.EnterGame Open TableUI Success!");
         });
     }
+
+
+
+    public static string DataSize2String(float dataSize)
+    {
+        if (dataSize < 1024)
+        {
+            return string.Format("{0:N2}Byte", dataSize);
+        }else if(dataSize < 1048576)
+        {
+            return string.Format("{0:N2}KB", dataSize / 1024);
+        }
+        else
+        {
+            return string.Format("{0:N2}MB", dataSize / 1048576);
+        }
+    }
 }

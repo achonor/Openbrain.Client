@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 //常量
 public class GameConst {
 
@@ -13,7 +14,6 @@ public class GameConst {
     public static Color Yellow = new Color(255, 207, 49, 255) / 255f;
     public static Color RedBlock = new Color(247, 73, 74, 255) / 255f;
     public static Color BlueBlock = new Color(8, 69, 99, 255) / 255f;
-
 
 #if UNITY_STANDALONE
     public static string osDir = "Win";
@@ -41,5 +41,6 @@ public class GameConst {
 #else
     public static string streamingUrl = Application.streamingAssetsPath + "/" + GameConst.osDir;
 #endif
-
+    //热更新服务器地址
+    public static string hotUpdateUrl = "http://106.12.93.89:8080/openbrain/" + GameConst.osDir;
 }
