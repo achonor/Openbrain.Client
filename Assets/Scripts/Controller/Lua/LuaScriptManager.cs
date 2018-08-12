@@ -62,4 +62,12 @@ public class LuaScriptManager : LuaClient
     {
         base.Destroy();
     }
+
+    public void ReconnectionLuaDebug()
+    {
+        LuaFunction luaDebug = luaState.GetFunction("ReconnectionLuaDebug");
+        luaDebug.Call();
+        luaDebug.Dispose();
+        luaDebug = null;
+    }
 }

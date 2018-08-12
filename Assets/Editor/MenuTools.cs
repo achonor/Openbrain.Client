@@ -34,6 +34,18 @@ public class MenuTools
         DirectoryInfo bundleFolder = new DirectoryInfo(GameConst.streamingPath);
         Function.OverDirectory(bundleFolder, GameConst.persistentPath);
     }
+
+    [MenuItem("Lua/ReconnectionLuaDebug")]
+    public static void ReconnectionLuaDebug()
+    {
+        if(null == LuaScriptManager.Instance)
+        {
+            Debug.LogError("Need to start the game first!");
+            return;
+        }
+        LuaScriptManager.Instance.ReconnectionLuaDebug();
+    }
+
     /// <summary>
     /// 写入filelist.txt
     /// </summary>
