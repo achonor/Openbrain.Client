@@ -10,9 +10,9 @@ public class LuaScriptManager : LuaClient
     
     static string[] SearchPath = new string[]
     {
-        "Lua/LuaScripts",
-        "Lua/LuaScripts/Base",
-        "Lua/LuaScripts/UIModule"
+        "Lua",
+        "Lua/Base",
+        "Lua/UIModule"
     };
 
 

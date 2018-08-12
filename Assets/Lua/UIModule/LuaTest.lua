@@ -7,7 +7,7 @@ end
 
 function LuaTest:Start()
 	Scheduler.Instance:CreateScheduler("LuaTest.Start", 0, 0, 1.0, function(param)
-		print("LuaTest:Start.Scheduler ................")
+		print("LuaTest:Start.Scheduler ................10086")
 	end, nil);
 end
 
