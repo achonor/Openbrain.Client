@@ -9,6 +9,7 @@ public class CommonMethodWrap
 		L.BeginClass(typeof(CommonMethod), typeof(System.Object));
 		L.RegFunction("InitGame", InitGame);
 		L.RegFunction("EnterGame", EnterGame);
+		L.RegFunction("DataSize2String", DataSize2String);
 		L.RegFunction("New", _CreateCommonMethod);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.EndClass();
@@ -62,6 +63,23 @@ public class CommonMethodWrap
 			ToLua.CheckArgsCount(L, 0);
 			CommonMethod.EnterGame();
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DataSize2String(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			float arg0 = (float)LuaDLL.luaL_checknumber(L, 1);
+			string o = CommonMethod.DataSize2String(arg0);
+			LuaDLL.lua_pushstring(L, o);
+			return 1;
 		}
 		catch (Exception e)
 		{

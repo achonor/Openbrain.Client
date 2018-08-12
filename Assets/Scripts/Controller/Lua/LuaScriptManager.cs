@@ -11,7 +11,6 @@ public class LuaScriptManager : LuaClient
     static string[] SearchPath = new string[]
     {
         "Lua",
-        "Lua/Base",
         "Lua/UIModule"
     };
 
@@ -35,13 +34,16 @@ public class LuaScriptManager : LuaClient
         //添加搜索路径
         foreach (var path in SearchPath)
         {
-#if UNITY_EDITOR
-            luaState.AddSearchPath(Application.dataPath + "/" + path);
-#else
-            string tmpPath = string.Format("{0}/{1}/{2}", Application.persistentDataPath, GameConst.osDir, path);
-            Debug.Log("LuaScriptManager.OnLoadFinished AddSearchPath = " + tmpPath);
-            luaState.AddSearchPath(tmpPath);
-#endif
+            if (GameConst.UsePersistent)
+            {
+                string tmpPath = string.Format("{0}/{1}/{2}", Application.persistentDataPath, GameConst.osDir, path);
+                Debug.Log("LuaScriptManager.OnLoadFinished AddSearchPath = " + tmpPath);
+                luaState.AddSearchPath(tmpPath);
+            }
+            else
+            {
+                luaState.AddSearchPath(Application.dataPath + "/" + path);
+            }
         }
 
     }

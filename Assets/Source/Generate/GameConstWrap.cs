@@ -16,6 +16,14 @@ public class GameConstWrap
 		L.RegVar("Yellow", get_Yellow, set_Yellow);
 		L.RegVar("RedBlock", get_RedBlock, set_RedBlock);
 		L.RegVar("BlueBlock", get_BlueBlock, set_BlueBlock);
+		L.RegVar("osDir", get_osDir, set_osDir);
+		L.RegVar("streamingPath", get_streamingPath, set_streamingPath);
+		L.RegVar("persistentPath", get_persistentPath, set_persistentPath);
+		L.RegVar("abStreamingPath", get_abStreamingPath, set_abStreamingPath);
+		L.RegVar("assetbundleRootPath", get_assetbundleRootPath, set_assetbundleRootPath);
+		L.RegVar("filelistName", get_filelistName, set_filelistName);
+		L.RegVar("streamingUrl", get_streamingUrl, set_streamingUrl);
+		L.RegVar("hotUpdateUrl", get_hotUpdateUrl, set_hotUpdateUrl);
 		L.EndClass();
 	}
 
@@ -142,6 +150,118 @@ public class GameConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_osDir(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.osDir);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_streamingPath(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.streamingPath);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_persistentPath(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.persistentPath);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_abStreamingPath(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.abStreamingPath);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_assetbundleRootPath(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.assetbundleRootPath);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_filelistName(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.filelistName);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_streamingUrl(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.streamingUrl);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_hotUpdateUrl(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, GameConst.hotUpdateUrl);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_Gray(IntPtr L)
 	{
 		try
@@ -238,6 +358,126 @@ public class GameConstWrap
 		{
 			UnityEngine.Color arg0 = ToLua.ToColor(L, 2);
 			GameConst.BlueBlock = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_osDir(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.osDir = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_streamingPath(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.streamingPath = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_persistentPath(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.persistentPath = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_abStreamingPath(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.abStreamingPath = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_assetbundleRootPath(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.assetbundleRootPath = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_filelistName(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.filelistName = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_streamingUrl(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.streamingUrl = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_hotUpdateUrl(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			GameConst.hotUpdateUrl = arg0;
 			return 0;
 		}
 		catch (Exception e)

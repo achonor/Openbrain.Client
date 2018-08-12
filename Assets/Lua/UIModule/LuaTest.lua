@@ -1,4 +1,5 @@
 require("Base.class")
+require("Protocol.cmd_pb")
 local LuaTest = class("LuaTest").New()
 
 function LuaTest:Awake()
@@ -6,9 +7,18 @@ function LuaTest:Awake()
 end
 
 function LuaTest:Start()
-	Scheduler.Instance:CreateScheduler("LuaTest.Start", 0, 0, 1.0, function(param)
-		print("LuaTest:Start.Scheduler ................10086")
-	end, nil);
+	print("LuaTest:Start 1")
+	UserEventManager.RegisterEvent("rep_message_login_game", function(param)
+		print("LuaTest:Start rep_message_login_game 1")
+
+		local paramStr = tolua.tolstring(param)
+		print(#paramStr)
+		print("lua_rep_message_login_game"..paramStr)
+		local repMsg = cmd_pb.rep_message_login_game()
+		repMsg:ParseFromString(paramStr)
+		print("=================================="..tostring(repMsg))
+	end)
+	print("LuaTest:Start 2")
 end
 
 return LuaTest

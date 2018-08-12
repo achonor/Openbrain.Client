@@ -33,11 +33,7 @@ public class UIManager : MonoBehaviour {
         if (!UIDict.ContainsKey(prePath)){
             UIDict.Add(prePath, null);
         }
-#if UNITY_EDITOR
-        ResourceManager.Instance.LoadResource<GameObject>(prePath, true, false, (GameObject obj) =>
-#else
-        ResourceManager.Instance.LoadResource<GameObject>(prePath, true, true, (GameObject obj) =>
-#endif
+        ResourceManager.Instance.LoadResource<GameObject>(prePath, true, GameConst.UsePersistent, (GameObject obj) =>
         {
             if (null == obj)
             {

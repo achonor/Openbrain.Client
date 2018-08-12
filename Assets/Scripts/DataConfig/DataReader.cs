@@ -10,7 +10,14 @@ using UnityEngine;
 public abstract class DataReader{
     protected string GetDataConfigPath()
     {
-        return Application.streamingAssetsPath + "/DataConfig/" + GetDataConfigName();
+        if (GameConst.UsePersistent)
+        {
+            return "file://" + GameConst.persistentPath + "/DataConfig/" + GetDataConfigName();
+        }
+        else
+        {
+            return GameConst.streamingUrl + "/DataConfig/" + GetDataConfigName();
+        }
     }
     protected abstract string GetDataConfigName();
     protected abstract MessageParser GetMessageParser();

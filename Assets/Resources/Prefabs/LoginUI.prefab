@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224939642734647964}
   - component: {fileID: 114309304376773708}
+  - component: {fileID: 114498608885658698}
   m_Layer: 5
   m_Name: LoginUI
   m_TagString: Untagged
@@ -299,6 +300,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114498608885658698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201325643714522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d552ff3a1a0d5c41aa3f9ac11b0e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  luaFile: LuaTest.lua
 --- !u!222 &222203244750618956
 CanvasRenderer:
   m_ObjectHideFlags: 1

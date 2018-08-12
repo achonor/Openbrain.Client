@@ -28,6 +28,7 @@ public static class LuaBinder
 		LanguageWrap.Register(L);
 		FunctionWrap.Register(L);
 		PolygonWrap.Register(L);
+		LuaUtilWrap.Register(L);
 		BCTweenAlphaWrap.Register(L);
 		BCTweenColorWrap.Register(L);
 		BCTweenGroupWrap.Register(L);

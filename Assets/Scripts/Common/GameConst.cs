@@ -15,6 +15,13 @@ public class GameConst {
     public static Color RedBlock = new Color(247, 73, 74, 255) / 255f;
     public static Color BlueBlock = new Color(8, 69, 99, 255) / 255f;
 
+    //是否使用Persistent目录的资源
+#if UNITY_EDITOR
+    public static bool UsePersistent = true;
+#else
+    public static bool UsePersistent = true;
+#endif
+
 #if UNITY_STANDALONE
     public static string osDir = "Win";
 #elif UNITY_ANDROID

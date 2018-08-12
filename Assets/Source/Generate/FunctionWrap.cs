@@ -18,6 +18,10 @@ public class FunctionWrap
 		L.RegFunction("SetImageSprite", SetImageSprite);
 		L.RegFunction("LevelToString", LevelToString);
 		L.RegFunction("ProficiencyToString", ProficiencyToString);
+		L.RegFunction("OverDirectory", OverDirectory);
+		L.RegFunction("GetDirectoryAllFile", GetDirectoryAllFile);
+		L.RegFunction("WriteFile", WriteFile);
+		L.RegFunction("GetMD5HashFromFile", GetMD5HashFromFile);
 		L.RegFunction("New", _CreateFunction);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.EndClass();
@@ -242,6 +246,74 @@ public class FunctionWrap
 			ToLua.CheckArgsCount(L, 1);
 			enum_player_proficiency arg0 = (enum_player_proficiency)ToLua.CheckObject(L, 1, typeof(enum_player_proficiency));
 			string o = Function.ProficiencyToString(arg0);
+			LuaDLL.lua_pushstring(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OverDirectory(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			System.IO.DirectoryInfo arg0 = (System.IO.DirectoryInfo)ToLua.CheckObject(L, 1, typeof(System.IO.DirectoryInfo));
+			string arg1 = ToLua.CheckString(L, 2);
+			Function.OverDirectory(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetDirectoryAllFile(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			System.IO.DirectoryInfo arg0 = (System.IO.DirectoryInfo)ToLua.CheckObject(L, 1, typeof(System.IO.DirectoryInfo));
+			System.Collections.Generic.List<System.IO.FileInfo> arg1 = (System.Collections.Generic.List<System.IO.FileInfo>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<System.IO.FileInfo>));
+			Function.GetDirectoryAllFile(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int WriteFile(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+			string arg1 = ToLua.CheckString(L, 2);
+			Function.WriteFile(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetMD5HashFromFile(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			string o = Function.GetMD5HashFromFile(arg0);
 			LuaDLL.lua_pushstring(L, o);
 			return 1;
 		}

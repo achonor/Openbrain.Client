@@ -105,7 +105,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public const int NameFieldNumber = 2;
   private string name_ = "";
   /// <summary>
-  ///* ĞÕÃû 
+  ///* å§“å 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public string Name {
@@ -119,7 +119,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public const int PrefabPathFieldNumber = 3;
   private string prefabPath_ = "";
   /// <summary>
-  ///* Íæ·¨prefabÂ·¾¶ 
+  ///* ç©æ³•prefabè·¯å¾„ 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public string PrefabPath {
@@ -147,7 +147,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public const int IntroIconFieldNumber = 5;
   private string introIcon_ = "";
   /// <summary>
-  ///* ½éÉÜicon 
+  ///* ä»‹ç»icon 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public string IntroIcon {
@@ -161,7 +161,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public const int IntroTimeFieldNumber = 6;
   private float introTime_;
   /// <summary>
-  ///* ½éÉÜÊ±¼ä£¨Ãë£© 
+  ///* ä»‹ç»æ—¶é—´ï¼ˆç§’ï¼‰ 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public float IntroTime {
@@ -175,7 +175,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public const int TimeFieldNumber = 7;
   private float time_;
   /// <summary>
-  ///* Íæ·¨Ê±¼ä£¨Ãë£© 
+  ///* ç©æ³•æ—¶é—´ï¼ˆç§’ï¼‰ 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public float Time {
@@ -191,7 +191,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       = pb::FieldCodec.ForUInt32(66);
   private readonly pbc::RepeatedField<uint> expectGradeScale_ = new pbc::RepeatedField<uint>();
   /// <summary>
-  ///* ÆÚÍû·ÖÊı±ÈÀı 
+  ///* æœŸæœ›åˆ†æ•°æ¯”ä¾‹ 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<uint> ExpectGradeScale {
@@ -204,7 +204,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       = pb::FieldCodec.ForUInt32(74);
   private readonly pbc::RepeatedField<uint> attribute_ = new pbc::RepeatedField<uint>();
   /// <summary>
-  ///* ÊôĞÔ×ª»¯ÂÊ(Íò·Ö±È) 
+  ///* å±æ€§è½¬åŒ–ç‡(ä¸‡åˆ†æ¯”) 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<uint> Attribute {
@@ -217,7 +217,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       = pb::FieldCodec.ForUInt32(82);
   private readonly pbc::RepeatedField<uint> param1_ = new pbc::RepeatedField<uint>();
   /// <summary>
-  ///* Íæ·¨²ÎÊı 
+  ///* ç©æ³•å‚æ•° 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<uint> Param1 {
@@ -230,7 +230,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       = pb::FieldCodec.ForUInt32(90);
   private readonly pbc::RepeatedField<uint> param2_ = new pbc::RepeatedField<uint>();
   /// <summary>
-  ///* Íæ·¨²ÎÊı 
+  ///* ç©æ³•å‚æ•° 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<uint> Param2 {
@@ -243,7 +243,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       = pb::FieldCodec.ForUInt32(98);
   private readonly pbc::RepeatedField<uint> param3_ = new pbc::RepeatedField<uint>();
   /// <summary>
-  ///* Íæ·¨²ÎÊı 
+  ///* ç©æ³•å‚æ•° 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<uint> Param3 {
@@ -256,7 +256,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
       = pb::FieldCodec.ForString(106);
   private readonly pbc::RepeatedField<string> param4_ = new pbc::RepeatedField<string>();
   /// <summary>
-  ///* Íæ·¨²ÎÊı 
+  ///* ç©æ³•å‚æ•° 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<string> Param4 {
