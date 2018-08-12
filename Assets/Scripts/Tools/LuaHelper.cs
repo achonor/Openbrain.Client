@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Lua工具类
-public class LuaUtil{
+//给lua调用的接口类
+public class LuaHelper
+{
 
 }

@@ -174,9 +174,10 @@ public static class CustomSettings
         _GT(typeof(LoopHorizontalScrollRect)),
         _GT(typeof(LoopVerticalScrollRect)),
         _GT(typeof(Polygon)),
-        _GT(typeof(LuaUtil)),
+        _GT(typeof(LuaHelper)),
 
         //BCTween
+        _GT(typeof(BCUITweener)),
         _GT(typeof(BCTweenAlpha)),
         _GT(typeof(BCTweenColor)),
         _GT(typeof(BCTweenGroup)),

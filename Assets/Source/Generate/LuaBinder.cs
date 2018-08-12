@@ -28,7 +28,8 @@ public static class LuaBinder
 		LanguageWrap.Register(L);
 		FunctionWrap.Register(L);
 		PolygonWrap.Register(L);
-		LuaUtilWrap.Register(L);
+		LuaHelperWrap.Register(L);
+		BCUITweenerWrap.Register(L);
 		BCTweenAlphaWrap.Register(L);
 		BCTweenColorWrap.Register(L);
 		BCTweenGroupWrap.Register(L);
@@ -39,7 +40,6 @@ public static class LuaBinder
 		BCTweenRandTriggerWrap.Register(L);
 		BCTweenNumTextWrap.Register(L);
 		DataReaderWrap.Register(L);
-		BCUITweenerWrap.Register(L);
 		L.RegFunction("SchedulerCallback", SchedulerCallback);
 		L.RegFunction("EventCallback", EventCallback);
 		L.RegFunction("RequestCallback", RequestCallback);

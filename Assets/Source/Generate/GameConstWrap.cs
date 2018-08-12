@@ -16,6 +16,7 @@ public class GameConstWrap
 		L.RegVar("Yellow", get_Yellow, set_Yellow);
 		L.RegVar("RedBlock", get_RedBlock, set_RedBlock);
 		L.RegVar("BlueBlock", get_BlueBlock, set_BlueBlock);
+		L.RegVar("UsePersistent", get_UsePersistent, set_UsePersistent);
 		L.RegVar("osDir", get_osDir, set_osDir);
 		L.RegVar("streamingPath", get_streamingPath, set_streamingPath);
 		L.RegVar("persistentPath", get_persistentPath, set_persistentPath);
@@ -141,6 +142,20 @@ public class GameConstWrap
 		try
 		{
 			ToLua.Push(L, GameConst.BlueBlock);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_UsePersistent(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushboolean(L, GameConst.UsePersistent);
 			return 1;
 		}
 		catch (Exception e)
@@ -358,6 +373,21 @@ public class GameConstWrap
 		{
 			UnityEngine.Color arg0 = ToLua.ToColor(L, 2);
 			GameConst.BlueBlock = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_UsePersistent(IntPtr L)
+	{
+		try
+		{
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			GameConst.UsePersistent = arg0;
 			return 0;
 		}
 		catch (Exception e)

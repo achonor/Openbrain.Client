@@ -2,18 +2,18 @@
 using System;
 using LuaInterface;
 
-public class LuaUtilWrap
+public class LuaHelperWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaUtil), typeof(System.Object));
-		L.RegFunction("New", _CreateLuaUtil);
+		L.BeginClass(typeof(LuaHelper), typeof(System.Object));
+		L.RegFunction("New", _CreateLuaHelper);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.EndClass();
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int _CreateLuaUtil(IntPtr L)
+	static int _CreateLuaHelper(IntPtr L)
 	{
 		try
 		{
@@ -21,13 +21,13 @@ public class LuaUtilWrap
 
 			if (count == 0)
 			{
-				LuaUtil obj = new LuaUtil();
+				LuaHelper obj = new LuaHelper();
 				ToLua.PushObject(L, obj);
 				return 1;
 			}
 			else
 			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: LuaUtil.New");
+				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: LuaHelper.New");
 			}
 		}
 		catch (Exception e)
