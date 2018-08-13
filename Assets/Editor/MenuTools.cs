@@ -5,7 +5,7 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 using System;
-
+using System.Diagnostics;
 
 public class MenuTools
 {
@@ -16,6 +16,8 @@ public class MenuTools
         AssetBundleBuider.BuildAll();
         //拷贝lua到StreamingAssetsPath
         ToLuaMenu.CopyLuaFilesToStreaming();
+        //对lua代码加密
+        LuaToBytecode(GameConst.streamingPath);
 
         //生成md5列表文件
         DirectoryInfo md5Folder = new DirectoryInfo(GameConst.streamingPath);
@@ -40,10 +42,32 @@ public class MenuTools
     {
         if(null == LuaScriptManager.Instance)
         {
-            Debug.LogError("Need to start the game first!");
+            UnityEngine.Debug.LogError("Need to start the game first!");
             return;
         }
         LuaScriptManager.Instance.ReconnectionLuaDebug();
+    }
+    public static void LuaToBytecode(string path)
+    {
+        DirectoryInfo luaPath = new DirectoryInfo(path);
+        LuaToBytecode(luaPath);
+    }
+    /// <summary>
+    /// 加密目录下所有lua文件
+    /// </summary>
+    /// <param name="luaPath"></param>
+    private static void LuaToBytecode(DirectoryInfo luaPath)
+    {
+        foreach (var luaFile in luaPath.GetFiles("*.lua"))
+        {
+            //string outString = RunCmd(string.Format("D:/LuaJIT-2.1.0/bin/luajit.exe -b {0} {1}", luaFile.FullName, luaFile.FullName));
+            string outString = RunCmd("D:/LuaJIT-2.1.0/bin/luajit.exe", string.Format("-b {0} {1}", luaFile.FullName, luaFile.FullName));
+            UnityEngine.Debug.Log(outString);
+        }
+        foreach (DirectoryInfo nextFolder in luaPath.GetDirectories())
+        {
+            LuaToBytecode(nextFolder);
+        }
     }
 
     /// <summary>
@@ -61,7 +85,7 @@ public class MenuTools
                 continue;
             }
             string tmpLine = string.Format("{0}/{1}|{2}|{3}", prefix, nextFile.Name, Function.GetMD5HashFromFile(nextFile.FullName), nextFile.Length);
-            Debug.Log(tmpLine);
+            UnityEngine.Debug.Log(tmpLine);
             fileWriter.WriteLine(tmpLine);
         }
         foreach (DirectoryInfo nextFolder in folder.GetDirectories())
@@ -97,5 +121,25 @@ public class MenuTools
         {
             ChangeLua2Bytes(nextFolder, path);
         }
+    }
+
+    public static string RunCmd(string fileName, string arguments)
+    {
+        ProcessStartInfo processInfo = new ProcessStartInfo();
+        processInfo.FileName = fileName;
+        processInfo.Arguments = arguments;
+        processInfo.UseShellExecute = false;        //是否使用操作系统shell启动
+        processInfo.RedirectStandardInput = true;   //接受来自调用程序的输入信息
+        processInfo.RedirectStandardOutput = true;  //由调用程序获取输出信息
+        processInfo.RedirectStandardError = true;   //重定向标准错误输出
+        processInfo.CreateNoWindow = true;          //不显示程序窗口
+        //启动
+        Process process = Process.Start(processInfo);
+
+        //获取cmd窗口的输出信息
+        string output = process.StandardOutput.ReadToEnd();
+        process.WaitForExit();//等待程序执行完退出进程
+        process.Close();
+        return output;
     }
 }
