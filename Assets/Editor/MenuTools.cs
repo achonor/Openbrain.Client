@@ -9,15 +9,25 @@ using System.Diagnostics;
 
 public class MenuTools
 {
-    [MenuItem("Tools/Quick Handle")]
-    public static void QuickHandle()
+    [MenuItem("Tools/Quick Handle By x86")]
+    public static void QuickHandle_x86()
+    {
+        QuickHandle("x86");
+    }
+    [MenuItem("Tools/Quick Handle By x64")]
+    public static void QuickHandle_x64()
+    {
+        QuickHandle("x64");
+    }
+
+    public static void QuickHandle(string arch)
     {
         //打包AssetBundle到StreamingAssetsPath
         AssetBundleBuider.BuildAll();
         //拷贝lua到StreamingAssetsPath
         ToLuaMenu.CopyLuaFilesToStreaming();
         //对lua代码加密
-        LuaToBytecode(GameConst.streamingPath);
+        LuaToBytecode(arch, GameConst.streamingPath);
 
         //生成md5列表文件
         DirectoryInfo md5Folder = new DirectoryInfo(GameConst.streamingPath);
@@ -47,26 +57,36 @@ public class MenuTools
         }
         LuaScriptManager.Instance.ReconnectionLuaDebug();
     }
-    public static void LuaToBytecode(string path)
+    public static void LuaToBytecode(string arch, string path)
     {
+        string luajitPath = null;
+        if ("x86" == arch)
+        {
+            luajitPath = "D:/LuaJIT-2.1.0/bin32/luajit32.exe";
+        }
+        else
+        {
+            luajitPath = "D:/LuaJIT-2.1.0/bin/luajit.exe";
+        }
         DirectoryInfo luaPath = new DirectoryInfo(path);
-        LuaToBytecode(luaPath);
+        LuaToBytecode(luajitPath, luaPath);
     }
     /// <summary>
     /// 加密目录下所有lua文件
     /// </summary>
     /// <param name="luaPath"></param>
-    private static void LuaToBytecode(DirectoryInfo luaPath)
+    private static void LuaToBytecode(string luajitPath, DirectoryInfo luaPath)
     {
+
         foreach (var luaFile in luaPath.GetFiles("*.lua"))
         {
             //string outString = RunCmd(string.Format("D:/LuaJIT-2.1.0/bin/luajit.exe -b {0} {1}", luaFile.FullName, luaFile.FullName));
-            string outString = RunCmd("D:/LuaJIT-2.1.0/bin/luajit.exe", string.Format("-b {0} {1}", luaFile.FullName, luaFile.FullName));
+            string outString = RunCmd(luajitPath, string.Format("-b {0} {1}", luaFile.FullName, luaFile.FullName));
             UnityEngine.Debug.Log(outString);
         }
         foreach (DirectoryInfo nextFolder in luaPath.GetDirectories())
         {
-            LuaToBytecode(nextFolder);
+            LuaToBytecode(luajitPath, nextFolder);
         }
     }
 
