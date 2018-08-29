@@ -27,6 +27,7 @@ public class PlayDataConfig : DataReader {
         //读文件
         ResourceManager.Instance.WWWLoad(GetDataConfigPath(), (byte[] datas) =>
         {
+            Debug.Log("C#-------------------------" + datas.Length);
             //反序列化
             _srcData = GetMessageParser().ParseFrom(datas) as play_data_ARRAY;
             foreach (var data in _srcData.Items)

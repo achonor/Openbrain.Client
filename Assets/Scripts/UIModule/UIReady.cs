@@ -53,7 +53,7 @@ public class UIReady : UIBase {
         {
             float lastTime = (float)(readyInfo.StartTime - Function.GetServerTime());
             countdownImage.fillAmount = lastTime / totalTime;
-            Debug.Log("UIReady.Countdown lastTime = " + lastTime + " totalTime = " + totalTime);
+            //Debug.Log("UIReady.Countdown lastTime = " + lastTime + " totalTime = " + totalTime);
             if (countdownImage.fillAmount <= 0)
             {
                 Scheduler.Instance.Stop("UIReady.Countdown");

@@ -175,6 +175,8 @@ public static class CustomSettings
         _GT(typeof(LoopVerticalScrollRect)),
         _GT(typeof(Polygon)),
         _GT(typeof(LuaHelper)),
+        _GT(typeof(LuaScriptManager)),
+        _GT(typeof(LuaPlayInterface)),
 
         //BCTween
         _GT(typeof(BCUITweener)),

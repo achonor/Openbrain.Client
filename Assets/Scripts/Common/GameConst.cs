@@ -17,7 +17,7 @@ public class GameConst {
 
     //是否使用Persistent目录的资源
 #if UNITY_EDITOR
-    public static bool UsePersistent = true;
+    public static bool UsePersistent = false;
 #else
     public static bool UsePersistent = true;
 #endif
@@ -49,5 +49,6 @@ public class GameConst {
     public static string streamingUrl = Application.streamingAssetsPath + "/" + GameConst.osDir;
 #endif
     //热更新服务器地址
-    public static string hotUpdateUrl = "http://106.12.93.89:8080/openbrain/" + GameConst.osDir;
+    //public static string hotUpdateUrl = "http://106.12.93.89:8080/openbrain/" + GameConst.osDir;
+    public static string hotUpdateUrl = "http://47.107.36.236:8080/openbrain/" + GameConst.osDir;
 }

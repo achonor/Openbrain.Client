@@ -121,7 +121,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224481386934449028}
-  - component: {fileID: 114431729413503926}
+  - component: {fileID: 114662189757426632}
+  - component: {fileID: 114936629006730328}
   m_Layer: 5
   m_Name: MemoryMaze
   m_TagString: Untagged
@@ -331,18 +332,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114431729413503926
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1604289181526994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ebc7cf03f9ffa49978b349e0b0f267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
 --- !u!114 &114622053735047090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,6 +386,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114662189757426632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604289181526994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d552ff3a1a0d5c41aa3f9ac11b0e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  luaFile: LuaMemoryMaze.lua
 --- !u!114 &114685347636898272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,6 +449,18 @@ MonoBehaviour:
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 1
   m_ConstraintCount: 3
+--- !u!114 &114936629006730328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604289181526994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f4b05b8f4292140b7a8a1f02d2cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
 --- !u!114 &114989530102725696
 MonoBehaviour:
   m_ObjectHideFlags: 1

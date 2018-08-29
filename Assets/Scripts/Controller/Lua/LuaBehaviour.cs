@@ -106,4 +106,57 @@ public class LuaBehaviour : UIBase
             m_OnDestory.Call<LuaTable>(luaInstance);
         }
     }
+
+
+
+    public void CallLuaFunction(string funcName)
+    {
+        try
+        {
+            LuaFunction func = luaInstance.GetLuaFunction(funcName);
+            func.Call();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
+    }
+    public void CallLuaFunction<T>(string funcName, T param)
+    {
+        try
+        {
+            LuaFunction func = luaInstance.GetLuaFunction(funcName);
+            func.Call<T>(param);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
+    }
+    public R CallLuaFunction<R>(string funcName)
+    {
+        try
+        {
+            LuaFunction func = luaInstance.GetLuaFunction(funcName);
+            return func.Invoke<R>();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+            return default(R);
+        }
+    }
+    public R CallLuaFunction<R, T>(string funcName, T param)
+    {
+        try
+        {
+            LuaFunction func = luaInstance.GetLuaFunction(funcName);
+            return func.Invoke<T, R>(param);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+            return default(R);
+        }
+    }
 }

@@ -38,12 +38,13 @@ function class(className, superName, superModulePath)
     end
         
         
-    if _G[superName] ~= nil then      
+    if _G[superName] ~= nil then
+        _G[className].super = _G[superName]
         setmetatable(_G[className], _G[superName])
         _G[superName].__index = _G[superName]    
     end  
     
-    _G[className].New = function()
+    _G[className].New = function(o)
         local o = o or {}
         setmetatable(o, _G[className])
         _G[className].__index = _G[className]

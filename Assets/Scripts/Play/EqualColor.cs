@@ -58,10 +58,10 @@ public class EqualColor : PlayBase {
         //读取配置表数据
         playData = PlayDataConfig.Instance.GetDataByID(GetPlayID());
         //读取所有颜色
-        allColor = new Color[playData.Param3.Count / 4];
-        for (int i = 0; i < playData.Param3.Count; i += 4)
+        allColor = new Color[playData.Param5.Count / 4];
+        for (int i = 0; i < playData.Param5.Count; i += 4)
         {
-            allColor[i / 4] = (new Color(playData.Param3[i], playData.Param3[i + 1], playData.Param3[i + 2], playData.Param3[i + 3]) / 255f);
+            allColor[i / 4] = (new Color(playData.Param5[i], playData.Param5[i + 1], playData.Param5[i + 2], playData.Param5[i + 3]) / 255f);
         }
     }
 
@@ -125,6 +125,11 @@ public class EqualColor : PlayBase {
     //回答错误
     private void AnswerFaild()
     {
+        int addGrade = (int)playData.Param3[problemIdx];
+        if (null != answerFinish)
+        {
+            answerFinish(false, -addGrade);
+        }
     }
 
     /// <summary>

@@ -22,18 +22,18 @@ public static partial class PlayDataReflection {
   static PlayDataReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIu0BCglwbGF5X2RhdGESCgoC",
-          "aWQYASABKA0SDAoEbmFtZRgCIAEoCRITCgtwcmVmYWJfcGF0aBgDIAEoCRIM",
+          "Chl4bHMycHJvdG8vcGxheV9kYXRhLnByb3RvIv0BCglwbGF5X2RhdGESCgoC",
+          "aWQYASABKAUSDAoEbmFtZRgCIAEoCRITCgtwcmVmYWJfcGF0aBgDIAEoCRIM",
           "CgRpY29uGAQgASgJEhIKCmludHJvX2ljb24YBSABKAkSEgoKaW50cm9fdGlt",
           "ZRgGIAEoAhIMCgR0aW1lGAcgASgCEhoKEmV4cGVjdF9ncmFkZV9zY2FsZRgI",
-          "IAMoDRIRCglhdHRyaWJ1dGUYCSADKA0SDgoGcGFyYW0xGAogAygNEg4KBnBh",
-          "cmFtMhgLIAMoDRIOCgZwYXJhbTMYDCADKA0SDgoGcGFyYW00GA0gAygJIiwK",
-          "D3BsYXlfZGF0YV9BUlJBWRIZCgVpdGVtcxgBIAMoCzIKLnBsYXlfZGF0YWIG",
-          "cHJvdG8z"));
+          "IAMoBRIRCglhdHRyaWJ1dGUYCSADKAUSDgoGcGFyYW0xGAogAygFEg4KBnBh",
+          "cmFtMhgLIAMoBRIOCgZwYXJhbTMYDCADKAUSDgoGcGFyYW00GA0gAygJEg4K",
+          "BnBhcmFtNRgOIAMoBSIsCg9wbGF5X2RhdGFfQVJSQVkSGQoFaXRlbXMYASAD",
+          "KAsyCi5wbGF5X2RhdGFiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "PrefabPath", "Icon", "IntroIcon", "IntroTime", "Time", "ExpectGradeScale", "Attribute", "Param1", "Param2", "Param3", "Param4" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::play_data), global::play_data.Parser, new[]{ "Id", "Name", "PrefabPath", "Icon", "IntroIcon", "IntroTime", "Time", "ExpectGradeScale", "Attribute", "Param1", "Param2", "Param3", "Param4", "Param5" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::play_data_ARRAY), global::play_data_ARRAY.Parser, new[]{ "Items" }, null, null, null)
         }));
   }
@@ -79,6 +79,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     param2_ = other.param2_.Clone();
     param3_ = other.param3_.Clone();
     param4_ = other.param4_.Clone();
+    param5_ = other.param5_.Clone();
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -89,12 +90,12 @@ public sealed partial class play_data : pb::IMessage<play_data> {
 
   /// <summary>Field number for the "id" field.</summary>
   public const int IdFieldNumber = 1;
-  private uint id_;
+  private int id_;
   /// <summary>
   ///* ID 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public uint Id {
+  public int Id {
     get { return id_; }
     set {
       id_ = value;
@@ -187,66 +188,66 @@ public sealed partial class play_data : pb::IMessage<play_data> {
 
   /// <summary>Field number for the "expect_grade_scale" field.</summary>
   public const int ExpectGradeScaleFieldNumber = 8;
-  private static readonly pb::FieldCodec<uint> _repeated_expectGradeScale_codec
-      = pb::FieldCodec.ForUInt32(66);
-  private readonly pbc::RepeatedField<uint> expectGradeScale_ = new pbc::RepeatedField<uint>();
+  private static readonly pb::FieldCodec<int> _repeated_expectGradeScale_codec
+      = pb::FieldCodec.ForInt32(66);
+  private readonly pbc::RepeatedField<int> expectGradeScale_ = new pbc::RepeatedField<int>();
   /// <summary>
   ///* 期望分数比例 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pbc::RepeatedField<uint> ExpectGradeScale {
+  public pbc::RepeatedField<int> ExpectGradeScale {
     get { return expectGradeScale_; }
   }
 
   /// <summary>Field number for the "attribute" field.</summary>
   public const int AttributeFieldNumber = 9;
-  private static readonly pb::FieldCodec<uint> _repeated_attribute_codec
-      = pb::FieldCodec.ForUInt32(74);
-  private readonly pbc::RepeatedField<uint> attribute_ = new pbc::RepeatedField<uint>();
+  private static readonly pb::FieldCodec<int> _repeated_attribute_codec
+      = pb::FieldCodec.ForInt32(74);
+  private readonly pbc::RepeatedField<int> attribute_ = new pbc::RepeatedField<int>();
   /// <summary>
   ///* 属性转化率(万分比) 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pbc::RepeatedField<uint> Attribute {
+  public pbc::RepeatedField<int> Attribute {
     get { return attribute_; }
   }
 
   /// <summary>Field number for the "param1" field.</summary>
   public const int Param1FieldNumber = 10;
-  private static readonly pb::FieldCodec<uint> _repeated_param1_codec
-      = pb::FieldCodec.ForUInt32(82);
-  private readonly pbc::RepeatedField<uint> param1_ = new pbc::RepeatedField<uint>();
+  private static readonly pb::FieldCodec<int> _repeated_param1_codec
+      = pb::FieldCodec.ForInt32(82);
+  private readonly pbc::RepeatedField<int> param1_ = new pbc::RepeatedField<int>();
   /// <summary>
   ///* 玩法参数 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pbc::RepeatedField<uint> Param1 {
+  public pbc::RepeatedField<int> Param1 {
     get { return param1_; }
   }
 
   /// <summary>Field number for the "param2" field.</summary>
   public const int Param2FieldNumber = 11;
-  private static readonly pb::FieldCodec<uint> _repeated_param2_codec
-      = pb::FieldCodec.ForUInt32(90);
-  private readonly pbc::RepeatedField<uint> param2_ = new pbc::RepeatedField<uint>();
+  private static readonly pb::FieldCodec<int> _repeated_param2_codec
+      = pb::FieldCodec.ForInt32(90);
+  private readonly pbc::RepeatedField<int> param2_ = new pbc::RepeatedField<int>();
   /// <summary>
   ///* 玩法参数 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pbc::RepeatedField<uint> Param2 {
+  public pbc::RepeatedField<int> Param2 {
     get { return param2_; }
   }
 
   /// <summary>Field number for the "param3" field.</summary>
   public const int Param3FieldNumber = 12;
-  private static readonly pb::FieldCodec<uint> _repeated_param3_codec
-      = pb::FieldCodec.ForUInt32(98);
-  private readonly pbc::RepeatedField<uint> param3_ = new pbc::RepeatedField<uint>();
+  private static readonly pb::FieldCodec<int> _repeated_param3_codec
+      = pb::FieldCodec.ForInt32(98);
+  private readonly pbc::RepeatedField<int> param3_ = new pbc::RepeatedField<int>();
   /// <summary>
   ///* 玩法参数 
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pbc::RepeatedField<uint> Param3 {
+  public pbc::RepeatedField<int> Param3 {
     get { return param3_; }
   }
 
@@ -261,6 +262,19 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<string> Param4 {
     get { return param4_; }
+  }
+
+  /// <summary>Field number for the "param5" field.</summary>
+  public const int Param5FieldNumber = 14;
+  private static readonly pb::FieldCodec<int> _repeated_param5_codec
+      = pb::FieldCodec.ForInt32(114);
+  private readonly pbc::RepeatedField<int> param5_ = new pbc::RepeatedField<int>();
+  /// <summary>
+  ///* 玩法参数 
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<int> Param5 {
+    get { return param5_; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -289,6 +303,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     if(!param2_.Equals(other.param2_)) return false;
     if(!param3_.Equals(other.param3_)) return false;
     if(!param4_.Equals(other.param4_)) return false;
+    if(!param5_.Equals(other.param5_)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -308,6 +323,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     hash ^= param2_.GetHashCode();
     hash ^= param3_.GetHashCode();
     hash ^= param4_.GetHashCode();
+    hash ^= param5_.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -323,7 +339,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public void WriteTo(pb::CodedOutputStream output) {
     if (Id != 0) {
       output.WriteRawTag(8);
-      output.WriteUInt32(Id);
+      output.WriteInt32(Id);
     }
     if (Name.Length != 0) {
       output.WriteRawTag(18);
@@ -355,6 +371,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     param2_.WriteTo(output, _repeated_param2_codec);
     param3_.WriteTo(output, _repeated_param3_codec);
     param4_.WriteTo(output, _repeated_param4_codec);
+    param5_.WriteTo(output, _repeated_param5_codec);
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -364,7 +381,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
   public int CalculateSize() {
     int size = 0;
     if (Id != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
     }
     if (Name.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -390,6 +407,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     size += param2_.CalculateSize(_repeated_param2_codec);
     size += param3_.CalculateSize(_repeated_param3_codec);
     size += param4_.CalculateSize(_repeated_param4_codec);
+    size += param5_.CalculateSize(_repeated_param5_codec);
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
     }
@@ -428,6 +446,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
     param2_.Add(other.param2_);
     param3_.Add(other.param3_);
     param4_.Add(other.param4_);
+    param5_.Add(other.param5_);
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
 
@@ -440,7 +459,7 @@ public sealed partial class play_data : pb::IMessage<play_data> {
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          Id = input.ReadUInt32();
+          Id = input.ReadInt32();
           break;
         }
         case 18: {
@@ -494,6 +513,11 @@ public sealed partial class play_data : pb::IMessage<play_data> {
         }
         case 106: {
           param4_.AddEntriesFrom(input, _repeated_param4_codec);
+          break;
+        }
+        case 114:
+        case 112: {
+          param5_.AddEntriesFrom(input, _repeated_param5_codec);
           break;
         }
       }

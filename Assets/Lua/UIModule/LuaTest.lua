@@ -1,5 +1,6 @@
 require("Base.class")
 require("Protocol.cmd_pb")
+
 local LuaTest = class("LuaTest").New()
 
 function LuaTest:Awake()
@@ -10,6 +11,8 @@ function LuaTest:Start()
 	print("LuaTest:Start 1")
 	UserEventManager.RegisterEvent("rep_message_login_game", function(param)
 		print("LuaTest:Start rep_message_login_game 1")
+		--require("Configs.LuaEmojiConfig")
+		require("Configs.LuaPlayConfig")
 
 		local paramStr = tolua.tolstring(param)
 		print(#paramStr)

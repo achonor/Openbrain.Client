@@ -11,6 +11,7 @@ public class LuaScriptManager : LuaClient
     static string[] SearchPath = new string[]
     {
         "Lua",
+        "Lua/UIPlay",
         "Lua/UIModule"
     };
 
