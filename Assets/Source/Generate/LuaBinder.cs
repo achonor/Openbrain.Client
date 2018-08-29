@@ -29,6 +29,8 @@ public static class LuaBinder
 		FunctionWrap.Register(L);
 		PolygonWrap.Register(L);
 		LuaHelperWrap.Register(L);
+		LuaScriptManagerWrap.Register(L);
+		LuaPlayInterfaceWrap.Register(L);
 		BCUITweenerWrap.Register(L);
 		BCTweenAlphaWrap.Register(L);
 		BCTweenColorWrap.Register(L);
@@ -40,6 +42,8 @@ public static class LuaBinder
 		BCTweenRandTriggerWrap.Register(L);
 		BCTweenNumTextWrap.Register(L);
 		DataReaderWrap.Register(L);
+		PlayBaseWrap.Register(L);
+		UIBaseWrap.Register(L);
 		L.RegFunction("SchedulerCallback", SchedulerCallback);
 		L.RegFunction("EventCallback", EventCallback);
 		L.RegFunction("RequestCallback", RequestCallback);
@@ -127,6 +131,7 @@ public static class LuaBinder
 		L.RegFunction("Action_bytes", System_Action_bytes);
 		L.RegFunction("Action_UnityEngine_Sprite", System_Action_UnityEngine_Sprite);
 		L.RegFunction("Action_UnityEngine_Transform_int", System_Action_UnityEngine_Transform_int);
+		L.RegFunction("Action_bool_int", System_Action_bool_int);
 		L.EndModule();
 		L.BeginModule("EventTrigger");
 		L.RegFunction("VoidDelegate", EventTrigger_VoidDelegate);
@@ -760,6 +765,33 @@ public static class LuaBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<System.Action<UnityEngine.Transform,int>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Action_bool_int(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Action<bool,int>>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Action<bool,int>>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;

@@ -34,14 +34,14 @@ function LuaDataReader:OnLoad()
     local file = assert(io.open(filePath, 'rb'))
     local fileData = file:read("*a")
     file:close()
-    print("lua-------------------------"..string.len(fileData))
     --反序列化
     protoInstance:ParseFromString(fileData)
     --数据处理
     for key, value in ipairs(protoInstance.items) do
         self.dataDict[value.id] = value
     end
-    print(self.dataDict)
+    print("LuaDataReader:OnLoad "..configName.." end!")
+    print(tostring(self.dataDict))
 end
 
 return LuaPlayConfig

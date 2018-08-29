@@ -114,7 +114,7 @@ public class LuaBehaviour : UIBase
         try
         {
             LuaFunction func = luaInstance.GetLuaFunction(funcName);
-            func.Call();
+            func.Call<LuaTable>(luaInstance);
         }
         catch (Exception e)
         {
@@ -126,7 +126,7 @@ public class LuaBehaviour : UIBase
         try
         {
             LuaFunction func = luaInstance.GetLuaFunction(funcName);
-            func.Call<T>(param);
+            func.Call<LuaTable, T>(luaInstance, param);
         }
         catch (Exception e)
         {
@@ -138,7 +138,7 @@ public class LuaBehaviour : UIBase
         try
         {
             LuaFunction func = luaInstance.GetLuaFunction(funcName);
-            return func.Invoke<R>();
+            return func.Invoke<LuaTable, R>(luaInstance);
         }
         catch (Exception e)
         {
@@ -151,7 +151,7 @@ public class LuaBehaviour : UIBase
         try
         {
             LuaFunction func = luaInstance.GetLuaFunction(funcName);
-            return func.Invoke<T, R>(param);
+            return func.Invoke<LuaTable, T, R>(luaInstance, param);
         }
         catch (Exception e)
         {
