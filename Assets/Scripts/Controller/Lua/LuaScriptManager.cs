@@ -46,8 +46,14 @@ public class LuaScriptManager : LuaClient
                 luaState.AddSearchPath(Application.dataPath + "/" + path);
             }
         }
-
+        //为lua加载配置文件
+        LoadAllConfig();
     }
+
+    public void LoadAllConfig() {
+        //通过fileList文件找出所有配置文件名
+    }
+
 
     public T RunLuaFile<T>(string fileName)
     {

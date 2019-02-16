@@ -44,7 +44,7 @@ function LuaMemoryMaze:OnOpen()
 end
 
 function LuaMemoryMaze:CreateProblem()
-	print("LuaMemoryMaze:CreateProblem")
+	print("LuaMemoryMaze:CreateProblem1")
 	--问题下标加一
 	self.problemIdx = math.clamp(self.problemIdx + 1, 0, #self.playData.param1 - 1)
 	--问题难度
@@ -56,7 +56,7 @@ function LuaMemoryMaze:CreateProblem()
 	--色块的状态
 	print(#self.blockList)
 	for idx = 0, #self.blockList, 1 do
-		
+		--开始重操旧业
 	end
 end
 

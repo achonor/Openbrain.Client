@@ -90,7 +90,7 @@ public class HotUpdate : MonoBehaviour {
         //加载服务器filelist.txt
         WWWLoad(GameConst.hotUpdateUrl + "/" + GameConst.filelistName, (www) =>
         {
-            string[] newLines = www.text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] newLines = www.text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             float updateSize = 0;
             //获取差异文件列表
@@ -104,6 +104,7 @@ public class HotUpdate : MonoBehaviour {
                     updateSize += Convert.ToInt32(keyValue[2]);
                 }
             }
+            Debug.Log("HotUpdate.StartHotUpdate diffList.Count = " + diffList.Count);
             if (0 == diffList.Count)
             {
                 //不需要更新
